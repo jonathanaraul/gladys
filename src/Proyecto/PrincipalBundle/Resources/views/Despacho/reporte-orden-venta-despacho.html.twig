@@ -1,0 +1,87 @@
+{% extends "ProyectoPrincipalBundle:Principal:basedespacho.html.twig" %}
+{%block contenido%} <span class="Titulo-Aplicacion">{{nombre}}</span>
+<span class="Separador_Modulo"></span>
+<div class="cuadroformulario">
+	{%if estado == false %} <span class="Titulo-Aplicacion">ERROR: REPORTE NO ENCONTRADO</span>
+	{%else%}
+	<div id="contenidoreporte">
+		<div class="cabecera" style="text-align: center">
+			
+		
+		<span class="Sub-Titulo-Aplicacion" style="font-size: 14px;padding-top: 10px;text-align: center;">REPUBLICA BOLIVARIANA DE VENEZUELA</span></BR>
+		<span class="Sub-Titulo-Aplicacion" style="padding-top: 10px;text-align: center;font-size: 12px;">EMPRESA NACIONAL SALINERA</span></BR>
+		<div style="position:relative;width: 570px;">
+			<img src="{{ asset('imagenes/logo.jpg') }}" height="100" style="padding-top: 12px;display: block;margin-left: auto;margin-right: auto;">
+		</div>
+		
+		</div>
+		
+		<div class="Subtitulo-Normal" style="text-align: right;width: 560px;">
+			</br>
+			<p>
+				ORDEN DE DESPACHO N {{reporte.getNuNdeorden}}
+			</p>
+		</div>
+		<div class="Subtitulo-Normal" style="text-align: left;width: 560px;">
+			</br>
+			<p>
+				FECHA {{fecha}}
+			</p>
+			<p>
+				CLIENTE {{reporte.getD100fkVenInfocliente.getTxNombre}} RIF: {{reporte.getD100fkVenInfocliente.getTxRif}}
+			</p>
+			<p>
+				DIRECCION {{reporte.getTxDireccion}}
+			</p>
+		</div>
+		
+		<table style="font-size: 9pt;font-family: Arial, sans-serif;color: #666;text-align: center;margin-bottom: 20px" border="1" width="96%">
+		<tbody>
+			<tr>
+				<td bgcolor="red"><font color="white">SACOS</font></td>
+				<td bgcolor="red"><font color="white">TONELADAS</font></td>
+				<td  bgcolor="red"><font color="white">DESCRIPCION</font></td>
+
+			</tr>
+			{%for elemento in productos%}
+			<tr>
+				<td>{{elemento.getNuDpSacos}}</td>
+				<td>{{elemento.getNuDpTm }}</td>
+				<td>{{elemento.getTxDpTipodeproducto}}</td>
+			</tr>
+			{%endfor%}
+
+	</tbody></table>
+	<div class="Subtitulo-Normal" style="text-align: left;width: 560px;">
+	<p>
+		Observación: {{reporte.getTxDpObservacion}}
+	</p>
+	</div>
+
+		<div class="Subtitulo-Normal" style="text-align: left;width: 560px;">
+		</br></br>
+			<p style="text-align: right;">
+				<span style="text-decoration: underline;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></br>FIRMA DEL COORDINADOR:
+			</p>
+		</div>
+		<div class="Subtitulo-Normal" style="text-align:center;width: 560px; vertical-align: bottom;">
+			<p style="text-align: right;">
+				ORIGINAL: Gcia FINANZAS. COPIA: Dpto. DESPACHO
+			</p>
+		</div>
+	</div>
+	<span class="Separador_Modulo"></span>
+	<div style="position:relative;width: 590px;">
+		<div style="width: 490px;float:left;margin-right: -11px;">
+			<img src="{{ asset('imagenes/imagenes/excel2.png') }}" class="excel2" url="{{ path('ProyectoPrincipalBundle_despacho_visualizar_orden', { 'id':reporte.getD100pkVenEmitirorden, 'formato':'excel'}) }}" height="35" style="padding-top: 12px;display: block;margin-left: auto;cursor: pointer;">
+		</div>
+		<div style="width: 50px;float:left;">
+			<img src="{{ asset('imagenes/imagenes/pdf.png') }}" class="pdf" url="{{ path('ProyectoPrincipalBundle_despacho_visualizar_reporte', {'tipo': 1, 'id':0, 'formato':'pdf'}) }}" height="35" style="padding-top: 12px;display: block;margin-left: auto;cursor: pointer;">
+		</div>
+		<div style="width: 50px;float:left;">
+			<img src="{{ asset('imagenes/imagenes/print.png') }}" class="imprimir" contenido="contenidoreporte" height="35" style="padding-top: 12px;display: block;margin-left: auto;margin-right: auto;cursor: pointer;">
+		</div>
+	</div>
+	{%endif%}
+</div>
+{%endblock%}

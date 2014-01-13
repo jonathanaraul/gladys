@@ -1,0 +1,30 @@
+{% extends "ProyectoPrincipalBundle:Principal:base.html.twig" %}
+{%block contenido%} 
+
+<span class="Titulo-Aplicacion">FORMULARIO</span>
+<span class="Separador_Modulo"> </span>
+<span class="Sub-Titulo-Aplicacion">Por favor rellene los siguientes campos:</span>
+{% if error %}
+<span class="Sub-Titulo-Texto">Ingrese sus datos correctamente</span>
+{% endif %}
+							
+							
+<div class="Contenedor-Formulario">
+	<form action="{{ path('ProyectoPrincipalBundle_validacion') }}" method="post">
+		<div class="Contenedor-Elemneto-Formulario">
+			<span class="Sub-Titulo-Formulario"> Usuario: </span>
+			<input type="text" id="nombreusuario" name="_username" value="{{ ultimo_nombreusuario}}" />
+		</div>
+		<div class="Contenedor-Elemneto-Formulario">
+			<span class="Sub-Titulo-Formulario"> Contrase&ntilde;a: </span>
+			<input type="password" id="password" name="_password" />
+		</div>
+		<div class="Contenedor-Elemneto-Formulario" id="Contenedor-Elemneto-Formulario-aux">
+			<div class="Principio-Boton"></div>
+			<input name="Acceder" class="Boton" type="submit"  value="Iniciar sesi&oacute;n" />
+			<div class="Final-Boton"></div>
+		</div>
+	</form>
+</div>
+
+{%endblock%} 

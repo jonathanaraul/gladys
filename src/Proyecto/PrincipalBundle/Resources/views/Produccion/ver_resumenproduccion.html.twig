@@ -1,0 +1,316 @@
+{% extends "ProyectoPrincipalBundle:Principal:baseproduccion.html.twig" %}
+
+{%block contenido%} <span class="Separador_Modulo"></span>
+<div class="formulario" id="formulario">
+	<table style="font-size: 9pt;font-family: Arial, sans-serif;color: #666;text-align: center;margin-bottom: 20px" border="0" width="96%">
+		<tr>
+			<td align="left"><img src="{{ asset('imagenes/pdvsaindustrial.png') }}" width="140"></td>
+			<td align="right" style="font-size: 12px;color: #C00;font-weight: bold;font-family: Arial, sans-serif;"> {{nombreTipo}} </td>
+		</tr>
+	</table>
+	
+	{%if validacion == true%}
+	{%set x = 0%}
+	<table style="font-size: 9pt;font-family: Arial, sans-serif;color: #666;text-align: center;margin-bottom: 20px" border="1" width="96%">
+		<tr>
+			<td colspan="2">PRODUCCIÓN UNIDAD #I TM</td>
+		</tr>
+		<tr>
+			<td bgcolor="red" width="50%"><font color="#ffffff">Sal Bajada (Puntilla)</font></td>
+			<td>{{arreglo[x]['nu_salbajadaallavadero']}}</td>
+		</tr>
+		<tr>
+			<td bgcolor="red"><font color="#ffffff">Sal Lavada</font></td>
+			<td>{{arreglo[x]['nu_sallavada']}}</td>
+		</tr>
+		<tr>
+			<td bgcolor="red"><font color="#ffffff">Neta Lavada</font></td>
+			<td>{{arreglo[x]['nu_salnetalavada']}}</td>
+		</tr>
+		<tr>
+			<td bgcolor="red"><font color="#ffffff">Despachos (Clientes)</font></td>
+			<td>0.0</td>
+		</tr>
+		<tr>
+			<td bgcolor="red"><font color="#ffffff">Traslados Unidades</font></td>
+			<td>0.0</td>
+		</tr>
+	</table>
+	<table style="font-size: 9pt;font-family: Arial, sans-serif;color: #666;text-align: center;margin-bottom: 20px" border="1" width="96%">
+		<tr>
+			<td colspan="2">PRODUCCIÓN UNIDAD #III TM (SACOS/TONELADAS)</td>
+		</tr>
+		<tr>
+			{%set x = x +1%}
+			<td colspan="2" bgcolor="red"><font color="#ffffff">Ref. Mesa</font></td>
+		</tr>
+		<tr>
+			<td width="50%">Sacos</td>
+			<td>Toneladas</td>
+		</tr>
+		<tr>
+			<td>{{arreglo[x]['nu_cpo_sacos']}}</td>
+			<td>{{arreglo[x]['nu_cpo_toneladas']}}</td>
+		</tr>
+		<tr>
+			{%set x = x +1%}
+			<td colspan="2" bgcolor="red"><font color="#ffffff">Ref. Fina</font></td>
+		</tr>
+		<tr>
+			<td>Sacos</td>
+			<td>Toneladas</td>
+		</tr>
+		<tr>
+			<td>{{arreglo[x]['nu_cpo_sacos']}}</td>
+			<td>{{arreglo[x]['nu_cpo_toneladas']}}</td>
+		</tr>
+		<tr>
+			{%set x = x +1%}
+			<td colspan="2" bgcolor="red"><font color="#ffffff">Ref. Gruesa</font></td>
+		</tr>
+		<tr>
+			<td>Sacos</td>
+			<td>Toneladas</td>
+		</tr>
+		<tr>
+			<td>{{arreglo[x]['nu_cpo_sacos']}}</td>
+			<td>{{arreglo[x]['nu_cpo_toneladas']}}</td>
+		</tr>
+		<tr>
+			{%set x = x +1%}
+			<td colspan="2" bgcolor="red"><font color="#ffffff">Ref. Extrafina</font></td>
+		</tr>
+		<tr>
+			<td>Sacos</td>
+			<td>Toneladas</td>
+		</tr>
+		<tr>
+			<td>{{arreglo[x]['nu_cpo_sacos']}}</td>
+			<td>{{arreglo[x]['nu_cpo_toneladas']}}</td>
+		</tr>
+		<tr>
+			{%set x = x +1%}
+			<td colspan="2" bgcolor="red"><font color="#ffffff">Big Bag. Fina</font></td>
+		</tr>
+		<tr>
+			<td>Sacos</td>
+			<td>Toneladas</td>
+		</tr>
+		<tr>
+			<td>{{arreglo[x]['nu_cpo_sacos']}}</td>
+			<td>{{arreglo[x]['nu_cpo_toneladas']}}</td>
+		</tr>
+		<tr>
+			{%set x = x +1%}
+			<td colspan="2" bgcolor="red"><font color="#ffffff">Big Bag. ExtraFina</font></td>
+		</tr>
+		<tr>
+			<td>Sacos</td>
+			<td>Toneladas</td>
+		</tr>
+		<tr>
+			<td>{{arreglo[x]['nu_cpo_sacos']}}</td>
+			<td>{{arreglo[x]['nu_cpo_toneladas']}}</td>
+		</tr>
+		<tr>
+			<td colspan="2" bgcolor="#ffffff"><font color="red">TOTALES SALES REFINADAS (TM) : {{arregloSuma[0]['nu_cpo_toneladas'] }} TM</font></td>
+		</tr>
+	</table>
+	{%set x = 1%}
+	<table style="font-size: 9pt;font-family: Arial, sans-serif;color: #666;text-align: center;margin-bottom: 20px" border="1" width="96%">
+		<tr>	
+			<td colspan="2">DESPACHO UNIDAD #III TM (SACOS/TONELADAS)</td>
+		</tr>
+		<tr>
+			<td colspan="2" bgcolor="red"><font color="#ffffff">Ref. Mesa</font></td>
+		</tr>
+		<tr>
+			<td width="50%">Sacos</td>
+			<td>Toneladas</td>
+		</tr>
+		<tr>
+			<td>{{arreglo[x]['nu_cpt_sacos']}}</td>
+			<td>{{arreglo[x]['nu_cpt_toneladas']}}</td>
+		</tr>
+		<tr>{%set x = x +1%}
+			<td colspan="2" bgcolor="red"><font color="#ffffff">Ref. Fina</font></td>
+		</tr>
+		<tr>
+			<td>Sacos</td>
+			<td>Toneladas</td>
+		</tr>
+		<tr>
+			<td>{{arreglo[x]['nu_cpt_sacos']}}</td>
+			<td>{{arreglo[x]['nu_cpt_toneladas']}}</td>
+		</tr>
+		<tr>{%set x = x +1%}
+			<td colspan="2" bgcolor="red"><font color="#ffffff">Ref. Gruesa</font></td>
+		</tr>
+		<tr>
+			<td>Sacos</td>
+			<td>Toneladas</td>
+		</tr>
+		<tr>
+			<td>{{arreglo[x]['nu_cpt_sacos']}}</td>
+			<td>{{arreglo[x]['nu_cpt_toneladas']}}</td>
+		</tr>
+		<tr>{%set x = x +1%}
+			<td colspan="2" bgcolor="red"><font color="#ffffff">Ref. Extrafina</font></td>
+		</tr>
+		<tr>
+			<td>Sacos</td>
+			<td>Toneladas</td>
+		</tr>
+		<tr>
+			<td>{{arreglo[x]['nu_cpt_sacos']}}</td>
+			<td>{{arreglo[x]['nu_cpt_toneladas']}}</td>
+		</tr>
+		<tr>{%set x = x +1%}
+			<td colspan="2" bgcolor="red"><font color="#ffffff">Big Bag. Fina</font></td>
+		</tr>
+		<tr>
+			<td>Sacos</td>
+			<td>Toneladas</td>
+		</tr>
+		<tr>
+			<td>{{arreglo[x]['nu_cpt_sacos']}}</td>
+			<td>{{arreglo[x]['nu_cpt_toneladas']}}</td>
+		</tr>
+		<tr>{%set x = x +1%}
+			<td colspan="2" bgcolor="red"><font color="#ffffff">Big Bag. ExtraFina</font></td>
+		</tr>
+		<tr>
+			<td>Sacos</td>
+			<td>Toneladas</td>
+		</tr>
+		<tr>
+			<td>{{arreglo[x]['nu_cpt_sacos']}}</td>
+			<td>{{arreglo[x]['nu_cpt_toneladas']}}</td>
+		</tr>
+		<tr>
+			<td colspan="2" bgcolor="#ffffff"><font color="red">TOTALES SALES REFINADAS (TM) : {{arregloSuma[0]['nu_cpt_toneladas'] }} TM</font></td>
+		</tr>
+	</table>
+	
+	<table style="font-size: 9pt;font-family: Arial, sans-serif;color: #666;text-align: center;margin-bottom: 20px" border="1" width="96%">
+		<tr>
+			<td colspan="2">PRODUCCIÓN UNIDAD #IV TM (SACOS/TONELADAS)</td>
+		</tr>
+		<tr>{%set x = x +1%}
+			<td colspan="2" bgcolor="red"><font color="#ffffff">Ind. Grano Grueso</font></td>
+		</tr>
+		<tr>
+			<td width="50%">Sacos</td>
+			<td>Toneladas</td>
+		</tr>
+		<tr>
+			<td>{{arreglo[x]['nu_cpo_sacos']}}</td>
+			<td>{{arreglo[x]['nu_cpo_toneladas']}}</td>
+		</tr>
+		<tr>{%set x = x +1%}
+			<td colspan="2" bgcolor="red"><font color="#ffffff">Industrial Común</font></td>
+		</tr>
+		<tr>
+			<td>Sacos</td>
+			<td>Toneladas</td>
+		</tr>
+		<tr>
+			<td>{{arreglo[x]['nu_cpo_sacos']}}</td>
+			<td>{{arreglo[x]['nu_cpo_toneladas']}}</td>
+		</tr>
+		<tr>{%set x = x +1%}
+			<td colspan="2" bgcolor="red"><font color="#ffffff">Sal Roja</font></td>
+		</tr>
+		<tr>
+			<td>Sacos</td>
+			<td>Toneladas</td>
+		</tr>
+		<tr>
+			<td>{{arreglo[x]['nu_cpo_sacos']}}</td>
+			<td>{{arreglo[x]['nu_cpo_toneladas']}}</td>
+		</tr>
+		<tr>{%set x = x +1%}
+			<td colspan="2" bgcolor="red"><font color="#ffffff">Big Bag Grano Grueso</font></td>
+		</tr>
+		<tr>
+			<td>Sacos</td>
+			<td>Toneladas</td>
+		</tr>
+		<tr>
+			<td>{{arreglo[x]['nu_cpo_sacos']}}</td>
+			<td>{{arreglo[x]['nu_cpo_toneladas']}}</td>
+		</tr>
+		<tr>
+			<td colspan="2" bgcolor="#ffffff"><font color="red">TOTALES SALES REFINADAS (TM) : {{arregloSuma[1]['nu_cpo_toneladas'] }} TM</font></td>
+		</tr>
+	</table>
+	{%set x = 7%}
+	<table style="font-size: 9pt;font-family: Arial, sans-serif;color: #666;text-align: center;margin-bottom: 20px" border="1" width="96%">
+		<tr>
+			<td colspan="2">DESPACHO UNIDAD #IV TM (SACOS/TONELADAS)</td>
+		</tr>
+		<tr>
+			<td colspan="2" bgcolor="red"><font color="#ffffff">Ind. Grano Grueso</font></td>
+		</tr>
+		<tr>
+			<td width="50%">Sacos</td>
+			<td>Toneladas</td>
+		</tr>
+		<tr>
+			<td>{{arreglo[x]['nu_cpt_sacos']}}</td>
+			<td>{{arreglo[x]['nu_cpt_toneladas']}}</td>
+		</tr>
+		<tr>{%set x = x +1%}
+			<td colspan="2" bgcolor="red"><font color="#ffffff">Industrial Común</font></td>
+		</tr>
+		<tr>
+			<td>Sacos</td>
+			<td>Toneladas</td>
+		</tr>
+		<tr>
+			<td>{{arreglo[x]['nu_cpt_sacos']}}</td>
+			<td>{{arreglo[x]['nu_cpt_toneladas']}}</td>
+		</tr>
+		<tr>{%set x = x +1%}
+			<td colspan="2" bgcolor="red"><font color="#ffffff">Sal Roja</font></td>
+		</tr>
+		<tr>
+			<td>Sacos</td>
+			<td>Toneladas</td>
+		</tr>
+		<tr>
+			<td>{{arreglo[x]['nu_cpt_sacos']}}</td>
+			<td>{{arreglo[x]['nu_cpt_toneladas']}}</td>
+		</tr>
+		<tr>{%set x = x +1%}
+			<td colspan="2" bgcolor="red"><font color="#ffffff">Big Bag Grano Grueso</font></td>
+		</tr>
+		<tr>
+			<td>Sacos</td>
+			<td>Toneladas</td>
+		</tr>
+		<tr>
+			<td>{{arreglo[x]['nu_cpt_sacos']}}</td>
+			<td>{{arreglo[x]['nu_cpt_toneladas']}}</td>
+		</tr>
+		<tr>
+			<td colspan="2" bgcolor="#ffffff"><font color="red">TOTALES SALES REFINADAS (TM) : {{arregloSuma[1]['nu_cpt_toneladas'] }} TM</font></td>
+		</tr>
+	</table>	
+	{%else%}
+	<p class="Subtitulo-Normal">Lo sentimos pero no es posible ofrecer un Resumen de Producción con los parametros requeridos</p>
+</br>
+</br>
+	{%endif%}
+	<p align="left" style="font-weight: bold;color: #666;font-size: 8pt;font-family: Arial, sans-serif;">
+		FECHA: {{fecha}}
+	</p>
+</div>
+	{%if validacion == true%}
+<div id="contenedorimagenes1" class="contenedorimagenes" style="margin-right: 28px;">
+	<img src="{{ asset('imagenes/imagenes/print.png') }}" id="imprimir" class="mouse imprimir" contenido="formulario" width="60" align="right" style="margin-left: 20px;cursor: pointer;">
+	<img src="{{ asset('imagenes/imagenes/excel2.png') }}" id="excel" tipo="{{tipo}}" pk="{{pk}}" class="mouse excel" width="60" align="right" style="cursor: pointer;">
+	<!--<img src="/optigestion/imagenes/copy.png" id="copiar1" class="mouse" width="60" align="right" >!-->
+</div>
+{%endif%}
+{%endblock%} 

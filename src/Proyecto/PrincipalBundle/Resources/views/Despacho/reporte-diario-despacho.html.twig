@@ -1,0 +1,101 @@
+{% extends "ProyectoPrincipalBundle:Principal:basedespacho.html.twig" %}
+{%block contenido%} <span class="Titulo-Aplicacion">{{nombre}}</span>
+<span class="Separador_Modulo"></span>
+<div class="cuadroformulario">
+	{%if estado == false %} <span class="Titulo-Aplicacion">ERROR: REPORTE NO ENCONTRADO</span>
+	{%else%}
+	<div id="contenidoreporte">
+		<div class="cabecera" style="text-align: center">
+			
+		
+		<span class="Sub-Titulo-Aplicacion" style="font-size: 14px;padding-top: 10px;text-align: center;">REPUBLICA BOLIVARIANA DE VENEZUELA</span></BR>
+		<span class="Sub-Titulo-Aplicacion" style="font-size: 14px;padding-top: 10px;text-align: center;">PDVSA INDUSTRIAL</span></BR>
+		<span class="Sub-Titulo-Aplicacion" style="padding-top: 10px;text-align: center;font-size: 12px;">EMPRESA NACIONAL SALINERA</span></BR>
+		<div style="position:relative;width: 570px;">
+			<img src="{{ asset('imagenes/logo.jpg') }}" height="100" style="padding-top: 12px;display: block;margin-left: auto;margin-right: auto;">
+		</div>
+		
+		</div>
+		
+		<div class="Subtitulo-Normal" style="text-align: right;width: 560px;">
+			</br>
+			<p>
+				ARAYA {{fecha |upper}}
+			</p>
+		</div>
+		
+		<table style="font-size: 9pt;font-family: Arial, sans-serif;color: #666;text-align: center;margin-bottom: 20px" border="1" width="96%">
+		<tbody>
+			<tr>
+				<td rowspan="2" bgcolor="red"><font color="white">TIPO DE SAL</font></td>
+				<td rowspan="2" bgcolor="red"><font color="white">U</font></td>
+				<td rowspan="2" bgcolor="red"><font color="white">CLIENTES</font></td>
+				<td rowspan="2" bgcolor="red"><font color="white">N GUIA</font></td>
+				<td colspan="2" bgcolor="red"><font color="white">O/DESP</font></td>
+				<td colspan="3" bgcolor="red"><font color="white">DESPACHO</font></td>
+			</tr>
+			<tr>
+				<td bgcolor="red"><font color="white">N</font></td>
+				<td bgcolor="red"><font color="white">Fecha</font></td>
+				<td bgcolor="red"><font color="white">Sacos</font></td>
+				<td bgcolor="red"><font color="white">Kilos</font></td>
+				<td bgcolor="red"><font color="white">Toneladas</font></td>
+			</tr>
+			{%set sumaSacos = 0%}
+			{%set sumaKilos = 0%}
+			{%set sumaToneladas = 0%}
+			
+			{%for elemento in reporte%}
+			<tr>
+				<td>{{elemento.tipoproducto}}</td>
+				<td>{{elemento.unidad}}</td>
+				<td>{{elemento.nombrecliente}}</td>
+				<td>{{elemento.numeroguia}}</td>
+				<td>{{elemento.numeroorden}}</td>
+				<td>{{elemento.fechaorden}}</td>
+				<td>{{elemento.monto}}</td>
+				<td>{{elemento.monto*25}}</td>
+				<td>{{(elemento.monto*25)/1000}}</td>
+			</tr>
+				{%set sumaSacos = sumaSacos + elemento.monto%}
+				{%set sumaKilos = sumaKilos + elemento.monto*25%}
+				{%set sumaToneladas = sumaToneladas + (elemento.monto*25)/1000%}
+			{%endfor%}
+			<tr>
+				<td colspan="6">TOTAL DESPACHADO</td>
+				<td>{{sumaSacos}}</td>
+				<td>{{sumaKilos}}</td>
+				<td>{{sumaToneladas}}</td>
+			</tr>
+
+		
+	</tbody></table>
+		
+
+		<div class="Subtitulo-Normal" style="text-align: left;width: 560px;">
+		</br></br>
+			<p style="text-align: right;">
+				<span style="text-decoration: underline;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></br>FIRMA DEL COORDINADOR:
+			</p>
+		</div>
+		<div class="Subtitulo-Normal" style="text-align:center;width: 560px; vertical-align: bottom;">
+			<p style="text-align: right;">
+				ORIGINAL: Gcia FINANZAS. COPIA: Dpto. DESPACHO
+			</p>
+		</div>
+	</div>
+	<span class="Separador_Modulo"></span>
+	<div style="position:relative;width: 590px;">
+		<div style="width: 490px;float:left;margin-right: -11px;">
+			<img src="{{ asset('imagenes/imagenes/excel2.png') }}" class="excel2" url="{{ path('ProyectoPrincipalBundle_despacho_visualizar_informe', { 'tipo': tipo, 'id': id, 'formato':'excel'}) }}" height="35" style="padding-top: 12px;display: block;margin-left: auto;cursor: pointer;">
+		</div>
+		<div style="width: 50px;float:left;">
+			<img src="{{ asset('imagenes/imagenes/pdf.png') }}" class="pdf" url="{{ path('ProyectoPrincipalBundle_despacho_visualizar_reporte', {'tipo': 1, 'id':0, 'formato':'pdf'}) }}" height="35" style="padding-top: 12px;display: block;margin-left: auto;cursor: pointer;">
+		</div>
+		<div style="width: 50px;float:left;">
+			<img src="{{ asset('imagenes/imagenes/print.png') }}" class="imprimir" contenido="contenidoreporte" height="35" style="padding-top: 12px;display: block;margin-left: auto;margin-right: auto;cursor: pointer;">
+		</div>
+	</div>
+	{%endif%}
+</div>
+{%endblock%}

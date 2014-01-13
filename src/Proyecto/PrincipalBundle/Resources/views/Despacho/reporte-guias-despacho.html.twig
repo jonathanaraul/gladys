@@ -1,0 +1,77 @@
+{% extends "ProyectoPrincipalBundle:Principal:basedespacho.html.twig" %}
+{%block contenido%} <span class="Titulo-Aplicacion"> REPORTE POR &Oacute;RDENES Y GU&Iacute;AS DE DESPACHO</span>
+<span class="Separador_Modulo"></span>
+<div class="cuadroformulario">
+	{%if estado == false %} <span class="Titulo-Aplicacion">ERROR: REPORTE NO ENCONTRADO</span>
+	{%else%}
+	<div id="contenidoreporte">
+		<div class="cabecera" style="text-align: center">
+			
+		
+		<span class="Sub-Titulo-Aplicacion" style="font-size: 14px;padding-top: 10PX;text-align: center;">REPUBLICA BOLIVARIANA DE VENEZUELA</span></BR>
+		<span class="Sub-Titulo-Aplicacion" style="font-size: 14px;padding-top: 10PX;text-align: center;">PDVSA INDUSTRIAL</span></BR>
+		<span class="Sub-Titulo-Aplicacion" style="padding-top: 10PX;text-align: center;font-size: 12px;">EMPRESA NACIONAL SALINERA</span></BR>
+		<div style="position:relative;width: 570px;">
+			<img src="{{ asset('imagenes/logo.jpg') }}" height="100" style="padding-top: 12px;display: block;margin-left: auto;margin-right: auto;">
+	</div>
+		
+		</div>
+		<div class="Subtitulo-Normal" style="text-align: right;width: 560px;">
+			</br>
+			<p>FECHA: {{reporte.fechaguia}}</p>
+			<p>GUIA: {{reporte.numeroguia}}</p>
+			<p>CLIENTE: {{reporte.nombrecliente}}</p>
+			<p>DIRECCION DE ENTREGA: {{reporte.direccion}}</p>
+			<p>DIRECCION FISCAL: {{reporte.direccionfiscal}}</</p>
+			<p>ORDEN: {{reporte.numeroorden}}</p>
+			<p>FECHA ORDEN: {{reporte.fechaorden}}</p>
+		</div>
+
+		
+		<table border="1"  style="width: 560px;text-align: center;font-size: 8pt;font-family: Arial, sans-serif;color: #666;margin-left: 20px;">
+			<tr>
+				<td bgcolor="red"><font color="white">UNIDAD</font></td>
+				<td bgcolor="red"><font color="white">PRESENTACION</font></td>
+				<td bgcolor="red"><font color="white">DESCRIPCION</font></td>
+				<td bgcolor="red"><font color="white">CANTIDAD</font></td>
+				<td bgcolor="red"><font color="white">TON.</font></td>
+			</tr>
+			<tr>
+				<td>{{reporte.unidad}}</td>
+				<td>SACOS</td>
+				<td>{{reporte.tipoproducto}}</td>
+				<td>{{reporte.monto}}</td>
+				<td>{{(reporte.monto*25)/1000}}</td>
+			</tr>
+
+			
+
+		</table>
+		<div class="Subtitulo-Normal" style="text-align: left;width: 560px;">
+			<p>
+				OBSERVACIÓN: <span style="text-decoration: underline;">{{reporte.observacion}}</span>
+			</p>
+		</div>
+		<div class="Subtitulo-Normal" style="text-align: left;width: 560px;">
+			<p>
+				<span style="text-decoration: underline;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></br>FIRMA DEL COORDINADOR:
+			</p>
+		</div>
+		<div class="Subtitulo-Normal" style="text-align:center;width: 560px;height:100%; vertical-align: bottom;">
+			<p>
+				ORIGINAL: Gcia FINANZAS. COPIA: Dpto. DESPACHO
+			</p>
+		</div>
+	</div>
+	<span class="Separador_Modulo"></span>
+	<div style="position:relative;width: 590px;">
+		<div style="width: 540px;float:left;">
+			<img src="{{ asset('imagenes/imagenes/pdf.png') }}" class="pdf" url="{{ path('ProyectoPrincipalBundle_despacho_visualizar_reporte', {'tipo': 3, 'id':0, 'formato':'pdf'}) }}" height="35" style="padding-top: 12px;display: block;margin-left: auto;cursor: pointer;">
+		</div>
+		<div style="width: 50px;float:left;">
+			<img src="{{ asset('imagenes/imagenes/print.png') }}" class="imprimir" contenido="contenidoreporte" height="35" style="padding-top: 12px;display: block;margin-left: auto;margin-right: auto;cursor: pointer;">
+		</div>
+	</div>
+	{%endif%}
+</div>
+{%endblock%}

@@ -1,0 +1,102 @@
+{% extends "ProyectoPrincipalBundle:Principal:baseproduccion.html.twig" %}
+{%block contenido%} <span class="Titulo-Aplicacion"> &Aacute;rea de Producci&oacute;n</span>
+
+<span class="Separador_Modulo"></span>
+
+
+<div class="formulario">
+		<span class="Titulo-Aplicacion" > Consulta de Resumenes de Producción <input type="radio" class="consulta" name="consulta" value="resumen"   /></span>
+	<div class="unacolumna" >
+		<div class="nombreinput">
+			Mes :
+		</div>
+		<div class="cuadroinput">
+			<select name="select2" id="mes" class="selectgrande" disabled="disabled">
+				<option value="0">-Seleccione-</option>
+				{%for elemento in arregloFecha.0%}
+				<option value="{{loop.index}}">{{elemento}}</option>
+				{%endfor%}
+			</select>
+		</div>
+	</div>
+	<div class="unacolumna" >
+		<div class="nombreinput">
+			A&ntilde;o :
+		</div>
+		<div class="cuadroinput">
+			<select name="select2" id="anio" class="selectgrande" disabled="disabled">
+				<option value="0">-Seleccione-</option>
+				{%for elemento in arregloFecha.1%}
+				<option value="{{elemento}}">{{elemento}}</option>
+				{%endfor%}
+			</select>
+		</div>
+	</div>
+	
+	
+	<span class="Separador_Modulo"></span>
+	<span class="Titulo-Aplicacion" > Consulta de Reportes <input type="radio" name="consulta" class="consulta" value="reporte" checked="" /></span>
+	<div class="unacolumna" >
+		<div class="nombreinput">
+			Unidad :
+		</div>
+		<div class="cuadroinput">
+			<select name="select2" id="unidad" class="selectgrande">
+				<option value="0">-Seleccione-</option>
+				<option value="u1">Unidad 1</option>
+				<option value="u2">Unidad 2</option>
+				<option value="u3">Unidad 3</option>
+				<option value="u4">Unidad 4</option>
+			</select>
+		</div>
+	</div>
+	<div class="unacolumna" >
+		<div class="nombreinput">
+			Tipo de Reporte :
+		</div>
+		<div class="cuadroinput">
+			<select name="select2" id="tipo" class="selectgrande">
+				<option value="0">-Seleccione-</option>
+				<option value="rd">Reporte Diario</option>
+				<option value="rpf">Reporte de Par&aacute;metros Fisicoqu&iacute;micos</option>
+				<option value="rgp">Reporte de Granulometria Promedio</option>
+				<!--<option value="rp">Resumen de Producci&oacute;n</option>-->
+			</select>
+		</div>
+	</div>
+	<div class="unacolumna" >
+		<div class="nombreinput">
+			Fecha Inicio :
+		</div>
+		<div class="cuadroinput">
+			<input type="text" name="textfield14" class="inputgrande fecha"  id="fechainicial" onclick="javascript:NewCal('fechainicial','ddmmyyyy')">
+		</div>
+	</div>
+	<div class="unacolumna" >
+		<div class="nombreinput">
+			Fecha Fin :
+		</div>
+		<div class="cuadroinput">
+			<input type="text" name="textfield14" class="inputgrande fecha"  id="fechafinal" onclick="javascript:NewCal('fechafinal','ddmmyyyy')">
+		</div>
+	</div>
+	<span class="Separador_Modulo"></span>
+	<div class="botonizquierdo" style="margin-left: 462px;clear:both">
+		<div class="Principio-Boton"></div>
+		<input type="button" class="Boton" value="Buscar" id="buscarreporte" onclick="return false;">
+		<div class="Final-Boton"></div>
+	</div>
+</div>
+<div class="loader" style="display: none">
+	<img id="loader" src="{{ asset('imagenes/loader.gif') }}" align="center" style="padding-top: 42px;display: block;margin-left: auto;margin-right: auto;">
+</div>
+<div class="formulario2" >
+	
+
+		
+	</div>
+	<span class="Separador_Modulo"></span>
+	
+</div>
+
+{%endblock%} 

@@ -1,0 +1,78 @@
+{% extends "ProyectoPrincipalBundle:Principal:baseproduccion.html.twig" %}
+
+{%block contenido%} <span class="Titulo-Aplicacion" > Unidad III: Refinaci&oacute;n </span>
+<span class="Titulo-Aplicacion" > Reporte Diario de Paletizado</span>
+<span class="Separador_Modulo"></span>
+<div class="formulario">
+	<div class="unacolumna">
+		<div class="nombreinput">
+			Fecha :
+		</div>
+		<div class="cuadroinput">
+			<input type="text" name="textfield14" class="inputgrande fecha" id="fe_fecha" value="{{fecha}}" disabled="disabled">
+		</div>
+	</div>
+	<div class="unacolumna">
+		<div class="nombreinput">
+			Turno :
+		</div>
+		<div class="cuadroinput">
+			<select name="select2" id="tx_turno" class="selectgrande texto">
+				<option value="0">-Seleccione-</option>
+				{%for turno in turnos%}
+					<option value="{{turno.pk}}">{{turno.turno}}</option>
+				{%endfor%}
+			</select>
+		</div>
+	</div>
+	<div class="doscolumnas">
+		<div class="columna1">
+			<div class="nombreinput2">
+				Sal Ref. Gruesa (25Kg) :
+			</div>
+			<div class="cuadroinput2">
+				<input type="text" name="textfield14" class="numero" id="nu_salrefgruesakg">
+			</div>
+			<div class="nombreinput2">
+				Sal Extrafina (25Kg) :
+			</div>
+			<div class="cuadroinput2">
+				<input type="text" name="textfield14" class="numero" id="nu_salextrafinakg">
+			</div>
+		</div>
+		<div class="columna2">
+			<div class="nombreinput2">
+				Sal Ref. Mesa (1Kg) :
+			</div>
+			<div class="cuadroinput2">
+				<input type="text" name="textfield14" class="numero" id="nu_salrefmesakg">
+			</div>
+			<div class="nombreinput2">
+				Sal Ref. Fina (25Kg) :
+			</div>
+			<div class="cuadroinput2">
+				<input type="text" name="textfield14" class="numero" id="nu_salreffinakg">
+			</div>
+		</div>
+	</div>
+	<div class="unacolumna">
+		<div class="nombreinput">
+			Observacion :
+		</div>
+		<div class="cuadroinput">
+			<textarea name="textarea" id="tx_observaciones" class="textareagrande texto"></textarea>
+		</div>
+	</div>
+	<input type="hidden" name="tipoReporte" value="u3-rp">
+	<input type="hidden" name="pkReporte" value="{%if arreglo.pk is defined%}{{arreglo.pk}}{%else%}0{%endif%}">
+	<span class="Separador_Modulo"></span>
+	<div class="botonizquierdo" style="margin-left: 457px;clear:both">
+		<div class="Principio-Boton"></div>
+		<input type="button" class="Boton" value="Guardar" id="guardarreporte" onclick="return false;">
+		<div class="Final-Boton"></div>
+	</div>
+</div>
+<div class="loader" style="display: none">
+	<img id="loader" src="{{ asset('imagenes/loader.gif') }}" align="center" style="padding-top: 50px;padding-bottom: 50px;display: block;margin-left: auto;margin-right: auto;">
+</div>
+{%endblock%} 

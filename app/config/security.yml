@@ -1,0 +1,44 @@
+security:
+    encoders:
+        Symfony\Component\Security\Core\User\User: plaintext
+        Proyecto\PrincipalBundle\Entity\I100tUsuario:
+            algorithm: sha1
+            encode_as_base64: false
+            iterations: 1
+
+    role_hierarchy:
+        ROLE_ADMIN:       ROLE_USER
+        ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+
+    providers:
+        chain_provider:
+            providers: [in_memory, administrators]
+        in_memory:
+            users:
+
+        administrators:
+            entity: { class: ProyectoPrincipalBundle:I100tUsuario, property: username }
+
+    firewalls:
+        dev:
+            pattern:  ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        login:
+            pattern:  ^/demo/secured/login$
+            security: false
+
+        secured_area:
+            pattern:    ^/
+            anonymous: ~
+            form_login:
+                check_path: /validacion
+                login_path: /acceso
+                default_target_path: /
+            logout:
+              path: /logout
+              target: /
+
+    access_control:
+        #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
+        #- { path: ^/_internal, roles: IS_AUTHENTICATED_ANONYMOUSLY, ip: 127.0.0.1 }

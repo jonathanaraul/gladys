@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Proyecto\PrincipalBundle\Entity\D100tProdU3rd" table="d100t_prod_u3rd">
+    <change-tracking-policy>DEFERRED_IMPLICIT</change-tracking-policy>
+    <id name="d100pkProdU3rd" type="integer" column="d100pk_prod_u3rd">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="feFecha" type="datetime" column="fe_fecha" precision="0" scale="0"/>
+    <field name="txTurnos" type="text" column="tx_turnos" precision="0" scale="0"/>
+    <field name="txTipodeproducto" type="text" column="tx_tipodeproducto" precision="0" scale="0"/>
+    <field name="nuCpoSacos" type="integer" column="nu_cpo_sacos" precision="0" scale="0"/>
+    <field name="nuCpoToneladas" type="integer" column="nu_cpo_toneladas" precision="0" scale="0"/>
+    <field name="nuCprSacos" type="integer" column="nu_cpr_sacos" precision="0" scale="0"/>
+    <field name="nuCprToneladas" type="integer" column="nu_cpr_toneladas" precision="0" scale="0"/>
+    <field name="nuCptSacos" type="integer" column="nu_cpt_sacos" precision="0" scale="0"/>
+    <field name="nuCptToneladas" type="integer" column="nu_cpt_toneladas" precision="0" scale="0"/>
+    <many-to-one field="i100fkUsuario" target-entity="Proyecto\PrincipalBundle\Entity\I100tUsuario" orphan-removal="">
+      <join-columns>
+        <join-column name="i100fk_usuario" referenced-column-name="i100pk_usuario" nullable="1"/>
+      </join-columns>
+    </many-to-one>
+    <lifecycle-callbacks/>
+  </entity>
+</doctrine-mapping>

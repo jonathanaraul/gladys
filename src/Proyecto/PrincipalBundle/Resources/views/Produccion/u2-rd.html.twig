@@ -1,0 +1,79 @@
+{% extends "ProyectoPrincipalBundle:Principal:baseproduccion.html.twig" %}
+
+{%block contenido%} <span class="Titulo-Aplicacion" > Unidad II: Sistema Artificial</span>
+<span class="Titulo-Aplicacion" > Reporte Diario </span>
+<span class="Separador_Modulo"></span>
+<div class="formulario">
+	<div class="unacolumna">
+		<div class="nombreinput">
+			Fecha :
+		</div>
+		<div class="cuadroinput">
+			<input type="text" name="textfield14" class="inputgrande fecha" id="fe_fecha" value="{{fecha}}" disabled="disabled">
+		</div>
+	</div>
+	<div class="unacolumna">
+		<div class="nombreinput">
+			Tipo de Sal :
+		</div>
+		<div class="cuadroinput">
+			<select name="select2" id="tx_tipodesal" class="selectgrande texto">
+				<option value="1">Sal Bruta No Lavada</option>
+			</select>
+		</div>
+	</div>
+	<div class="unacolumna">
+		<div class="nombreinput">
+			Presentacion :
+		</div>
+		<div class="cuadroinput">
+			<select name="select2" id="tx_presentacion" class="selectgrande texto">
+				<option value="A Granel">A Granel</option>
+			</select>
+		</div>
+	</div>
+	<div class="unacolumna">
+		<div class="nombreinput">
+			Uso :
+		</div>
+		<div class="cuadroinput">
+			<select name="select2" id="tx_uso" class="selectgrande texto">
+				<option value="Industrial">Industrial</option>
+			</select>
+		</div>
+	</div>
+	<div class="unacolumna">
+		<div class="nombreinput">
+			Cant. Sal No Lavada en Patio :
+		</div>
+		<div class="cuadroinput">
+			<input type="text" name="textfield14" class="inputgrande numero" id="nu_cantsalnolavadaenpatio">
+		</div>
+	</div>
+	<div class="unacolumna">
+		<div class="nombreinput">
+			Total de Sal no Lavada :
+		</div>
+		<div class="cuadroinput">
+			<input type="text" name="textfield14" class="inputgrande numero" id="nu_totaldesalnolavada">
+		</div>
+	</div>
+	<div class="unacolumna" >
+		<div class="nombreinput">
+			Observaci&oacute;n:
+		</div>
+		<div class="cuadroinput">
+			<textarea name="textarea" id="tx_observacion" class="textareagrande texto opcional"></textarea>
+		</div>
+	</div>
+	<input type="hidden" name="tipoReporte" value="u2-rd">
+	<span class="Separador_Modulo"></span>
+	<div class="botonizquierdo" style="margin-left: 457px;clear:both">
+		<div class="Principio-Boton"></div>
+		<input type="button" class="Boton" value="Guardar" id="guardarreporte" onclick="return false;">
+		<div class="Final-Boton"></div>
+	</div>
+</div><div class="loader" style="display: none">
+	<img id="loader" src="{{ asset('imagenes/loader.gif') }}" align="center" style="padding-top: 50px;padding-bottom: 50px;display: block;margin-left: auto;margin-right: auto;">
+</div>
+{%endblock%} 

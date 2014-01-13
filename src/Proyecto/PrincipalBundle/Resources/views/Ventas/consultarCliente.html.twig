@@ -1,0 +1,36 @@
+{% extends "ProyectoPrincipalBundle:Principal:baseventas.html.twig" %}
+{%block contenido%} <span class="Titulo-Aplicacion"> VENTAS</span>
+<span class="Titulo-Aplicacion" > Consulta de Clientes</span>
+<span class="Separador_Modulo"></span>
+	
+<div class="contenido">
+		<div class="Tabla-Aplicacion" id="tabla-contenido">
+			<div class="formulario" id="formulario-filtro">
+				<div class="unacolumna">
+					<div class="nombreinput">
+						Nombre del cliente :
+					</div>
+					<div class="cuadroinput">
+						<input type="text" name="textfield14" class="inputgrande numero" id="nombreCliente"  value="" >
+					</div>
+				</div>
+				<div class="unacolumna">
+					<div class="nombreinput">
+						Rif del cliente :
+					</div>
+					<div class="cuadroinput">
+						<input type="text" name="textfield14" class="inputgrande numero" id="rifCliente"  value="" >
+					</div>
+				</div>
+				<span class="Separador_Modulo"></span>
+				<div class="botonizquierdo" style="margin-left: 409px;clear:both">
+					<div class="Principio-Boton"></div>
+						<input type="button" class="Boton" value="Filtrar b&uacute;squeda" id="filtrarBusqueda" onclick="return false;">
+					<div class="Final-Boton"></div>
+				</div>
+			</div>
+
+		{% include "ProyectoPrincipalBundle:Ventas:tablaClientes.html.twig" %}
+	</div>
+</div>
+{%endblock%}

@@ -1,0 +1,84 @@
+<?php
+
+namespace Proyecto\PrincipalBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Proyecto\PrincipalBundle\Entity\D100tProdU2rd
+ *
+ * @ORM\Table(name="d100t_prod_u2rd")
+ * @ORM\Entity
+ */
+class D100tProdU2rd
+{
+    /**
+     * @var integer $d100pkProdU2rd
+     *
+     * @ORM\Column(name="d100pk_prod_u2rd", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $d100pkProdU2rd;
+
+    /**
+     * @var datetime $feFecha
+     *
+     * @ORM\Column(name="fe_fecha", type="datetime", nullable=false)
+     */
+    private $feFecha;
+
+    /**
+     * @var text $txTipodesal
+     *
+     * @ORM\Column(name="tx_tipodesal", type="text", nullable=false)
+     */
+    private $txTipodesal;
+
+    /**
+     * @var text $txPresentacion
+     *
+     * @ORM\Column(name="tx_presentacion", type="text", nullable=false)
+     */
+    private $txPresentacion;
+
+    /**
+     * @var text $txUso
+     *
+     * @ORM\Column(name="tx_uso", type="text", nullable=false)
+     */
+    private $txUso;
+
+    /**
+     * @var float $nuCantsalnolavadaenpatio
+     *
+     * @ORM\Column(name="nu_cantsalnolavadaenpatio", type="float", nullable=false)
+     */
+    private $nuCantsalnolavadaenpatio;
+
+    /**
+     * @var float $nuTotaldesalnolavada
+     *
+     * @ORM\Column(name="nu_totaldesalnolavada", type="float", nullable=false)
+     */
+    private $nuTotaldesalnolavada;
+
+    /**
+     * @var text $txObservacion
+     *
+     * @ORM\Column(name="tx_observacion", type="text", nullable=true)
+     */
+    private $txObservacion;
+
+    /**
+     * @var I100tUsuario
+     *
+     * @ORM\ManyToOne(targetEntity="I100tUsuario")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="i100fk_usuario", referencedColumnName="i100pk_usuario")
+     * })
+     */
+    private $i100fkUsuario;
+
+
+}

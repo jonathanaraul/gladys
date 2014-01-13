@@ -1,0 +1,154 @@
+{% extends "ProyectoPrincipalBundle:Principal:baseinventario.html.twig" %}
+{%block contenido%} <span class="Titulo-Aplicacion">Visualizar Inventario</span>
+
+<span class="Separador_Modulo"></span>
+<div class="formulario">
+	<div class="cuadroformulario"  id="contenidoreporte">
+			<table style="font-size: 9pt;font-family: Arial, sans-serif;color: #666;text-align: center;margin-bottom: 20px" border="0" width="96%">
+		<tr>
+			<td align="left"><img src="{{ asset('imagenes/pdvsaindustrial.png') }}" width="140"></td>
+			<td align="right" style="font-size: 12px;color: #C00;font-weight: bold;font-family: Arial, sans-serif;text-align: right">
+				<img src="{{ asset('imagenes/logo.jpg') }}" width="140"></br>{%if nuTipoEstudio == 1%}COORDINACION DE PRODUCTOS TERMINADOS{%else%}COORDINACION DE PRODUCTOS NO TERMINADOS{%endif%}
+			</td>
+	
+			
+		</tr>
+	</table>
+		<span class="Titulo-Aplicacion" style="text-align: center;margin-bottom: 10px;" > {{nombreEstudio}} - {{tipoEstudio}} {{fecha}}</span>
+		<table border="1" style="width: 96%;font-size: 10px;color: #666666;text-align: center;">
+			<tr>
+				<td rowspan="2">TIPO DE SAL</td>
+				<td colspan="3">ENTRADA (SACOS)</td>
+				<td colspan="4">SALIDA (SACOS)</td>
+				<td >EXIST.</td>
+				<td >TOTAL</td>
+				<td rowspan="2">TOTAL TON</td>
+			</tr>
+			<tr>
+				<td>INV INICIAL</td>
+				<td>PRODUCC</td>
+				<td>RECUP</td>
+				<td>DESP</td>
+				<td>DAÑADO</td>
+				<td>DONAC.</td>
+				<td>P/DESP</td>
+				<td>NETA</td>
+				<td>EXIST</td>
+			</tr>
+			<tr  style="background-color: rgb(194, 168, 168);">
+				<td>UNIDAD N 03</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			{%set prueba = true%}
+			{%for elemento in datos%}
+			
+				{%if elemento.unidad == 4 and prueba == true%}
+				<tr >
+				<td align="right" >SUBTOTAL</td>
+				<td>{{subtotales.0.inicial}}</td>
+				<td>{{subtotales.0.produccion}}</td>
+				<td>{{subtotales.0.recuperado}}</td>
+				<td>{{subtotales.0.despachado}}</td>
+				<td>{{subtotales.0.daniado}}</td>
+				<td>{{subtotales.0.donado}}</td>
+				<td>{{subtotales.0.pdesp}}</td>	
+				<td>{{subtotales.0.neta}}</td>
+				<td>{{subtotales.0.exist}}</td>
+				<td>{{subtotales.0.ton}}</td>
+				</tr>
+				<tr style="background-color: rgb(194, 168, 168);">
+				<td>UNIDAD N 04</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>	
+				<td></td>
+				<td></td>
+				<td></td>
+				</tr>
+				{%set prueba = false%}
+				{%else%}
+				
+				
+				<tr>
+				<td>{{elemento.observacion}}</td>
+				<td>{{elemento.inicial}}</td>
+				<td>{{elemento.produccion}}</td>
+				<td>{{elemento.recuperado}}</td>
+				<td>{{elemento.despachado}}</td>
+				<td>{{elemento.daniado}}</td>
+				<td>{{elemento.donado}}</td>
+				<td>{{elemento.pdesp}}</td>
+				<td>{{elemento.neta}}</td>
+				<td>{{elemento.exist}}</td>
+				<td>{{elemento.ton}}</td>
+				</tr>		
+				{%endif%}
+		
+			{%endfor%}
+				<tr >
+				<td align="right" >SUBTOTAL</td>
+				<td>{{subtotales.1.inicial}}</td>
+				<td>{{subtotales.1.produccion}}</td>
+				<td>{{subtotales.1.recuperado}}</td>
+				<td>{{subtotales.1.despachado}}</td>
+				<td>{{subtotales.1.daniado}}</td>
+				<td>{{subtotales.1.donado}}</td>
+				<td>{{subtotales.1.pdesp}}</td>	
+				<td>{{subtotales.1.neta}}</td>
+				<td>{{subtotales.1.exist}}</td>
+				<td>{{subtotales.1.ton}}</td>
+				</tr>
+											<tr >
+				<td align="center" >TOTALES</td>
+				<td>{{subtotales.2.inicial}}</td>
+				<td>{{subtotales.2.produccion}}</td>
+				<td>{{subtotales.2.recuperado}}</td>
+				<td>{{subtotales.2.despachado}}</td>
+				<td>{{subtotales.2.daniado}}</td>
+				<td>{{subtotales.2.donado}}</td>
+				<td>{{subtotales.2.pdesp}}</td>	
+				<td>{{subtotales.2.neta}}</td>
+				<td>{{subtotales.2.exist}}</td>
+				<td>{{subtotales.2.ton}}</td>
+				</tr>
+		</table>
+	</br>
+		<p>
+			____________________________________
+		</p>
+	<p style="font-size: 12px;
+color: #C00;
+font-weight: bold;
+font-family: Arial, sans-serif;
+margin-top: -14px">
+		{%if nuTipoEstudio == 1%}&nbsp;&nbsp;&nbsp;COORDINACION DE PRODUCTOS TERMINADOS{%else%}COORDINACION DE PRODUCTOS NO TERMINADOS{%endif%}
+	</p>
+		
+	</div>
+	<span class="Separador_Modulo"></span>
+	<div style="position:relative;width: 590px;">
+		<div style="width: 490px;float:left;margin-right: -11px;">
+			<img src="{{ asset('imagenes/imagenes/excel2.png') }}" class="excel2 visualizarinventario" id="{{id}}" tipo="excel" url="" height="35" style="padding-top: 12px;display: block;margin-left: auto;cursor: pointer;">
+		</div>
+		<div style="width: 50px;float:left;">
+			<img src="{{ asset('imagenes/imagenes/pdf.png') }}" class="pdf" url="" height="35" style="padding-top: 12px;display: block;margin-left: auto;cursor: pointer;">
+		</div>
+		<div style="width: 50px;float:left;">
+			<img src="{{ asset('imagenes/imagenes/print.png') }}" class="imprimir" contenido="contenidoreporte" height="35" style="padding-top: 12px;display: block;margin-left: auto;margin-right: auto;cursor: pointer;">
+		</div>
+	</div>
+</div>
+{%endblock%}

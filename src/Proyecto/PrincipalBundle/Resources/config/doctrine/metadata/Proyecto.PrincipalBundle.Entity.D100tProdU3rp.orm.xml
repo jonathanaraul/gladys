@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Proyecto\PrincipalBundle\Entity\D100tProdU3rp" table="d100t_prod_u3rp">
+    <change-tracking-policy>DEFERRED_IMPLICIT</change-tracking-policy>
+    <id name="d100pkProdU3rp" type="integer" column="d100pk_prod_u3rp">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="feFecha" type="datetime" column="fe_fecha" precision="0" scale="0"/>
+    <field name="txTurno" type="text" column="tx_turno" precision="0" scale="0"/>
+    <field name="nuSalrefgruesakg" type="integer" column="nu_salrefgruesakg" precision="0" scale="0"/>
+    <field name="nuSalextrafinakg" type="integer" column="nu_salextrafinakg" precision="0" scale="0"/>
+    <field name="nuSalrefmesakg" type="integer" column="nu_salrefmesakg" precision="0" scale="0"/>
+    <field name="nuSalreffinakg" type="integer" column="nu_salreffinakg" precision="0" scale="0"/>
+    <field name="txObservaciones" type="text" column="tx_observaciones" precision="0" scale="0"/>
+    <many-to-one field="i100fkUsuario" target-entity="Proyecto\PrincipalBundle\Entity\I100tUsuario" orphan-removal="">
+      <join-columns>
+        <join-column name="i100fk_usuario" referenced-column-name="i100pk_usuario" nullable="1"/>
+      </join-columns>
+    </many-to-one>
+    <lifecycle-callbacks/>
+  </entity>
+</doctrine-mapping>

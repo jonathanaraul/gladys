@@ -1,0 +1,56 @@
+{% extends "ProyectoPrincipalBundle:Principal:base.html.twig" %}
+{%block contenido%} <span class="Titulo-Aplicacion">Crear Usuario</span>
+<span class="Separador_Modulo"> </span>
+<span class="Sub-Titulo-Aplicacion">Por favor rellene los siguientes campos:</span>
+
+<span class="Sub-Titulo-Texto" id="mensajeError"></span>
+							
+							
+<div class="Contenedor-Formulario">
+	<form action="{{ path('ProyectoPrincipalBundle_guardarusuario') }}" method="post">
+		<div class="Contenedor-Elemneto-Formulario">
+			<span class="Sub-Titulo-Formulario">Nombre: </span>
+			<input type="text" id="nombre" name="nombre" />
+		</div>
+		<div class="Contenedor-Elemneto-Formulario">
+			<span class="Sub-Titulo-Formulario">Apellido: </span>
+			<input type="text" id="apellido" name="apellido" />
+		</div>
+		<div class="Contenedor-Elemneto-Formulario">
+			<span class="Sub-Titulo-Formulario">Cedula: </span>
+			<input type="text" id="cedula" name="cedula" />
+		</div>
+		<div class="Contenedor-Elemneto-Formulario">
+			<span class="Sub-Titulo-Formulario">Nombre de Usuario: </span>
+			<input type="text" id="nombredeusuario" name="nombredeusuario" />
+		</div>
+		<div class="Contenedor-Elemneto-Formulario">
+			<span class="Sub-Titulo-Formulario">Contrase&ntilde;a: </span>
+			<input type="password" id="nuevacontrasenia" name="nuevacontrasenia" />
+		</div>
+		<div class="Contenedor-Elemneto-Formulario">
+			<span class="Sub-Titulo-Formulario">Repetir Contrase&ntilde;a: </span>
+			<input type="password" id="nuevacontrasenia2" name="nuevacontrasenia2" />
+		</div>
+		<div class="Contenedor-Elemneto-Formulario">
+			<span class="Sub-Titulo-Formulario">&Aacute;rea de trabajo: </span>
+    		<SELECT NAME="area">
+				<option value="Produccion">Producci&oacute;n</option>
+				<option value="Laboratorio">Laboratorio</option>
+				<option value="Almacen">Almac&eacute;n</option>
+				<option value="Ventas">Ventas</option>
+				<option value="Despacho">Despacho</option>
+				<option value="Gerencia">Gerencia Operativa</option>
+			</SELECT>
+		</div>
+	</br>
+	</br>	
+	</br>
+		<div class="Contenedor-Elemneto-Formulario" id="Contenedor-Elemneto-Formulario-aux">
+			<div class="Principio-Boton"></div>
+			<input name="Acceder" class="Boton" type="submit"  value="Crear usuario" />
+			<div class="Final-Boton"></div>
+		</div>
+	</form>
+</div>
+{%endblock%} 

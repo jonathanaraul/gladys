@@ -1,0 +1,49 @@
+<?php
+
+namespace Proyecto\PrincipalBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Proyecto\PrincipalBundle\Entity\D100tProdU1rpf
+ *
+ * @ORM\Table(name="d100t_prod_u1rpf")
+ * @ORM\Entity
+ */
+class D100tProdU1rpf
+{
+    /**
+     * @var integer $d100pkProdU1rpf
+     *
+     * @ORM\Column(name="d100pk_prod_u1rpf", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $d100pkProdU1rpf;
+
+    /**
+     * @var datetime $feFecha
+     *
+     * @ORM\Column(name="fe_fecha", type="datetime", nullable=false)
+     */
+    private $feFecha;
+
+    /**
+     * @var text $txObservacion
+     *
+     * @ORM\Column(name="tx_observacion", type="text", nullable=true)
+     */
+    private $txObservacion;
+
+    /**
+     * @var I100tUsuario
+     *
+     * @ORM\ManyToOne(targetEntity="I100tUsuario")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="i100fk_usuario", referencedColumnName="i100pk_usuario")
+     * })
+     */
+    private $i100fkUsuario;
+
+
+}

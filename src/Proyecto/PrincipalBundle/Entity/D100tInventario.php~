@@ -1,0 +1,616 @@
+<?php
+
+namespace Proyecto\PrincipalBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Proyecto\PrincipalBundle\Entity\D100tInventario
+ *
+ * @ORM\Table(name="d100t_inventario")
+ * @ORM\Entity
+ */
+class D100tInventario
+{
+    /**
+     * @var integer $d100pkInventario
+     *
+     * @ORM\Column(name="d100pk_inventario", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $d100pkInventario;
+
+    /**
+     * @var integer $nuTipodeinventario
+     *
+     * @ORM\Column(name="nu_tipodeinventario", type="integer", nullable=false)
+     */
+    private $nuTipodeinventario;
+
+    /**
+     * @var text $txNombre
+     *
+     * @ORM\Column(name="tx_nombre", type="text", nullable=false)
+     */
+    private $txNombre;
+
+    /**
+     * @var datetime $feFecha
+     *
+     * @ORM\Column(name="fe_fecha", type="datetime", nullable=false)
+     */
+    private $feFecha;
+
+    /**
+     * @var float $nuSrmInicial
+     *
+     * @ORM\Column(name="nu_srm_inicial", type="float", nullable=true)
+     */
+    private $nuSrmInicial;
+
+    /**
+     * @var float $nuSrmProduccion
+     *
+     * @ORM\Column(name="nu_srm_produccion", type="float", nullable=true)
+     */
+    private $nuSrmProduccion;
+
+    /**
+     * @var float $nuSrmRecuperado
+     *
+     * @ORM\Column(name="nu_srm_recuperado", type="float", nullable=true)
+     */
+    private $nuSrmRecuperado;
+
+    /**
+     * @var float $nuSrmDespachado
+     *
+     * @ORM\Column(name="nu_srm_despachado", type="float", nullable=true)
+     */
+    private $nuSrmDespachado;
+
+    /**
+     * @var float $nuSrmDaniado
+     *
+     * @ORM\Column(name="nu_srm_daniado", type="float", nullable=true)
+     */
+    private $nuSrmDaniado;
+
+    /**
+     * @var float $nuSrmDonado
+     *
+     * @ORM\Column(name="nu_srm_donado", type="float", nullable=true)
+     */
+    private $nuSrmDonado;
+
+    /**
+     * @var float $nuSrmPdesp
+     *
+     * @ORM\Column(name="nu_srm_pdesp", type="float", nullable=true)
+     */
+    private $nuSrmPdesp;
+
+    /**
+     * @var text $txSrmObservacion
+     *
+     * @ORM\Column(name="tx_srm_observacion", type="text", nullable=true)
+     */
+    private $txSrmObservacion;
+
+    /**
+     * @var float $nuSrfInicial
+     *
+     * @ORM\Column(name="nu_srf_inicial", type="float", nullable=true)
+     */
+    private $nuSrfInicial;
+
+    /**
+     * @var float $nuSrfProduccion
+     *
+     * @ORM\Column(name="nu_srf_produccion", type="float", nullable=true)
+     */
+    private $nuSrfProduccion;
+
+    /**
+     * @var float $nuSrfRecuperado
+     *
+     * @ORM\Column(name="nu_srf_recuperado", type="float", nullable=true)
+     */
+    private $nuSrfRecuperado;
+
+    /**
+     * @var float $nuSrfDespachado
+     *
+     * @ORM\Column(name="nu_srf_despachado", type="float", nullable=true)
+     */
+    private $nuSrfDespachado;
+
+    /**
+     * @var float $nuSrfDaniado
+     *
+     * @ORM\Column(name="nu_srf_daniado", type="float", nullable=true)
+     */
+    private $nuSrfDaniado;
+
+    /**
+     * @var float $nuSrfDonado
+     *
+     * @ORM\Column(name="nu_srf_donado", type="float", nullable=true)
+     */
+    private $nuSrfDonado;
+
+    /**
+     * @var float $nuSrfPdesp
+     *
+     * @ORM\Column(name="nu_srf_pdesp", type="float", nullable=true)
+     */
+    private $nuSrfPdesp;
+
+    /**
+     * @var text $txSrfObservacion
+     *
+     * @ORM\Column(name="tx_srf_observacion", type="text", nullable=true)
+     */
+    private $txSrfObservacion;
+
+    /**
+     * @var float $nuSrgInicial
+     *
+     * @ORM\Column(name="nu_srg_inicial", type="float", nullable=true)
+     */
+    private $nuSrgInicial;
+
+    /**
+     * @var float $nuSrgProduccion
+     *
+     * @ORM\Column(name="nu_srg_produccion", type="float", nullable=true)
+     */
+    private $nuSrgProduccion;
+
+    /**
+     * @var float $nuSrgRecuperado
+     *
+     * @ORM\Column(name="nu_srg_recuperado", type="float", nullable=true)
+     */
+    private $nuSrgRecuperado;
+
+    /**
+     * @var float $nuSrgDespachado
+     *
+     * @ORM\Column(name="nu_srg_despachado", type="float", nullable=true)
+     */
+    private $nuSrgDespachado;
+
+    /**
+     * @var float $nuSrgDaniado
+     *
+     * @ORM\Column(name="nu_srg_daniado", type="float", nullable=true)
+     */
+    private $nuSrgDaniado;
+
+    /**
+     * @var float $nuSrgDonado
+     *
+     * @ORM\Column(name="nu_srg_donado", type="float", nullable=true)
+     */
+    private $nuSrgDonado;
+
+    /**
+     * @var float $nuSrgPdesp
+     *
+     * @ORM\Column(name="nu_srg_pdesp", type="float", nullable=true)
+     */
+    private $nuSrgPdesp;
+
+    /**
+     * @var text $txSrgObservacion
+     *
+     * @ORM\Column(name="tx_srg_observacion", type="text", nullable=true)
+     */
+    private $txSrgObservacion;
+
+    /**
+     * @var float $nuSreInicial
+     *
+     * @ORM\Column(name="nu_sre_inicial", type="float", nullable=true)
+     */
+    private $nuSreInicial;
+
+    /**
+     * @var float $nuSreProduccion
+     *
+     * @ORM\Column(name="nu_sre_produccion", type="float", nullable=true)
+     */
+    private $nuSreProduccion;
+
+    /**
+     * @var float $nuSreRecuperado
+     *
+     * @ORM\Column(name="nu_sre_recuperado", type="float", nullable=true)
+     */
+    private $nuSreRecuperado;
+
+    /**
+     * @var float $nuSreDespachado
+     *
+     * @ORM\Column(name="nu_sre_despachado", type="float", nullable=true)
+     */
+    private $nuSreDespachado;
+
+    /**
+     * @var float $nuSreDaniado
+     *
+     * @ORM\Column(name="nu_sre_daniado", type="float", nullable=true)
+     */
+    private $nuSreDaniado;
+
+    /**
+     * @var float $nuSreDonado
+     *
+     * @ORM\Column(name="nu_sre_donado", type="float", nullable=true)
+     */
+    private $nuSreDonado;
+
+    /**
+     * @var float $nuSrePdesp
+     *
+     * @ORM\Column(name="nu_sre_pdesp", type="float", nullable=true)
+     */
+    private $nuSrePdesp;
+
+    /**
+     * @var text $txSreObservacion
+     *
+     * @ORM\Column(name="tx_sre_observacion", type="text", nullable=true)
+     */
+    private $txSreObservacion;
+
+    /**
+     * @var float $nuSbbfInicial
+     *
+     * @ORM\Column(name="nu_sbbf_inicial", type="float", nullable=true)
+     */
+    private $nuSbbfInicial;
+
+    /**
+     * @var float $nuSbbfProduccion
+     *
+     * @ORM\Column(name="nu_sbbf_produccion", type="float", nullable=true)
+     */
+    private $nuSbbfProduccion;
+
+    /**
+     * @var float $nuSbbfRecuperado
+     *
+     * @ORM\Column(name="nu_sbbf_recuperado", type="float", nullable=true)
+     */
+    private $nuSbbfRecuperado;
+
+    /**
+     * @var float $nuSbbfDespachado
+     *
+     * @ORM\Column(name="nu_sbbf_despachado", type="float", nullable=true)
+     */
+    private $nuSbbfDespachado;
+
+    /**
+     * @var float $nuSbbfDaniado
+     *
+     * @ORM\Column(name="nu_sbbf_daniado", type="float", nullable=true)
+     */
+    private $nuSbbfDaniado;
+
+    /**
+     * @var float $nuSbbfDonado
+     *
+     * @ORM\Column(name="nu_sbbf_donado", type="float", nullable=true)
+     */
+    private $nuSbbfDonado;
+
+    /**
+     * @var float $nuSbbfPdesp
+     *
+     * @ORM\Column(name="nu_sbbf_pdesp", type="float", nullable=true)
+     */
+    private $nuSbbfPdesp;
+
+    /**
+     * @var text $txSbbfObservacion
+     *
+     * @ORM\Column(name="tx_sbbf_observacion", type="text", nullable=true)
+     */
+    private $txSbbfObservacion;
+
+    /**
+     * @var float $nuSbbeInicial
+     *
+     * @ORM\Column(name="nu_sbbe_inicial", type="float", nullable=true)
+     */
+    private $nuSbbeInicial;
+
+    /**
+     * @var float $nuSbbeProduccion
+     *
+     * @ORM\Column(name="nu_sbbe_produccion", type="float", nullable=true)
+     */
+    private $nuSbbeProduccion;
+
+    /**
+     * @var float $nuSbbeRecuperado
+     *
+     * @ORM\Column(name="nu_sbbe_recuperado", type="float", nullable=true)
+     */
+    private $nuSbbeRecuperado;
+
+    /**
+     * @var float $nuSbbeDespachado
+     *
+     * @ORM\Column(name="nu_sbbe_despachado", type="float", nullable=true)
+     */
+    private $nuSbbeDespachado;
+
+    /**
+     * @var float $nuSbbeDaniado
+     *
+     * @ORM\Column(name="nu_sbbe_daniado", type="float", nullable=true)
+     */
+    private $nuSbbeDaniado;
+
+    /**
+     * @var float $nuSbbeDonado
+     *
+     * @ORM\Column(name="nu_sbbe_donado", type="float", nullable=true)
+     */
+    private $nuSbbeDonado;
+
+    /**
+     * @var float $nuSbbePdesp
+     *
+     * @ORM\Column(name="nu_sbbe_pdesp", type="float", nullable=true)
+     */
+    private $nuSbbePdesp;
+
+    /**
+     * @var text $txSbbeObservacion
+     *
+     * @ORM\Column(name="tx_sbbe_observacion", type="text", nullable=true)
+     */
+    private $txSbbeObservacion;
+
+    /**
+     * @var float $nuSiggInicial
+     *
+     * @ORM\Column(name="nu_sigg_inicial", type="float", nullable=true)
+     */
+    private $nuSiggInicial;
+
+    /**
+     * @var float $nuSiggProduccion
+     *
+     * @ORM\Column(name="nu_sigg_produccion", type="float", nullable=true)
+     */
+    private $nuSiggProduccion;
+
+    /**
+     * @var float $nuSiggRecuperado
+     *
+     * @ORM\Column(name="nu_sigg_recuperado", type="float", nullable=true)
+     */
+    private $nuSiggRecuperado;
+
+    /**
+     * @var float $nuSiggDespachado
+     *
+     * @ORM\Column(name="nu_sigg_despachado", type="float", nullable=true)
+     */
+    private $nuSiggDespachado;
+
+    /**
+     * @var float $nuSiggDaniado
+     *
+     * @ORM\Column(name="nu_sigg_daniado", type="float", nullable=true)
+     */
+    private $nuSiggDaniado;
+
+    /**
+     * @var float $nuSiggDonado
+     *
+     * @ORM\Column(name="nu_sigg_donado", type="float", nullable=true)
+     */
+    private $nuSiggDonado;
+
+    /**
+     * @var float $nuSiggPdesp
+     *
+     * @ORM\Column(name="nu_sigg_pdesp", type="float", nullable=true)
+     */
+    private $nuSiggPdesp;
+
+    /**
+     * @var text $txSiggObservacion
+     *
+     * @ORM\Column(name="tx_sigg_observacion", type="text", nullable=true)
+     */
+    private $txSiggObservacion;
+
+    /**
+     * @var float $nuSicInicial
+     *
+     * @ORM\Column(name="nu_sic_inicial", type="float", nullable=true)
+     */
+    private $nuSicInicial;
+
+    /**
+     * @var float $nuSicProduccion
+     *
+     * @ORM\Column(name="nu_sic_produccion", type="float", nullable=true)
+     */
+    private $nuSicProduccion;
+
+    /**
+     * @var float $nuSicRecuperado
+     *
+     * @ORM\Column(name="nu_sic_recuperado", type="float", nullable=true)
+     */
+    private $nuSicRecuperado;
+
+    /**
+     * @var float $nuSicDespachado
+     *
+     * @ORM\Column(name="nu_sic_despachado", type="float", nullable=true)
+     */
+    private $nuSicDespachado;
+
+    /**
+     * @var float $nuSicDaniado
+     *
+     * @ORM\Column(name="nu_sic_daniado", type="float", nullable=true)
+     */
+    private $nuSicDaniado;
+
+    /**
+     * @var float $nuSicDonado
+     *
+     * @ORM\Column(name="nu_sic_donado", type="float", nullable=true)
+     */
+    private $nuSicDonado;
+
+    /**
+     * @var float $nuSicPdesp
+     *
+     * @ORM\Column(name="nu_sic_pdesp", type="float", nullable=true)
+     */
+    private $nuSicPdesp;
+
+    /**
+     * @var text $txSicObservacion
+     *
+     * @ORM\Column(name="tx_sic_observacion", type="text", nullable=true)
+     */
+    private $txSicObservacion;
+
+    /**
+     * @var float $nuSrInicial
+     *
+     * @ORM\Column(name="nu_sr_inicial", type="float", nullable=true)
+     */
+    private $nuSrInicial;
+
+    /**
+     * @var float $nuSrProduccion
+     *
+     * @ORM\Column(name="nu_sr_produccion", type="float", nullable=true)
+     */
+    private $nuSrProduccion;
+
+    /**
+     * @var float $nuSrRecuperado
+     *
+     * @ORM\Column(name="nu_sr_recuperado", type="float", nullable=true)
+     */
+    private $nuSrRecuperado;
+
+    /**
+     * @var float $nuSrDespachado
+     *
+     * @ORM\Column(name="nu_sr_despachado", type="float", nullable=true)
+     */
+    private $nuSrDespachado;
+
+    /**
+     * @var float $nuSrDaniado
+     *
+     * @ORM\Column(name="nu_sr_daniado", type="float", nullable=true)
+     */
+    private $nuSrDaniado;
+
+    /**
+     * @var float $nuSrDonado
+     *
+     * @ORM\Column(name="nu_sr_donado", type="float", nullable=true)
+     */
+    private $nuSrDonado;
+
+    /**
+     * @var float $nuSrPdesp
+     *
+     * @ORM\Column(name="nu_sr_pdesp", type="float", nullable=true)
+     */
+    private $nuSrPdesp;
+
+    /**
+     * @var text $txSrObservacion
+     *
+     * @ORM\Column(name="tx_sr_observacion", type="text", nullable=true)
+     */
+    private $txSrObservacion;
+
+    /**
+     * @var float $nuBbggInicial
+     *
+     * @ORM\Column(name="nu_bbgg_inicial", type="float", nullable=true)
+     */
+    private $nuBbggInicial;
+
+    /**
+     * @var float $nuBbggProduccion
+     *
+     * @ORM\Column(name="nu_bbgg_produccion", type="float", nullable=true)
+     */
+    private $nuBbggProduccion;
+
+    /**
+     * @var float $nuBbggRecuperado
+     *
+     * @ORM\Column(name="nu_bbgg_recuperado", type="float", nullable=true)
+     */
+    private $nuBbggRecuperado;
+
+    /**
+     * @var float $nuBbggDespachado
+     *
+     * @ORM\Column(name="nu_bbgg_despachado", type="float", nullable=true)
+     */
+    private $nuBbggDespachado;
+
+    /**
+     * @var float $nuBbggDaniado
+     *
+     * @ORM\Column(name="nu_bbgg_daniado", type="float", nullable=true)
+     */
+    private $nuBbggDaniado;
+
+    /**
+     * @var float $nuBbggDonado
+     *
+     * @ORM\Column(name="nu_bbgg_donado", type="float", nullable=true)
+     */
+    private $nuBbggDonado;
+
+    /**
+     * @var float $nuBbggPdesp
+     *
+     * @ORM\Column(name="nu_bbgg_pdesp", type="float", nullable=true)
+     */
+    private $nuBbggPdesp;
+
+    /**
+     * @var text $txBbggObservacion
+     *
+     * @ORM\Column(name="tx_bbgg_observacion", type="text", nullable=true)
+     */
+    private $txBbggObservacion;
+
+    /**
+     * @var I100tUsuario
+     *
+     * @ORM\ManyToOne(targetEntity="I100tUsuario")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="i100fk_usuario", referencedColumnName="i100pk_usuario")
+     * })
+     */
+    private $i100fkUsuario;
+
+
+}

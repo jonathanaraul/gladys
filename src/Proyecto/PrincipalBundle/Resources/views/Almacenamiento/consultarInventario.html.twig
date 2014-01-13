@@ -1,0 +1,44 @@
+{% extends "ProyectoPrincipalBundle:Principal:baseinventario.html.twig" %}
+{%block contenido%} <span class="Titulo-Aplicacion"> Almac&eacute;n de Productos Terminados</span>
+<span class="Titulo-Aplicacion" > Consultar Inventario de Productos Terminados</span>
+<span class="Separador_Modulo"></span>
+<div class="formulario">
+	<div class="unacolumna" >
+		<div class="nombreinput">
+			Tipo de Inventario :
+		</div>
+		<div class="cuadroinput">
+			<select name="select2" id="tipo" class="selectgrande">
+				<option value="0">-Seleccione-</option>
+				<option value="idpt">Inventario Diario de Productos Terminados</option>
+				<option value="idptr">Inventario Diario de Productos Terminados-Rechazados</option>
+			</select>
+		</div>
+	</div>
+	<div class="unacolumna" >
+		<div class="nombreinput">
+			Fecha Inicio :
+		</div>
+		<div class="cuadroinput">
+			<input type="text" name="textfield14" class="inputgrande fecha"  id="fechainicial" onclick="javascript:NewCal('fechainicial','ddmmyyyy')">
+		</div>
+	</div>
+	<div class="unacolumna" >
+		<div class="nombreinput">
+			Fecha Fin :
+		</div>
+		<div class="cuadroinput">
+			<input type="text" name="textfield14" class="inputgrande fecha"  id="fechafinal" onclick="javascript:NewCal('fechafinal','ddmmyyyy')">
+		</div>
+	</div>
+	<span class="Separador_Modulo"></span>
+	<div class="botonizquierdo" style="margin-left: 462px;clear:both">
+		<div class="Principio-Boton"></div>
+		<input type="button" class="Boton" value="Buscar" id="buscarinventario" onclick="return false;">
+		<div class="Final-Boton"></div>
+	</div>
+</div>
+<div class="loader" style="display: none">
+	<img id="loader" src="{{ asset('imagenes/loader.gif') }}" align="center" style="padding-top: 86px;display: block;margin-left: auto;margin-right: auto;">
+</div>
+{%endblock%}

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Proyecto\PrincipalBundle\Entity\D100tDesRepDiario" table="d100t_des_rep_diario">
+    <change-tracking-policy>DEFERRED_IMPLICIT</change-tracking-policy>
+    <id name="d100pkDesRepDiario" type="integer" column="d100pk_des_rep_diario">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="feFechadelreporte" type="datetime" column="fe_fechadelreporte" precision="0" scale="0"/>
+    <field name="txUnidad" type="text" column="tx_unidad" precision="0" scale="0"/>
+    <field name="txTipodeproducto" type="text" column="tx_tipodeproducto" precision="0" scale="0"/>
+    <field name="txCliente" type="text" column="tx_cliente" precision="0" scale="0"/>
+    <field name="nuNdeguia" type="integer" column="nu_ndeguia" precision="0" scale="0"/>
+    <field name="nuOrddesNdeorden" type="integer" column="nu_orddes_ndeorden" precision="0" scale="0"/>
+    <field name="feOrddesFecha" type="datetime" column="fe_orddes_fecha" precision="0" scale="0"/>
+    <field name="nuDestonSacos" type="integer" column="nu_deston_sacos" precision="0" scale="0"/>
+    <field name="nuDestonReal" type="integer" column="nu_deston_real" precision="0" scale="0"/>
+    <field name="nuDestonTeor" type="integer" column="nu_deston_teor" precision="0" scale="0"/>
+    <field name="nuVarTon" type="integer" column="nu_var_ton" precision="0" scale="0"/>
+    <field name="nuSacTeor" type="integer" column="nu_sac_teor" precision="0" scale="0"/>
+    <field name="nuSacPromedio" type="integer" column="nu_sac_promedio" precision="0" scale="0"/>
+    <field name="nuTdSacos" type="integer" column="nu_td_sacos" precision="0" scale="0"/>
+    <field name="nuTdTon" type="integer" column="nu_td_ton" precision="0" scale="0"/>
+    <many-to-one field="i100fkUsuario" target-entity="Proyecto\PrincipalBundle\Entity\I100tUsuario" orphan-removal="">
+      <join-columns>
+        <join-column name="i100fk_usuario" referenced-column-name="i100pk_usuario" nullable="1"/>
+      </join-columns>
+    </many-to-one>
+    <lifecycle-callbacks/>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,80 @@
+<?php
+
+namespace Proyecto\PrincipalBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Proyecto\PrincipalBundle\Entity\D101tProdU3rp
+ *
+ * @ORM\Table(name="d101t_prod_u3rp")
+ * @ORM\Entity
+ */
+class D101tProdU3rp
+{
+    /**
+     * @var integer $d101pkProdU3rp
+     *
+     * @ORM\Column(name="d101pk_prod_u3rp", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $d101pkProdU3rp;
+
+    /**
+     * @var float $nuSalrefgruesakg
+     *
+     * @ORM\Column(name="nu_salrefgruesakg", type="float", nullable=false)
+     */
+    private $nuSalrefgruesakg;
+
+    /**
+     * @var float $nuSalextrafinakg
+     *
+     * @ORM\Column(name="nu_salextrafinakg", type="float", nullable=false)
+     */
+    private $nuSalextrafinakg;
+
+    /**
+     * @var float $nuSalrefmesakg
+     *
+     * @ORM\Column(name="nu_salrefmesakg", type="float", nullable=false)
+     */
+    private $nuSalrefmesakg;
+
+    /**
+     * @var float $nuSalreffinakg
+     *
+     * @ORM\Column(name="nu_salreffinakg", type="float", nullable=false)
+     */
+    private $nuSalreffinakg;
+
+    /**
+     * @var text $txObservaciones
+     *
+     * @ORM\Column(name="tx_observaciones", type="text", nullable=false)
+     */
+    private $txObservaciones;
+
+    /**
+     * @var D100tProdU3rp
+     *
+     * @ORM\ManyToOne(targetEntity="D100tProdU3rp")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="d100fk_prod_u3rp", referencedColumnName="d100pk_prod_u3rp")
+     * })
+     */
+    private $d100fkProdU3rp;
+
+    /**
+     * @var E100tTurno
+     *
+     * @ORM\ManyToOne(targetEntity="E100tTurno")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="e100fk_turno", referencedColumnName="e100pk_turno")
+     * })
+     */
+    private $e100fkTurno;
+
+
+}

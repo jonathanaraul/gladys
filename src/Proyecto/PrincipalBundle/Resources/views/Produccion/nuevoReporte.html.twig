@@ -1,0 +1,54 @@
+{% extends "ProyectoPrincipalBundle:Principal:baseproduccion.html.twig" %}
+{%block contenido%} 
+
+<span class="Titulo-Aplicacion" style="text-align: center;font-size: 23px;"> &Aacute;rea de Producci&oacute;n </span>
+</br>
+</br>
+</br>
+</br>
+
+<span class="Titulo-Aplicacion"> Reportes</span>
+<div class="Tabla-Aplicacion">
+	<table border="0" >
+		<tbody>
+			<tr >
+				<td >
+				<p class="Subtitulo-Normal">
+					Unidad:
+				</p></td>
+				<td>
+				<select name="select" id="unidad" style="width: 252px;">
+					<option value="0">-Seleccione-</option>
+					<option value="u1">Unidad 1</option>
+					<option value="u2">Unidad 2</option>
+					<option value="u3">Unidad 3</option>
+					<option value="u4">Unidad 4</option>
+				</select>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				<div class="Subtitulo-Normal">
+					Tipo de Reporte :
+				</div></td>
+				<td>
+				<select name="select2" id="tipo" style="width: 252px;">
+					<option value="0">-Seleccione-</option>
+					<option value="rd">Reporte Diario</option>
+					<option value="rpf">Reporte de Parámetros Fisicoquímicos </option>
+					<option value="rgp">Reporte de Granulometria Promedio</option>
+				</select></td>
+			</tr>
+			<tr >
+				<td colspan="2" ><div class="Principio-Boton"></div>
+				<input type="button" class="Boton" value="Crear nuevo" id="nuevoreporte" onclick="return false" />
+				<div class="Final-Boton"></div></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+</br>
+</br>
+</br>
+
+{%endblock%} 

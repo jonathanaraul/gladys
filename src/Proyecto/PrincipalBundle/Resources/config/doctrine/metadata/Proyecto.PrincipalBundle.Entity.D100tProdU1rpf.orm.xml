@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Proyecto\PrincipalBundle\Entity\D100tProdU1rpf" table="d100t_prod_u1rpf">
+    <change-tracking-policy>DEFERRED_IMPLICIT</change-tracking-policy>
+    <id name="d100pkProdU1rpf" type="integer" column="d100pk_prod_u1rpf">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="feFecha" type="datetime" column="fe_fecha" precision="0" scale="0"/>
+    <field name="txTipodesal" type="text" column="tx_tipodesal" precision="0" scale="0"/>
+    <field name="nuPmCa" type="integer" column="nu_pm_ca" precision="0" scale="0"/>
+    <field name="nuPmMg" type="integer" column="nu_pm_mg" precision="0" scale="0"/>
+    <field name="nuPmCo" type="integer" column="nu_pm_co" precision="0" scale="0"/>
+    <field name="nuPmSo" type="integer" column="nu_pm_so" precision="0" scale="0"/>
+    <field name="nuPmNaci" type="integer" column="nu_pm_naci" precision="0" scale="0"/>
+    <field name="nuPmInsolubles" type="integer" column="nu_pm_insolubles" precision="0" scale="0"/>
+    <field name="nuPmHumedad" type="integer" column="nu_pm_humedad" precision="0" scale="0"/>
+    <many-to-one field="i100fkUsuario" target-entity="Proyecto\PrincipalBundle\Entity\I100tUsuario" orphan-removal="">
+      <join-columns>
+        <join-column name="i100fk_usuario" referenced-column-name="i100pk_usuario" nullable="1"/>
+      </join-columns>
+    </many-to-one>
+    <lifecycle-callbacks/>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,70 @@
+{% extends "ProyectoPrincipalBundle:Principal:baseproduccion.html.twig" %}
+
+{%block contenido%} <span class="Separador_Modulo"></span>
+<div class="formulario" id="formulario">
+	<table style="font-size: 9pt;font-family: Arial, sans-serif;color: #666;text-align: center;margin-bottom: 20px" border="0" width="96%">
+		<tr>
+			<td align="left"><img src="{{ asset('imagenes/pdvsaindustrial.png') }}" width="140"></td>
+			<td align="right" style="font-size: 12px;color: #C00;font-weight: bold;font-family: Arial, sans-serif;"><img src="{{ asset('imagenes/logo.jpg') }}" width="140"></td>
+		</tr>
+		<tr>
+			<td align="center" colspan="2" style="font-size: 12px;color: #C00;font-weight: bold;font-family: Arial, sans-serif;"> {{nombreTipo}} </td>
+		</tr>
+	</table>
+	<table style="font-size: 9pt;font-family: Arial, sans-serif;color: #666;text-align: center;margin-bottom: 20px" border="1" width="96%">
+		{%set anterior = -1%}
+		{%for elemento in arreglo.1%}
+		{%if anterior != elemento['e100fk_turno']%}
+
+		{%if anterior == -1%}
+		<tr bgcolor="red">
+			<td  ><font color="#ffffff">TURNO: {{turnos[elemento['e100fk_turno']]}}</font></td>
+			<td colspan="2" width="25%"><font color="#ffffff">Cant. De producto obtenido</font></td>
+			<td colspan="2" width="25%"><font color="#ffffff">Cant. De producto retenido</font></td>
+			<td colspan="2" width="25%"><font color="#ffffff">Cant. De producto trasladado a almacen de productos terminado</font></td>
+		</tr>
+		{%else%}
+		<tr bgcolor="red">
+			<td ><font color="#ffffff">TURNO: {{turnos[elemento['e100fk_turno']]}}</font></td>
+			<td colspan="6"><font color="#ffffff"></font></td>
+		</tr>
+		{%endif%}
+		<tr>
+			<td>Tipo de Producto</td>
+			<td width="12.5%">Sacos</td>
+			<td width="12.5%">Toneladas</td>
+			<td  width="12.5%">Sacos</td>
+			<td  width="12.5%">Toneladas</td>
+			<td  width="12.5%">Sacos</td>
+			<td  width="12.5%">Toneladas</td>
+		</tr>
+		{%endif%}
+		{%set anterior = elemento['e100fk_turno']%}
+		<tr>
+			<td>{{elemento.tx_tipodeproducto}}</td>
+			<td>{{elemento.nu_cpo_sacos}}</td>
+			<td>{{elemento.nu_cpo_sacos / 25}}</td>
+			<td>{{elemento.nu_cpr_sacos}}</td>
+			<td>{{elemento.nu_cpr_sacos / 25}}</td>
+			<td>{{elemento.nu_cpt_sacos}}</td>
+			<td>{{elemento.nu_cpt_sacos / 25}}</td>
+		</tr>
+		{%endfor%}
+	</table>
+	<div class="Subtitulo-Normal">OBSERVACIÓN: {{arreglo.0.tx_observacion}} </div>	</br>
+	<div class="Subtitulo-Normal" style="text-align: left;width: 560px;">
+		</br></br>
+		<p style="text-align: right;">
+			<span style="text-decoration: underline;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></br>FIRMA DEL COORDINADOR:
+		</p>
+	</div>
+	<p align="left" style="font-weight: bold;color: #666;font-size: 8pt;font-family: Arial, sans-serif;">
+		FECHA: {{fecha}}
+	</p>
+</div>
+<div id="contenedorimagenes1" class="contenedorimagenes" style="margin-right: 28px;">
+	<img src="{{ asset('imagenes/imagenes/print.png') }}" id="imprimir" class="mouse imprimir" contenido="formulario" width="60" align="right" style="margin-left: 20px;cursor: pointer;">
+	<img src="{{ asset('imagenes/imagenes/excel2.png') }}" id="excel" tipo="{{base}}" pk="{{pk}}" class="mouse excel" width="60" align="right" style="cursor: pointer;">
+	<!--<img src="/optigestion/imagenes/copy.png" id="copiar1" class="mouse" width="60" align="right" >!-->
+</div>
+{%endblock%} 

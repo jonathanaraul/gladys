@@ -1,0 +1,34 @@
+{%for elemento in arreglo%}
+<div class="Tabla-Fondo registrosdeordenes" id="contenido" style="height: 46px;" >
+	<div class="Tabla-Elemento" style="height: 46px;width: 36px" >
+		{{elemento.numeroorden}}
+	</div>
+	<div class="Tabla-Elemento" style="height: 46px;width: 70px" >
+		{{elemento.fecha}}
+	</div>
+	<div class="Tabla-Elemento" style="height: 46px;width: 147px" >
+		{{elemento.rif}}
+	</div>
+	<div class="Tabla-Elemento"  id="{{elemento.id}}" style="height: 46px;width: 60px" >
+		{%if elemento.aprobado == false%} <img src="{{ asset('imagenes/imagenes/acciones/activar.png') }}" width="15" style="display: block;margin-right: 12px;cursor: pointer;" class="modifica" tipo="aprobar">
+		<img src="{{ asset('imagenes/imagenes/acciones/desactivar.png') }}" width="15" style="display: none;margin-right: 12px;cursor: pointer;" class="modifica"  tipo="desaprobar">
+		{%else%} <img src="{{ asset('imagenes/imagenes/acciones/activar.png') }}" width="15" style="display: none;margin-right: 12px;cursor: pointer;" class="modifica" tipo="aprovar">
+		<img src="{{ asset('imagenes/imagenes/acciones/desactivar.png') }}" width="15" style="display: block;margin-right: 12px;cursor: pointer;" class="modifica"  tipo="desaprobar">
+		{%endif%}
+	</div>
+	<div class="Tabla-Elemento"  id="{{elemento.id}}" style="height: 46px;width: 60px" >
+		{%if elemento.despachado == false%} <img src="{{ asset('imagenes/imagenes/acciones/activar.png') }}" width="15" style="display: block;margin-right: 12px;cursor: pointer;" class="modifica" tipo="despachar">
+		<img src="{{ asset('imagenes/imagenes/acciones/desactivar.png') }}" width="15" style="display: none;margin-right: 12px;cursor: pointer;" class="modifica" tipo="nodespachar">
+		{%else%} <img src="{{ asset('imagenes/imagenes/acciones/activar.png') }}" width="15" style="display: none;margin-right: 12px;cursor: pointer;" class="modifica" tipo="despachar">
+		<img src="{{ asset('imagenes/imagenes/acciones/desactivar.png') }}" width="15" style="display: block;margin-right: 12px;cursor: pointer;" class="modifica"  tipo="nodespachar">
+		{%endif%}
+	</div>
+	<div class="Tabla-Elemento" style="height: 46px;width: 60px" >
+		<img src="{{ asset('imagenes/imagenes/acciones/look2.png') }}" class="verordendespacho" id="{{elemento.id}}" align="center" height="15" style="cursor: pointer;margin: auto;margin-right: 12px;">
+	</div>
+	<div class="Tabla-Elemento" style="height: 46px;width: 60px" >
+		<img src="{{ asset('imagenes/imagenes/acciones/eliminar.png') }}" class="eliminarordendespacho" id="{{elemento.id}}" align="center" height="15" style="cursor: pointer;margin: auto;margin-right: 7px;">
+		<img src="{{ asset('imagenes/imagenes/acciones/loader.gif') }}" class="" id="{{elemento.id}}" align="center" height="15" style="cursor: pointer;margin: auto;display: none;margin-right: 27px;">
+	</div>
+</div>
+{%endfor%} 

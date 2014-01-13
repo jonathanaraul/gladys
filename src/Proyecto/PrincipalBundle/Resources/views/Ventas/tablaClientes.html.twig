@@ -1,0 +1,47 @@
+{%if arreglo|length <1 %} 
+<span class="Titulo-Aplicacion Tabla-Fondo">NO HAY CLIENTES GUARDADOS</span>
+{%else%}
+    <div class="Tabla-Fondo" id="tablacabecera" style="margin-top: 20px;">
+		<div class="Tabla-Elemento-Encabezado" style="width: 40px" >
+				Id
+		</div>
+		<div class="Tabla-Elemento-Encabezado" style="width: 141px;">
+				Nombre
+		</div>
+		<div class="Tabla-Elemento-Encabezado" style="width: 105px;">
+				RIF
+		</div>
+		<div class="Tabla-Elemento-Encabezado" style="width: 112px;">
+				Telefono
+		</div>
+		<div class="Tabla-Elemento-Encabezado" style="width: 55px;">
+				Editar
+		</div>
+		<div class="Tabla-Elemento-Encabezado" style="width: 55px;">
+				Eliminar
+		</div>
+		<div class="Tabla-Elemento-Encabezado" style="width: 55px;">
+				Ver
+		</div>
+	</div>
+		{%for elemento in arreglo%}
+		<div class="Tabla-Fondo registrosdeclientes" id="contenido_cliente_{{elemento.getD100pkVenInfocliente}}" style="height: 46px;" >
+			<div class="Tabla-Elemento" style="height: 46px;width: 30px" >{{elemento.getD100pkVenInfocliente}}</div>
+			<div class="Tabla-Elemento" id="nombrecliente_{{elemento.getD100pkVenInfocliente}}" style="height: 46px;width: 131px;" >{{elemento.getTxNombre}}</div>
+			<div class="Tabla-Elemento" style="height: 46px;width: 95px;" >{{elemento.getTxRif}}</div>
+			<div class="Tabla-Elemento" style="height: 46px;width: 102px;">{{elemento.getTxTelefono}}</div>
+			<div class="Tabla-Elemento" style="height: 46px;width: 45px;" >
+			<img src="{{ asset('imagenes/imagenes/acciones/editar.png') }}" class="modificarcliente" tipo="editar" id="{{elemento.getD100pkVenInfocliente}}" width="15" style="cursor: pointer;display: block;margin-left: 10px;">
+			</div>
+			<div class="Tabla-Elemento" id="t-aprobado-" style="height: 46px;width: 45px;" >
+			<img src="{{ asset('imagenes/imagenes/acciones/eliminar.png') }}" class="modificarcliente" tipo="eliminar" id="{{elemento.getD100pkVenInfocliente}}" width="15" style="cursor: pointer;display: block;margin-left: 10px;">
+			</div>
+			<div class="Tabla-Elemento" style="height: 46px;width: 45px;" >
+				<img src="{{ asset('imagenes/imagenes/acciones/look2.png') }}" class="modificarcliente" tipo="observar" id="{{elemento.getD100pkVenInfocliente}}" align="center" height="15" style="cursor: pointer;margin: auto;margin-right: 12px;">
+			</div>
+		</div>
+		{%endfor%}
+{%endif%}
+        <div class="loader" style="display: none">
+            <img id="loader" src="{{ asset('imagenes/loader.gif') }}" align="center" style="padding-top: 80px;padding-bottom: 50px;display: block;margin-left: auto;margin-right: auto;">
+        </div>

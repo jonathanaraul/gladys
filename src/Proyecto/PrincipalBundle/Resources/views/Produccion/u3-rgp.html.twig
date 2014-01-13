@@ -1,0 +1,84 @@
+{% extends "ProyectoPrincipalBundle:Principal:baseproduccion.html.twig" %}
+
+{%block contenido%} 
+<span class="Titulo-Aplicacion" > Unidad III: Refinaci&oacute;n </span>
+<span class="Titulo-Aplicacion" > Reporte de Granulometr&iacute;a Promedio de las Diferentes Sales</span>
+<span class="Separador_Modulo"></span>
+<div class="formulario">
+	<div class="unacolumna">
+		<div class="nombreinput">
+			Fecha :
+		</div>
+		<div class="cuadroinput">
+			<input type="text" name="textfield14" class="inputgrande fecha" id="fe_fecha" value="{{fecha}}" disabled="disabled">
+		</div>
+	</div>
+		<div class="unacolumna">
+		<div class="nombreinput">
+		Tipo de sal :
+		</div>
+		<div class="cuadroinput">
+			<select name="select2" id="tx_tipodesal" class="selectgrande texto">
+				<option value="0">-Seleccione-</option>
+				<option value="Sal Ref. Mesa">Sal Ref. Mesa</option>
+				<option value="Sal Ref. Fina">Sal Ref. Fina</option>
+				<option value="Sal Ref. Gruesa">Sal Ref. Gruesa</option>
+				<option value="Sal Ref. Extrafina">Sal Ref. Extrafina</option>
+				<option value="Sal Big-Bag Fina">Sal Big-Bag Fina</option>
+				<option value="Sal Big-Bag Extrafina">Sal Big-Bag Extrafina</option>
+			</select>
+		</div>
+	</div>
+	<div class="unacolumna">
+		<div class="nombreinput">
+			N° de Mat&iacute;z :
+		</div>
+		<div class="cuadroinput">
+			<input type="text" name="textfield14" class="inputgrande numero" id="nu_ndematiz">
+		</div>
+	</div>
+	<div class="unacolumna">
+		<div class="nombreinput">
+			Porcentaje % :
+		</div>
+		<div class="cuadroinput">
+			<input type="text" name="textfield14" class="inputgrande numero" id="nu_porcentaje">
+		</div>
+	</div>
+	<div class="unacolumna">
+		<div class="nombreinput">
+			PAN(%) :
+		</div>
+		<div class="cuadroinput">
+			<input type="text" name="textfield14" class="inputgrande numero" id="nu_pan">
+		</div>
+	</div>
+	<div class="unacolumna">
+		<div class="nombreinput">
+			Total :
+		</div>
+		<div class="cuadroinput">
+			<input type="text" name="textfield14" class="inputgrande numero" id="nu_total">
+		</div>
+	</div>
+		<div class="unacolumna" >
+		<div class="nombreinput">
+			Observaci&oacute;n:
+		</div>
+		<div class="cuadroinput">
+			<textarea name="textarea" id="tx_observacion" class="textareagrande texto opcional"></textarea>
+		</div>
+	</div>
+	<input type="hidden" name="tipoReporte" value="u3-rgp">
+	<input type="hidden" name="pkReporte" value="{%if arreglo.pk is defined%}{{arreglo.pk}}{%else%}0{%endif%}">
+
+	<span class="Separador_Modulo"></span>
+	<div class="botonizquierdo" style="margin-left: 457px;clear:both">
+		<div class="Principio-Boton"></div>
+		<input type="button" class="Boton" value="Guardar" id="guardarreporte" onclick="return false;">
+		<div class="Final-Boton"></div>
+	</div>
+</div><div class="loader" style="display: none">
+	<img id="loader" src="{{ asset('imagenes/loader.gif') }}" align="center" style="padding-top: 50px;padding-bottom: 50px;display: block;margin-left: auto;margin-right: auto;">
+</div>
+{%endblock%} 

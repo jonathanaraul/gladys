@@ -1,0 +1,134 @@
+<!DOCTYPE html lang="es">
+	<head>
+		<title>ENASAL</title>
+		<link rel="stylesheet" title="General" type="text/css" href="{{ asset('css/jquery.alerts.css') }}" />
+		<link rel="stylesheet" title="General" type="text/css" href="{{ asset('css/main-aplicacion.css') }}" />
+		<link rel="stylesheet" title="General" type="text/css" href="{{ asset('css/generales.css') }}" />
+		<link rel="shortcut icon" href="{{ asset('imagenes/favicon.ico') }}" />
+		<script src="{{ asset('js/jquery-1.7.1.js') }}" type="text/javascript"></script>
+		<!--<script src="{{ asset('js/jquery-1.8.0.min.js') }}" type="text/javascript"></script>!-->
+		<script src="{{ asset('js/jquery.alerts.js') }}" type="text/javascript"></script>
+		<script src="{{ asset('js/datetimepicker.js') }}" type="text/javascript"></script>
+		<script src="{{ asset('js/utilidades.js') }}" type="text/javascript"></script>
+		<script src="{{ asset('js/generales.js') }}" type="text/javascript"></script>
+		<script src="{{ asset('js/jquery.printElement.js') }}" type="text/javascript"></script>
+		<script type="text/javascript">
+			var direccionEliminarOrden = '{{path('ProyectoPrincipalBundle_ventas_eliminarordendespacho')}}';
+			var direccionEmitirOrden = '{{path('ProyectoPrincipalBundle_ventas_emitirorden')}}';
+			var direccionAgregarProducto = '{{path('ProyectoPrincipalBundle_ventas_agregarproducto')}}';
+			var direccionGuardarProducto = '{{path('ProyectoPrincipalBundle_ventas_guardarproducto')}}';
+			var direccionModificarEstadoOrden = '{{path('ProyectoPrincipalBundle_despacho_modificarestadoorden')}}';
+		</script>
+		{%block scripts%}
+		{%endblock%}
+	</head>
+	<body style="margin: 0px 0px 0px 300px;">
+		<div class="Contenedor" id="Main-externo" >
+			<div class="Contenedor" id="Main-header">
+				<a href=""><span class="Contenedor-con-Imagen" id="Main-Logo" style="margin-top: 16px;"></span></a>
+				<div class="Contenedor" id="Contenedor-Degradado">
+					<div class="Contenedor-con-Imagen" id="Logo-Continuacion">
+						<span class="Contenedor" id="Nombre-Aplicacion">Sistema de Gesti&oacute;n de Procesos Administrativos</span>
+					</div>
+					<div class="Contenedor-con-Imagen" id="Logo-Final"></div>
+				</div>
+			</div>
+			<div class="Contenedor-con-sombra" id="Main-BackCuerpoRight">
+				<div class="Contenedor-con-sombra" id="Main-BackCuerpoLeft">
+					<div class="Contenedor" id="Main-Cuerpo">
+						<div class="Contenedor-con-Bordes" id="Main-Identificador_usuario">
+							<span class="Texto-Identificador" id="Main-Usuario"> Bienvenido {%if usuario%}{{usuario.apellido|title}}, {{usuario.nombre|title}}{%endif%}</span>
+							<span class="Texto-Identificador" id="Main-Fecha">{% render "ProyectoPrincipalBundle:Principal:fecha" %}</span>
+						</div>
+						<div class="Contenedor" id="Main-breadcrumbs">
+							<div id="Main-Traza">
+								<div id="Main-Traza-aux"></div>
+							</div>
+							<div class="EsquinasBread" id="EsquinaBreadDerecha"></div>
+						</div>
+						<div class="Contenedor-Editable-Fondo" id="Vista">
+							<div class="Contenedor-Editable" id="Menu">
+								<a href="{{ path('ProyectoPrincipalBundle_homepage') }}" class="Contenedor-Texto-Menu"><span class="Text-menu" >ENASAL</span></a>
+								<a href="#" class="Contenedor-Texto-sub-Menu" ><span class="Text-menu">Misi&oacute;n y Visi&oacute;n</span></a>
+								<a href="{{ path('ProyectoPrincipalBundle_objetivos') }}" class="Contenedor-Texto-sub-Menu" ><span class="Text-menu">Objetivos y Logros</span></a>
+								{%if usuario%}
+
+									{%if usuario.rol == 'gerencia' or usuario.rol == 'produccion' or usuario.rol == 'laboratorio' or usuario.rol == 'administracion'%} 
+										<span class="PuntoHo_Cortico"></span>
+										<a href="#" class="Contenedor-Texto-Menu">
+										<span class="Text-menu" >&Aacute;rea de Producci&oacute;n</span></a>
+										{%if usuario.rol != 'gerencia'%}
+											<a href="{{ path('ProyectoPrincipalBundle_produccion_nuevoreporte') }}" class="Contenedor-Texto-sub-Menu" ><span class="Text-menu">Nuevo Reporte</span></a>
+										{%endif%}
+										<a href="{{ path('ProyectoPrincipalBundle_produccion_consultarreporte') }}" class="Contenedor-Texto-sub-Menu" ><span class="Text-menu">Consultar Reporte</span></a>
+									{%endif%}
+
+									{%if usuario.rol == 'gerencia' or usuario.rol == 'almacen' or usuario.rol == 'ventas' or usuario.rol == 'administracion'%} 
+										<span class="PuntoHo_Cortico"></span>
+										<a href="#" class="Contenedor-Texto-Menu"><span class="Text-menu" >Almac&eacute;n de Productos &nbsp;&nbsp;&nbsp;&nbsp;Terminados</span></a>
+										{%if  usuario.rol == 'almacen' or usuario.rol == 'administracion'%}
+											<a href="{{ path('ProyectoPrincipalBundle_almacenamiento_nuevoinventario') }}" class="Contenedor-Texto-sub-Menu" ><span class="Text-menu">Nuevo Inventario</span></a>
+										{%endif%}
+										<a href="{{ path('ProyectoPrincipalBundle_almacenamiento_consultarinventario') }}" class="Contenedor-Texto-sub-Menu" ><span class="Text-menu">Consultar Inventario</span></a>
+									{%endif%}
+
+									{%if usuario.rol == 'gerencia' or usuario.rol == 'ventas' or usuario.rol == 'administracion'%} 
+										<span class="PuntoHo_Cortico"></span>
+										<a href="#" class="Contenedor-Texto-Menu"><span class="Text-menu" >Ventas</span></a>
+										{%if usuario.rol != 'gerencia'%}
+											<a href="{{ path('ProyectoPrincipalBundle_ventas_informacioncliente') }}" class="Contenedor-Texto-sub-Menu" ><span class="Text-menu">Agregar Cliente</span></a>
+										{%endif%}
+										<a href="{{ path('ProyectoPrincipalBundle_ventas_consultarcliente') }}" class="Contenedor-Texto-sub-Menu" ><span class="Text-menu">Consultar Cliente</span></a>
+										{%if usuario.rol != 'gerencia'%}
+											<a href="{{ path('ProyectoPrincipalBundle_ventas_emitirorden') }}" class="Contenedor-Texto-sub-Menu" ><span class="Text-menu">Emitir Orden</span></a>
+										{%endif%}
+										<a href="{{ path('ProyectoPrincipalBundle_ventas_consultarorden') }}" class="Contenedor-Texto-sub-Menu" ><span class="Text-menu">Consultar Orden</span></a>
+									{%endif%}
+
+									{%if usuario.rol == 'gerencia' or usuario.rol == 'despacho' or usuario.rol == 'administracion'%} 
+										<span class="PuntoHo_Cortico"></span>
+										<a href="#" class="Contenedor-Texto-Menu"><span class="Text-menu" >Despacho</span></a>
+										<a href="{{ path('ProyectoPrincipalBundle_despacho_bandejaordenes') }}" class="Contenedor-Texto-sub-Menu" ><span class="Text-menu">Bandeja de Ordenes</span></a>
+										{%if usuario.rol != 'gerencia'%}
+											<a href="{{ path('ProyectoPrincipalBundle_despacho_agregarguias') }}" class="Contenedor-Texto-sub-Menu" ><span class="Text-menu">Agregar Guias</span></a>
+										{%endif%}
+										<a href="{{ path('ProyectoPrincipalBundle_despacho_controlsaldo') }}" class="Contenedor-Texto-sub-Menu" ><span class="Text-menu">Control de Saldo</span></a>
+										<a href="{{ path('ProyectoPrincipalBundle_despacho_consultarreporte') }}" class="Contenedor-Texto-sub-Menu" ><span class="Text-menu">Consultar Reporte</span></a>
+									{%endif%}
+
+								{%endif%} 
+								<span class="PuntoHo_Cortico"></span>
+								<a href="#" class="Contenedor-Texto-Menu"><span class="Text-menu" >Administraci&oacute;n</span></a>
+								
+								{%if usuario%}
+									{%if usuario.rol == 'gerencia' or usuario.rol == 'administracion' %} 
+										<a href="{{ path('ProyectoPrincipalBundle_usuarionuevo') }}" class="Contenedor-Texto-sub-Menu" ><span class="Text-menu">Crear Usuario</span></a>
+										<a href="{{ path('ProyectoPrincipalBundle_gestionarusuarios') }}" class="Contenedor-Texto-sub-Menu" ><span class="Text-menu">Gestionar Usuarios</span></a>
+									{%endif%} 
+									<a href="{{ path('ProyectoPrincipalBundle_editarusuario') }}" class="Contenedor-Texto-sub-Menu" ><span class="Text-menu">Editar Cuenta</span></a>
+									<a href="{{ path('ProyectoPrincipalBundle_cerrarsesion') }}" class="Contenedor-Texto-sub-Menu" ><span class="Text-menu"> Cerrar Sesi&oacute;n</span></a>
+									<span class="PuntoHo_Cortico"></span>
+									<a href="#" class="Contenedor-Texto-Menu"><span class="Text-menu" >Manual de Ayuda</span></a>
+								{%else%} 
+									<a href="{{ path('ProyectoPrincipalBundle_acceso') }}" class="Contenedor-Texto-sub-Menu" ><span class="Text-menu"> Iniciar Sesi&oacute;n</span></a>
+								{%endif%}
+
+							</div>
+							<div class="Contenedor-Editable" id="Region-Editable" >
+								{%block contenido%}
+								{%endblock%}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="Contenedor-con-Bordes" id="Main-Contenedor-footer" style="
+			height: 85px;
+			">
+				<span class="Titulo-Aplicacion" style="text-align: center;width: 100%;">Sistema de Gestion de Procesos Administrativos – SIGPRA</span>
+				<span class="Sub-Titulo-Aplicacion" style="text-align: center;width: 100%;">ENASAL S.A - Empresa Nacional Salinera</span>
+				<span class="Sub-Titulo-Aplicacion" style="text-align: center;width: 100%;">Copyright © 2013 PDVSA Industrial. Todos los Derechos Reservados</span>
+			</div>
+		</div>
+	</body>
+</html>

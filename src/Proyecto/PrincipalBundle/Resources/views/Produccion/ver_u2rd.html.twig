@@ -1,0 +1,58 @@
+{% extends "ProyectoPrincipalBundle:Principal:baseproduccion.html.twig" %}
+
+{%block contenido%} <span class="Separador_Modulo"></span>
+<div class="formulario" id="formulario">
+
+<table style="font-size: 9pt;font-family: Arial, sans-serif;color: #666;text-align: center;margin-bottom: 20px" border="0" width="96%">
+	<tr>
+		<td align="left">
+			<img src="{{ asset('imagenes/pdvsaindustrial.png') }}" width="140">
+		</td>
+			<td align="right" style="font-size: 12px;color: #C00;font-weight: bold;font-family: Arial, sans-serif;"><img src="{{ asset('imagenes/logo.jpg') }}" width="140"></td>
+		</tr>
+		<tr>
+			<td align="center" colspan="2" style="font-size: 12px;color: #C00;font-weight: bold;font-family: Arial, sans-serif;"> {{nombreTipo}} </td>
+		</tr>
+	</tr>
+		
+	</table>
+	<table style="font-size: 9pt;font-family: Arial, sans-serif;color: #666;text-align: center;margin-bottom: 20px" border="1" width="96%">
+		<tr>
+			<td>Tipo de sal</td>
+			<td>{{arreglo.tx_tipodesal}}</td>
+		</tr>
+		<tr>
+			<td>Presentación</td>
+			<td>{{arreglo.tx_presentacion}}</td>
+		</tr>
+		<tr>
+			<td>Uso</td>
+			<td>{{arreglo.tx_uso}}</td>
+		</tr>
+		<tr>
+			<td>Cant. Sal No Lavada en Patio</td>
+			<td>{{arreglo.nu_cantsalnolavadaenpatio}}</td>
+		</tr>
+		<tr>
+			<td>Total de Sal no Lavada</td>
+			<td>{{arreglo.nu_totaldesalnolavada}}</td>
+		</tr>
+	</table>
+	<div class="Subtitulo-Normal">OBSERVACIÓN: {{arreglo.tx_observacion}}</div>
+	</br>
+<div class="Subtitulo-Normal" style="text-align: left;width: 560px;">
+		</br></br>
+		<p style="text-align: right;">
+			<span style="text-decoration: underline;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></br>FIRMA DEL COORDINADOR:
+		</p>
+	</div>
+	<p align="left" style="font-weight: bold;color: #666;font-size: 8pt;font-family: Arial, sans-serif;">
+		FECHA: {{fecha}}
+	</p>
+</div>
+<div id="contenedorimagenes1" class="contenedorimagenes" style="margin-right: 28px;">
+	<img src="{{ asset('imagenes/imagenes/print.png') }}" id="imprimir" class="mouse imprimir" contenido="formulario" width="60" align="right" style="margin-left: 20px;cursor: pointer;">
+    <img src="{{ asset('imagenes/imagenes/excel2.png') }}" id="excel" tipo="{{base}}" pk="{{pk}}" class="mouse excel" width="60" align="right" style="cursor: pointer;">
+	<!--<img src="/optigestion/imagenes/copy.png" id="copiar1" class="mouse" width="60" align="right" >!-->
+</div>
+{%endblock%} 

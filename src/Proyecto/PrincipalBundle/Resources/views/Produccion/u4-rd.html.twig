@@ -1,0 +1,121 @@
+{% extends "ProyectoPrincipalBundle:Principal:baseproduccion.html.twig" %}
+
+{%block contenido%} 
+<span class="Titulo-Aplicacion" > Unidad IV: Molienda </span>
+<span class="Titulo-Aplicacion" > Reporte Diario </span>
+<span class="Separador_Modulo"></span>
+<div class="formulario">
+	<div class="unacolumna">
+		<div class="nombreinput">
+			Fecha :
+		</div>
+		<div class="cuadroinput">
+			<input type="text" name="textfield14" class="inputgrande fecha" value="{{fecha}}" class="inputgrande fecha" id="fe_fecha" disabled="disabled" >
+		</div>
+	</div>
+		<div class="unacolumna">
+		<div class="nombreinput">
+			Turnos :
+		</div>
+		<div class="cuadroinput">
+			<select name="select2" id="tx_turnos" class="selectgrande texto">
+				<option value="0">-Seleccione-</option>
+				{%for turno in turnos%}
+					<option value="{{turno.pk}}">{{turno.turno}}</option>
+				{%endfor%}
+			</select>
+		</div>
+	</div>
+		<div class="unacolumna">
+		<div class="nombreinput">
+			Tipo de Producto :
+		</div>
+		<div class="cuadroinput">
+			<select name="select2" id="tx_tipodeproducto" class="selectgrande texto">
+				<option value="0">-Seleccione-</option>
+				<option value="Sal Indust. Grano Grueso">Sal Indust. Grano Grueso</option>
+				<option value="Sal Indust. Comun">Sal Indust. Común</option>
+				<option value="Sal Roja">Sal Roja</option>
+				<option value="Big-Bag Grano Grueso">Big-Bag Grano Grueso</option>
+			</select>
+		</div>
+	</div>
+	<span class="Subtitulo-Normal">Cantidad de Producto Obtenido :</span>
+	<div class="unacolumna">
+		<div class="nombreinput">
+			Sacos (25 kg) :
+		</div>
+		<div class="cuadroinput">
+			<input type="text" name="textfield14" class="inputgrande numero sacos" prenombre="cpo" id="nu_cpo_sacos">
+		</div>
+	</div>
+	<div class="unacolumna">
+		<div class="nombreinput">
+			Toneladas :
+		</div>
+		<div class="cuadroinput">
+			<input type="text" name="textfield14" class="inputgrande numero toneladas" prenombre="cpo" id="nu_cpo_toneladas">
+		</div>
+	</div>
+	<span class="Subtitulo-Normal">Cantidad de Producto Retenido :</span>
+	<div class="unacolumna">
+		<div class="nombreinput">
+			Sacos (25 kg) :
+		</div>
+		<div class="cuadroinput">
+			<input type="text" name="textfield14" class="inputgrande numero sacos" prenombre="cpr" id="nu_cpr_sacos">
+		</div>
+	</div>
+	<div class="unacolumna">
+		<div class="nombreinput">
+			Toneladas :
+		</div>
+		<div class="cuadroinput">
+			<input type="text" name="textfield14" class="inputgrande numero toneladas" prenombre="cpr" id="nu_cpr_toneladas">
+		</div>
+	</div>
+	<span class="Subtitulo-Normal">Cantidad de Producto Trasladado a Almacen de Productos Terminados :</span>
+		<div class="unacolumna">
+		<div class="nombreinput">
+			Sacos (25 kg) :
+		</div>
+		<div class="cuadroinput">
+			<input type="text" name="textfield14" class="inputgrande numero sacos" prenombre="cpt" id="nu_cpt_sacos">
+		</div>
+	</div>
+	<div class="unacolumna">
+		<div class="nombreinput">
+			Toneladas :
+		</div>
+		<div class="cuadroinput">
+			<input type="text" name="textfield14" class="inputgrande numero toneladas" prenombre="cpt" id="nu_cpt_toneladas">
+		</div>
+	</div>
+		<div class="unacolumna">
+		<div class="nombreinput">
+			Total Sales Industriales (TM) :
+		</div>
+		<div class="cuadroinput">
+			<input type="text" name="textfield14" class="inputgrande numero totalestoneladas" id="nu_totalsalesindustrialestm">
+		</div>
+	</div>
+	<div class="unacolumna" >
+		<div class="nombreinput">
+			Observaci&oacute;n:
+		</div>
+		<div class="cuadroinput">
+			<textarea name="textarea" id="tx_observacion" class="textareagrande texto opcional"></textarea>
+		</div>
+	</div>
+	<input type="hidden" name="tipoReporte" value="u4-rd">
+	<input type="hidden" name="pkReporte" value="{%if arreglo.pk is defined%}{{arreglo.pk}}{%else%}0{%endif%}">
+	<span class="Separador_Modulo"></span>
+	<div class="botonizquierdo" style="margin-left: 457px;clear:both">
+		<div class="Principio-Boton"></div>
+		<input type="button" class="Boton" value="Guardar" id="guardarreporte" onclick="return false;">
+		<div class="Final-Boton"></div>
+	</div>
+</div><div class="loader" style="display: none">
+	<img id="loader" src="{{ asset('imagenes/loader.gif') }}" align="center" style="padding-top: 50px;padding-bottom: 50px;display: block;margin-left: auto;margin-right: auto;">
+</div>
+{%endblock%} 

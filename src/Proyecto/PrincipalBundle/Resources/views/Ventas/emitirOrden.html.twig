@@ -1,0 +1,67 @@
+{% extends "ProyectoPrincipalBundle:Principal:baseventas.html.twig" %}
+{%block contenido%} <span class="Titulo-Aplicacion"> VENTAS</span>
+<span class="Titulo-Aplicacion"> Emitir Orden de Despacho</span>
+<span class="Separador_Modulo"></span>
+<input type="hidden" id="idorden" value="{%if objeto !=null%}{{objeto.getD100pkVenEmitirorden}}{%else%}0{%endif%}"/>
+<div class="formulario">
+	<div class="unacolumna">
+		<div class="nombreinput">
+			N° de Orden :
+		</div>
+		<div class="cuadroinput">
+			<input type="text" name="textfield14" class="inputgrande numero" id="nu_ndeorden" nombre="Numero de Orden" value="{%if objeto !=null%}{{objeto.getNuNdeorden}}{%else%}{{numeroOrden}}{%endif%}" validacion="false" disabled="disabled">
+		<!--	<img class="loaderoden" src="{{ asset('imagenes/loader.gif') }}" align="right" width="15px" style="display:none;margin-top: -19px;margin-right: -21px;">
+			<img class="activarorden" src="{{ asset('imagenes/imagenes/acciones/activar.png') }}" align="right" width="15px" style="display:none;margin-top: -19px;margin-right: -21px;">
+			<img class="desactivarorden" src="{{ asset('imagenes/imagenes/acciones/eliminar.png') }}" align="right" width="15px" style="display:none;margin-top: -19px;margin-right: -21px;">-->
+	
+		</div>
+	</div>
+	<div class="unacolumna">
+		<div class="nombreinput">
+			Fecha :
+		</div>
+		<div class="cuadroinput">
+			<input type="text" name="textfield14" class="inputgrande fecha" id="fe_fecha" value="{%if objeto !=null%}{{objeto.getFeFechaString}}{%else%}{{fecha}}{%endif%}"    {%if objeto ==null%}disabled="disabled"{%endif%}>
+		</div>
+	</div>
+	<div class="unacolumna">
+		<div class="nombreinput">
+			Cliente :
+		</div>
+		<div class="cuadroinput">
+			<select name="select2" id="tx_cliente" class="selectgrande texto" >
+				<option value="0">-Seleccione-</option>
+				{%for elemento in arreglo%}
+				<option value="{{elemento.id}}" {%if objeto !=null%}{%if elemento.id ==  objeto.getD100fkVenInfocliente.getD100pkVenInfocliente%}selected=""{%endif%}{%endif%}>{{elemento.rif}}</option>
+				{%endfor%}
+			</select>
+		</div>
+	</div>
+	<div class="unacolumna">
+		<div class="nombreinput">
+			Direcci&oacute;n :
+		</div>
+		<div class="cuadroinput">
+			<textarea name="textarea" class="textareagrande texto" id="tx_direccion">{%if objeto !=null%}{{objeto.getTxDireccion}}{%endif%}</textarea>
+		</div>
+	</div>
+	<div class="unacolumna">
+		<div class="nombreinput">
+			Observaci&oacute;n :
+		</div>
+		<div class="cuadroinput">
+			<textarea name="textarea" class="textareagrande texto" prenombre="dp" id="tx_dp_observacion">{%if objeto !=null%}{{objeto.getTxDpObservacion}}{%endif%}</textarea>
+		</div>
+	</div>
+	
+	<input type="hidden" name="tipoReporte" value="emitirorden">
+	<span class="Separador_Modulo"></span>
+	<div class="botonizquierdo" style="margin-left: 409px;clear:both">
+		<div class="Principio-Boton"></div>
+		<input type="button" class="Boton" value="{%if objeto ==null%}Agregar{%else%}Editar{%endif%} Productos" id="guardarventa" onclick="return false;">
+		<div class="Final-Boton"></div>
+	</div>
+</div><div class="loader" style="display: none">
+	<img id="loader" src="{{ asset('imagenes/loader.gif') }}" align="center" style="padding-top: 50px;padding-bottom: 50px;display: block;margin-left: auto;margin-right: auto;">
+</div>
+{%endblock%}

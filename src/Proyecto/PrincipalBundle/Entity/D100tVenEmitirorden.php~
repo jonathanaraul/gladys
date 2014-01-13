@@ -1,0 +1,101 @@
+<?php
+
+namespace Proyecto\PrincipalBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Proyecto\PrincipalBundle\Entity\D100tVenEmitirorden
+ *
+ * @ORM\Table(name="d100t_ven_emitirorden")
+ * @ORM\Entity
+ */
+class D100tVenEmitirorden
+{
+    /**
+     * @var integer $d100pkVenEmitirorden
+     *
+     * @ORM\Column(name="d100pk_ven_emitirorden", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $d100pkVenEmitirorden;
+
+    /**
+     * @var integer $nuNdeorden
+     *
+     * @ORM\Column(name="nu_ndeorden", type="integer", nullable=false)
+     */
+    private $nuNdeorden;
+
+    /**
+     * @var integer $nuNdefactura
+     *
+     * @ORM\Column(name="nu_ndefactura", type="integer", nullable=false)
+     */
+    private $nuNdefactura;
+
+    /**
+     * @var datetime $feFecha
+     *
+     * @ORM\Column(name="fe_fecha", type="datetime", nullable=false)
+     */
+    private $feFecha;
+
+    /**
+     * @var text $txDireccion
+     *
+     * @ORM\Column(name="tx_direccion", type="text", nullable=false)
+     */
+    private $txDireccion;
+
+    /**
+     * @var text $txDpObservacion
+     *
+     * @ORM\Column(name="tx_dp_observacion", type="text", nullable=false)
+     */
+    private $txDpObservacion;
+
+    /**
+     * @var integer $nuAprobado
+     *
+     * @ORM\Column(name="nu_aprobado", type="integer", nullable=false)
+     */
+    private $nuAprobado;
+
+    /**
+     * @var integer $nuDespachado
+     *
+     * @ORM\Column(name="nu_despachado", type="integer", nullable=false)
+     */
+    private $nuDespachado;
+
+    /**
+     * @var integer $nuCerrado
+     *
+     * @ORM\Column(name="nu_cerrado", type="integer", nullable=false)
+     */
+    private $nuCerrado;
+
+    /**
+     * @var I100tUsuario
+     *
+     * @ORM\ManyToOne(targetEntity="I100tUsuario")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="i100fk_usuario", referencedColumnName="i100pk_usuario")
+     * })
+     */
+    private $i100fkUsuario;
+
+    /**
+     * @var D100tVenInfocliente
+     *
+     * @ORM\ManyToOne(targetEntity="D100tVenInfocliente")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="d100fk_ven_infocliente", referencedColumnName="d100pk_ven_infocliente")
+     * })
+     */
+    private $d100fkVenInfocliente;
+
+
+}

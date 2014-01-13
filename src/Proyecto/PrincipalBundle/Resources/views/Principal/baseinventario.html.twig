@@ -1,0 +1,12 @@
+{% extends "ProyectoPrincipalBundle:Principal:base.html.twig" %}
+{%block scripts%}
+<script type="text/javascript">
+	var direccionBuscarInventario = '{{path('ProyectoPrincipalBundle_almacenamiento_buscarinventario')}}';
+	var direccionGuardarInventario = '{{path('ProyectoPrincipalBundle_almacenamiento_guardarinventario')}}';
+	var direccionEliminarInventario = '{{path('ProyectoPrincipalBundle_almacenamiento_eliminarinventario')}}';	
+	var direccionVisualizarInventario = '{{path('ProyectoPrincipalBundle_almacenamiento_visualizar_inventario')}}';		
+	
+	
+</script>
+<script src="{{ asset('js/inventario.js') }}" type="text/javascript"></script>
+{%endblock%}

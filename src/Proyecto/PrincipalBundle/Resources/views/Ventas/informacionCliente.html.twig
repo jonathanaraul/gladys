@@ -1,0 +1,66 @@
+{% extends "ProyectoPrincipalBundle:Principal:baseventas.html.twig" %}
+{%block contenido%} <span class="Titulo-Aplicacion"> VENTAS</span>
+<span class="Titulo-Aplicacion"> Informaci&oacute;n del Cliente</span>
+<span class="Separador_Modulo"></span>
+<div class="formulario">
+	<div class="unacolumna">
+		<div class="nombreinput">
+			Nombre de la Empresa :
+		</div>
+		<div class="cuadroinput">
+			<input type="text" name="textfield14" class="inputgrande texto" id="tx_nombre" {%if objeto is defined%}value="{{objeto.getTxNombre}}"{%endif%}>
+		</div>
+	</div>
+	<div class="unacolumna">
+		<div class="nombreinput">
+			Representante Legal de la Empresa :
+		</div>
+		<div class="cuadroinput">
+			<input type="text" name="textfield14" class="inputgrande texto" id="tx_representantelegaldelaempresa" {%if objeto is defined%}value="{{objeto.getTxRepresentantelegaldelaempresa}}"{%endif%}>
+		</div>
+	</div>
+	<div class="unacolumna">
+		<div class="nombreinput">
+			RIF :
+		</div>
+		<div class="cuadroinput">
+			<input type="text" name="textfield14" class="inputgrande texto" id="tx_rif" {%if objeto is defined%}value="{{objeto.getTxRif}}"{%endif%}>
+		</div>
+	</div>
+	<div class="unacolumna">
+		<div class="nombreinput">
+			Direcci&oacute;n Fiscal :
+		</div>
+		<div class="cuadroinput">
+			<textarea name="textarea" class="textareagrande texto" id="tx_direccionfiscal">{%if objeto is defined%}{{objeto.getTxDireccionfiscal}}{%endif%}</textarea>
+		</div>
+	</div>
+	<div class="unacolumna">
+		<div class="nombreinput">
+			Telefono :
+		</div>
+		<div class="cuadroinput">
+			<input type="text" name="textfield14" class="inputgrande texto" id="tx_telefono" {%if objeto is defined%}value="{{objeto.getTxTelefono}}"{%endif%}>
+		</div>
+	</div>
+	<div class="unacolumna">
+		<div class="nombreinput">
+			C&oacute;digo SADA :
+		</div>
+		<div class="cuadroinput">
+			<input type="text" name="textfield14" class="inputgrande texto" id="tx_codigosada" {%if objeto is defined%}value="{{objeto.getTxCodigosada}}"{%endif%}>
+		</div>
+	</div>
+	<input type="hidden" name="tipoReporte" value="infocliente" >
+	<input type="hidden" name="idclienteeditar" value="{%if objeto is defined%}{{objeto.getD100pkVenInfocliente}}{%else%}0{%endif%}" >
+
+	<span class="Separador_Modulo"></span>
+	<div class="botonizquierdo" style="margin-left: 457px;clear:both">
+		<div class="Principio-Boton"></div>
+		<input type="button" class="Boton" value="{%if objeto is defined%}Actualizar{%else%}Guardar{%endif%}" id="guardarventa" onclick="return false;">
+		<div class="Final-Boton"></div>
+	</div>
+</div><div class="loader" style="display: none">
+	<img id="loader" src="{{ asset('imagenes/loader.gif') }}" align="center" style="padding-top: 50px;padding-bottom: 50px;display: block;margin-left: auto;margin-right: auto;">
+</div>
+{%endblock%}

@@ -1,0 +1,94 @@
+<?php
+
+namespace Proyecto\PrincipalBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Proyecto\PrincipalBundle\Entity\D102tProdU1rd
+ *
+ * @ORM\Table(name="d102t_prod_u1rd")
+ * @ORM\Entity
+ */
+class D102tProdU1rd
+{
+    /**
+     * @var integer $d102pkProdU1rd
+     *
+     * @ORM\Column(name="d102pk_prod_u1rd", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $d102pkProdU1rd;
+
+    /**
+     * @var text $txAdlHorainiciodetrabajo
+     *
+     * @ORM\Column(name="tx_adl_horainiciodetrabajo", type="text", nullable=true)
+     */
+    private $txAdlHorainiciodetrabajo;
+
+    /**
+     * @var text $txAdlHorafinaldelaparada
+     *
+     * @ORM\Column(name="tx_adl_horafinaldelaparada", type="text", nullable=true)
+     */
+    private $txAdlHorafinaldelaparada;
+
+    /**
+     * @var text $txAdlTotalhorasparada
+     *
+     * @ORM\Column(name="tx_adl_totalhorasparada", type="text", nullable=true)
+     */
+    private $txAdlTotalhorasparada;
+
+    /**
+     * @var text $txAdlHorainicialdelaparada
+     *
+     * @ORM\Column(name="tx_adl_horainicialdelaparada", type="text", nullable=true)
+     */
+    private $txAdlHorainicialdelaparada;
+
+    /**
+     * @var text $txAdlArranco
+     *
+     * @ORM\Column(name="tx_adl_arranco", type="text", nullable=true)
+     */
+    private $txAdlArranco;
+
+    /**
+     * @var text $txAdlHorasefectivas
+     *
+     * @ORM\Column(name="tx_adl_horasefectivas", type="text", nullable=true)
+     */
+    private $txAdlHorasefectivas;
+
+    /**
+     * @var text $txAdlCausasdelaparada
+     *
+     * @ORM\Column(name="tx_adl_causasdelaparada", type="text", nullable=true)
+     */
+    private $txAdlCausasdelaparada;
+
+    /**
+     * @var D100tProdU1rd
+     *
+     * @ORM\ManyToOne(targetEntity="D100tProdU1rd")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="d100fk_prod_u1rd", referencedColumnName="d100pk_prod_u1rd")
+     * })
+     */
+    private $d100fkProdU1rd;
+
+    /**
+     * @var E100tTurno
+     *
+     * @ORM\ManyToOne(targetEntity="E100tTurno")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="e100fk_turno", referencedColumnName="e100pk_turno")
+     * })
+     */
+    private $e100fkTurno;
+
+
+}

@@ -1,0 +1,115 @@
+{% extends "ProyectoPrincipalBundle:Principal:baseinventario.html.twig" %}
+{%block contenido%} <span class="Titulo-Aplicacion"> Almac&eacute;n de Productos Terminados</span>
+<span class="Titulo-Aplicacion" > Nuevo Inventario de Productos Terminados</span>
+<span class="Separador_Modulo"></span>
+<div class="formulario">
+	<div class="cuadroformulario">
+		<div class="unacolumna" >
+			<div class="nombreinput">
+				Tipo de Inventario :
+			</div>
+			<div class="cuadroinput">
+				<select name="select2" id="nu_tipodeinventario" class="selectgrande numero">
+					<option value="0">-Seleccione-</option>
+					<option value="1">Inventario Diario de Productos Terminados</option>
+					<option value="2">Inventario Diario de Productos Terminados-Rechazados</option>
+				</select>
+			</div>
+		</div>
+		<div class="unacolumna">
+			<div class="nombreinput">
+				Nombre:
+			</div>
+			<div class="cuadroinput">
+				<input type="text" name="textfield14" value="" id="tx_nombre" class="inputgrande texto">
+			</div>
+		</div>
+		<div class="unacolumna">
+			<div class="nombreinput">
+				Fecha:
+			</div>
+			<div class="cuadroinput">
+				<input type="text" name="textfield14" value="{{fecha}}" id="fe_fecha" class="inputgrande fecha" disabled="">
+			</div>
+		</div>
+	</div>
+	<span class="Separador_Modulo"></span>
+	<div class="botonizquierdo" id="crearbotoninventario" style="margin-left: 410px;clear:both">
+		<div class="Principio-Boton"></div>
+		<input type="button" class="Boton" value="Crear Inventario" id="crearinventario" onclick="return false;">
+		<div class="Final-Boton"></div>
+	</div>
+	<div id="itp" style="display: none">
+	{%for elemento in arreglo%}
+	<div class="ipt cuadrobordes" id="{{elemento.inicial}}" >
+		<span class="Subtitulo-Normal" style="margin-top: 20px;margin-bottom: 10px;">{{elemento.nombre}}</span>
+		<div class="unacolumna">
+			<div class="nombreinput">
+				Produccion:
+			</div>
+			<div class="cuadroinput">
+				<input type="text" name="textfield14" value="" id="nu_{{elemento.inicial}}_produccion" class="inputgrande numero" prenombre="{{elemento.inicial}}">
+			</div>
+		</div>
+		<div class="unacolumna">
+			<div class="nombreinput">
+				Recuperado:
+			</div>
+			<div class="cuadroinput">
+				<input type="text" name="textfield14" value="" id="nu_{{elemento.inicial}}_recuperado" class="inputgrande numero" prenombre="{{elemento.inicial}}" >
+			</div>
+		</div>
+		<div class="unacolumna">
+			<div class="nombreinput">
+				Despachado:
+			</div>
+			<div class="cuadroinput">
+				<input type="text" name="textfield14" value="" id="nu_{{elemento.inicial}}_despachado" class="inputgrande numero" prenombre="{{elemento.inicial}}" >
+			</div>
+		</div>
+		<div class="unacolumna">
+			<div class="nombreinput">
+				Dañado:
+			</div>
+			<div class="cuadroinput">
+				<input type="text" name="textfield14" value="" id="nu_{{elemento.inicial}}_daniado" class="inputgrande numero" prenombre="{{elemento.inicial}}" >
+			</div>
+		</div>
+		<div class="unacolumna">
+			<div class="nombreinput">
+				Donado:
+			</div>
+			<div class="cuadroinput">
+				<input type="text" name="textfield14" value="" id="nu_{{elemento.inicial}}_donado" class="inputgrande numero" prenombre="{{elemento.inicial}}" >
+			</div>
+		</div>
+		<div class="unacolumna">
+			<div class="nombreinput">
+				P/Desp:
+			</div>
+			<div class="cuadroinput">
+				<input type="text" name="textfield14" value="" id="nu_{{elemento.inicial}}_pdesp"  class="inputgrande numero" prenombre="{{elemento.inicial}}" >
+			</div>
+		</div>
+		<div class="unacolumna">
+			<div class="nombreinput">
+				Observacion:
+			</div>
+			<div class="cuadroinput">
+				<input type="text" name="textfield14" value="" id="tx_{{elemento.inicial}}_observacion"  class="inputgrande texto observacion" unidad="{{elemento.numero}}" prenombre="{{elemento.inicial}}" >
+			</div>
+		</div>
+	</div>
+	{%endfor%}
+	
+	<div class="botonizquierdo" id="guardaridtp" style="margin-left: 410px;clear:both;margin-top: 20px;">
+		<div class="Principio-Boton"></div>
+		<input type="button" class="Boton" value="Guardar Inventario" id="guardarinventario" onclick="return false;">
+		<div class="Final-Boton"></div>
+	</div>
+	</div>
+</div>
+<div class="loader" style="display: none">
+	<img id="loader" src="{{ asset('imagenes/loader.gif') }}" align="center" style="padding-top: 146px;display: block;margin-left: auto;margin-right: auto;">
+</div>
+{%endblock%}

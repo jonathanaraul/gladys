@@ -1,0 +1,16 @@
+{% extends "ProyectoPrincipalBundle:Principal:base.html.twig" %}
+{%block scripts%}
+<script type="text/javascript">
+	var direccionGuardarVenta = '{{path('ProyectoPrincipalBundle_ventas_guardarventa')}}';
+	var direccionBuscarCliente = '{{path('ProyectoPrincipalBundle_ventas_buscarcliente')}}';
+	var direccionBuscarOrden = '{{path('ProyectoPrincipalBundle_ventas_buscarorden')}}';
+	var direccionValidacionOrdenDespacho = '{{path('ProyectoPrincipalBundle_ventas_validacionordendespacho')}}';
+    var direccionOrdenDespacho = '{{path('ProyectoPrincipalBundle_despacho_visualizar_orden')}}';
+    var direccionEliminarCliente = '{{path('ProyectoPrincipalBundle_ventas_eliminarcliente')}}';
+    var direccionEditarCliente = '{{path('ProyectoPrincipalBundle_ventas_editarcliente')}}';
+    var direccionVisualizarCliente = '{{path('ProyectoPrincipalBundle_ventas_visualizar_cliente')}}';   
+    var direccionEliminarOrden = '{{path('ProyectoPrincipalBundle_ventas_eliminarordendespacho')}}';   
+    
+</script>
+<script src="{{ asset('js/ventas.js') }}" type="text/javascript"></script>
+{%endblock%}

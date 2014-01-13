@@ -1,0 +1,257 @@
+{% extends "ProyectoPrincipalBundle:Principal:basedespacho.html.twig" %}
+{%block contenido%} 
+<span class="Titulo-Aplicacion"> DESPACHO TERRESTRE</span>
+<span class="Titulo-Aplicacion" > Nuevo Reporte</span>
+<span class="Separador_Modulo"></span>
+<div class="cuadroformulario">
+	<div class="unacolumna" >
+		<div class="nombreinput">
+			Tipo de Reporte :
+		</div>
+		<div class="cuadroinput">
+			<select name="select2" id="tipodereporteacrear" class="selectgrande">
+				<option value="0">-Seleccione-</option>
+				<option value="1">Reporte Diario de Despacho Terrestre</option>
+				<option value="2">Reporte por Ordenes de Despacho</option>  
+				<option value="3">Reporte por Guias de Despacho</option>      
+                        
+			</select>
+		</div>
+	</div>
+	<div class="unacolumna">
+		<div class="nombreinput">
+			Fecha del Reporte :
+		</div>
+		<div class="cuadroinput">
+			<input type="text" name="textfield14" value="{{fecha}}" class="inputgrande fecha" id="fechainicial" onclick="javascript:NewCal('fechainicial','ddmmyyyy')">
+		</div>
+	</div>
+</div>
+	<span class="Separador_Modulo"></span>
+<div class="botonizquierdo" style="margin-left: 446px;clear:both">
+	<div class="Principio-Boton"></div>
+	<input type="button" class="Boton" value="Continuar" id="continuar" onclick="return false;">
+	<div class="Final-Boton"></div>
+</div>
+<div id="crearreportediariodespacho" style="display: none;">
+	<input type="hidden" name="tipoReporte" value="rep_diario">
+	
+	<div class="unacolumna">
+		<div class="nombreinput">
+			Unidad :
+		</div>
+		<div class="cuadroinput">
+			<select name="select2" id="nu_unidad" class="selectgrande selector numero">
+				<option value="0">-Seleccione-</option>
+				{%for elemento in unidades%} 
+				<option value="{{elemento.id}}">{{elemento.nombre}}</option>
+				{%endfor%}
+							</select>
+		</div>
+	</div>
+	<div class="unacolumna">
+		<div class="nombreinput">
+			Tipo de producto :
+		</div>
+		<div class="cuadroinput">
+			<select name="select2" id="nu_tipodeproducto" class="selectgrande selector numero" disabled="disabled">
+				<option value="0">-Seleccione-</option>
+				
+			</select>
+		</div>
+	</div>
+	<div class="unacolumna">
+		<div class="nombreinput">
+			Cliente :
+		</div>
+		<div class="cuadroinput">
+			<select name="select2" id="nu_cliente" class="selectgrande selector numero">
+				<option value="0">-Seleccione-</option>
+				{%for elemento in clientes%} 
+				<option value="{{elemento.id}}">{{elemento.rif}}</option>
+				{%endfor%}
+			</select>
+		</div>
+	</div>
+
+	<div class="unacolumna">
+		<div class="nombreinput">
+			N° de Guia :
+		</div>
+		<div class="cuadroinput">
+			<input type="text" class="inputgrande numero" id="nu_ndeguia">
+		</div>
+	</div>	
+	<span class="Subtitulo-Normal" style="clear: left;width: 542px;margin-top: 20px;">Orden de Despacho</span>
+	<div class="unacolumna">
+		<div class="nombreinput">
+			N° de Orden :
+		</div>
+		<div class="cuadroinput">
+			<input type="text" class="inputgrande numero" prenombre="orddes" id="nu_orddes_ndeorden">
+		</div>
+	</div>		
+	<div class="unacolumna">
+		<div class="nombreinput">
+			Fecha :
+		</div>
+		<div class="cuadroinput">
+			<input type="text" class="inputgrande fecha"  value="{{fecha}}"  prenombre="orddes" id="fe_orddes_fecha">
+		</div>
+	</div>	
+	<span class="Subtitulo-Normal" style="clear: left;width: 542px;margin-top: 20px;">Despacho TON</span>
+	<div class="unacolumna">
+		<div class="nombreinput">
+			Sacos (25 kg) :
+		</div>
+		<div class="cuadroinput">
+			<input type="text" class="inputgrande numero" prenombre="deston" id="nu_deston_sacos">
+		</div>
+	</div>		
+	<div class="unacolumna">
+		<div class="nombreinput">
+			Real :
+		</div>
+		<div class="cuadroinput">
+			<input type="text" class="inputgrande numero" prenombre="deston" id="nu_deston_real">
+		</div>
+	</div>	
+	<div class="unacolumna">
+		<div class="nombreinput">
+			Teor :
+		</div>
+		<div class="cuadroinput">
+			<input type="text" class="inputgrande numero" prenombre="deston" id="nu_deston_teor">
+		</div>
+	</div>	
+	<span class="Subtitulo-Normal" style="clear: left;width: 542px;margin-top: 20px;">Var.</span>
+	<div class="unacolumna">
+		<div class="nombreinput">
+			Ton :
+		</div>
+		<div class="cuadroinput">
+			<input type="text" class="inputgrande numero" prenombre="var" id="nu_var_ton">
+		</div>
+	</div>	
+	<span class="Subtitulo-Normal" style="clear: left;width: 542px;margin-top: 20px;">Sacos</span>
+	<div class="unacolumna">
+		<div class="nombreinput">
+			Teor :
+		</div>
+		<div class="cuadroinput">
+			<input type="text" class="inputgrande numero" prenombre="sac" id="nu_sac_teor">
+		</div>
+	</div>
+	<div class="unacolumna">
+		<div class="nombreinput">
+			Promedio :
+		</div>
+		<div class="cuadroinput">
+			<input type="text" class="inputgrande numero" prenombre="sac" id="nu_sac_promedio">
+		</div>
+	</div>
+	<span class="Subtitulo-Normal" style="clear: left;width: 542px;margin-top: 20px;">Total Despacho</span>
+	<div class="unacolumna">
+		<div class="nombreinput">
+			Sacos (25 kg) :
+		</div>
+		<div class="cuadroinput">
+			<input type="text" class="inputgrande numero" prenombre="td" id="nu_td_sacos">
+		</div>
+	</div>
+	<div class="unacolumna">
+		<div class="nombreinput">
+			Ton :
+		</div>
+		<div class="cuadroinput">
+			<input type="text" class="inputgrande numero" prenombre="td" id="nu_td_ton">
+		</div>
+	</div>
+</div>
+<div id="crearordendespacho" style="display: none;">
+	<div class="unacolumna" >
+		<div class="nombreinput">
+			Cliente :
+		</div>
+		<div class="cuadroinput">
+			<select name="select2" id="cliente" class="selectgrande">
+				<option value="0">-Seleccione-</option>
+				{%for elemento in clientes%} 
+				<option value="{{elemento.id}}">{{elemento.rif}}</option>
+				{%endfor%}
+			</select>
+		</div>
+	</div>
+	<div class="unacolumna">
+		<div class="nombreinput">
+			Monto :
+		</div>
+		<div class="cuadroinput">
+			<input type="text" name="textfield14"  class="inputgrande" id="nu_monto" >
+		</div>
+	</div>
+	<div class="unacolumna" >
+		<div class="nombreinput">
+			Observaci&oacute;n:
+		</div>
+		<div class="cuadroinput">
+			<textarea name="textarea" id="observacion" class="textareagrande texto"></textarea>
+		</div>
+	</div>
+</div>
+
+<div id="crearguiadespacho" style="display: none;">
+	<div class="unacolumna" >
+		<div class="nombreinput">
+			Cliente :
+		</div>
+		<div class="cuadroinput">
+			<select name="select2" id="clienteguia" class="selectgrande">
+				<option value="0">-Seleccione-</option>
+				{%for elemento in clientes%} 
+				<option value="{{elemento.id}}">{{elemento.rif}}</option>
+				{%endfor%}
+			</select>
+		</div>
+	</div>
+	<div class="unacolumna" >
+		<div class="nombreinput">
+			Orden :
+		</div>
+		<div class="cuadroinput">
+			<select name="select2" id="ordendespachoguia" class="selectgrande">
+				<option value="0">-Seleccione-</option>
+				
+			</select>
+		</div>
+	</div>
+	<div class="unacolumna">
+		<div class="nombreinput">
+			Monto :
+		</div>
+		<div class="cuadroinput">
+			<input type="text" name="textfield14"  class="inputgrande" id="nu_montoguia" >
+		</div>
+	</div>
+	<div class="unacolumna" >
+		<div class="nombreinput">
+			Observaci&oacute;n:
+		</div>
+		<div class="cuadroinput">
+			<textarea name="textarea" id="observacionguia" class="textareagrande texto"></textarea>
+		</div>
+	</div>
+</div>
+
+	<span class="Separador_Modulo" id="separador2" style="display: block"></span>
+	<div class="botonizquierdo" id="botonfinal" style="margin-left: 430px;clear:both;display: none">
+		<div class="Principio-Boton"></div>
+		<input type="button" class="Boton" value="Crear reporte" id="crearreporte" onclick="return false;">
+		<div class="Final-Boton"></div>
+	</div>
+	
+<div class="loader" style="display: none;">
+	<img id="loader" src="/gladys/imagenes/loader.gif" align="center" style="padding-top: 50px;display: block;margin-left: auto;margin-right: auto;">
+</div>
+
+{%endblock%}

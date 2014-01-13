@@ -1,0 +1,56 @@
+<?php
+
+namespace Proyecto\PrincipalBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Proyecto\PrincipalBundle\Entity\D101tVenEmitirorden
+ *
+ * @ORM\Table(name="d101t_ven_emitirorden")
+ * @ORM\Entity
+ */
+class D101tVenEmitirorden
+{
+    /**
+     * @var integer $d101pkVenEmitirorden
+     *
+     * @ORM\Column(name="d101pk_ven_emitirorden", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $d101pkVenEmitirorden;
+
+    /**
+     * @var text $txDpTipodeproducto
+     *
+     * @ORM\Column(name="tx_dp_tipodeproducto", type="text", nullable=false)
+     */
+    private $txDpTipodeproducto;
+
+    /**
+     * @var float $nuDpSacos
+     *
+     * @ORM\Column(name="nu_dp_sacos", type="float", nullable=false)
+     */
+    private $nuDpSacos;
+
+    /**
+     * @var float $nuDpTm
+     *
+     * @ORM\Column(name="nu_dp_tm", type="float", nullable=false)
+     */
+    private $nuDpTm;
+
+    /**
+     * @var D100tVenEmitirorden
+     *
+     * @ORM\ManyToOne(targetEntity="D100tVenEmitirorden")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="d100fk_ven_emitirorden", referencedColumnName="d100pk_ven_emitirorden")
+     * })
+     */
+    private $d100fkVenEmitirorden;
+
+
+}

@@ -1,0 +1,100 @@
+{% extends "ProyectoPrincipalBundle:Principal:basedespacho.html.twig" %}
+{%block contenido%} <span class="Titulo-Aplicacion"> CONTROL DE SALDO</span>
+<span class="Separador_Modulo"></span>
+<div class="cuadroformulario">
+	{%if estado == false %} <span class="Titulo-Aplicacion">ERROR: REPORTE NO ENCONTRADO</span>
+	{%else%}
+	<div id="contenidoreporte">
+		<div class="cabecera" style="text-align: center">
+			<span class="Sub-Titulo-Aplicacion" style="font-size: 14px;padding-top: 10px;text-align: center;">REPUBLICA BOLIVARIANA DE VENEZUELA</span></BR>
+			<span class="Sub-Titulo-Aplicacion" style="font-size: 14px;padding-top: 10px;text-align: center;">PDVSA INDUSTRIAL</span></BR>
+			<span class="Sub-Titulo-Aplicacion" style="padding-top: 10PX;text-align: center;font-size: 12px;">EMPRESA NACIONAL SALINERA</span></BR>
+			<div style="position:relative;width: 570px;">
+				<img src="{{ asset('imagenes/logo.jpg') }}" height="100" style="padding-top: 12px;display: block;margin-left: auto;margin-right: auto;">
+			</div>
+		</div>
+		<div class="Subtitulo-Normal" style="text-align: center;width: 560px;">
+			</br>
+			<p>
+				CONTROL DE SALDO
+			</p>
+			<p>
+				PDVSA PETROLEO
+			</p>
+		</div>
+		{%for producto in productos%}
+		<table border="1"  style="width: 560px;text-align: center;font-size: 8pt;font-family: Arial, sans-serif;color: #666;margin-left: 20px;">
+			<tr>
+				<td bgcolor="red"><font color="white"> FECHA </font></td>
+				<td  bgcolor="red"><font color="white"> O/D N</font></td>
+				<td  bgcolor="red"><font color="white"> MONTO</font></td>
+				<td width="15%" bgcolor="red"><font color="white">GUIAS</font></td>
+				<td width="15%" bgcolor="red"><font color="white">FECHA</font></td>
+				<td width="15%" bgcolor="red"><font color="white">PRODUCTO</font></td>
+				<td width="15%" bgcolor="red"><font color="white">MONTO (SAC)</font></td>
+				<td width="15%" bgcolor="red"><font color="white">MONTO (TON)</font></td>
+				<td width="15%" bgcolor="red"><font color="white">SALDO</font></td>
+			</tr>
+			{%set saldo = producto.getNuDpSacos%}
+			{%set indicador = 0%}
+			{%set imprimio = 0%}
+
+			{%for elemento in guias%}
+			{%set saldo = saldo - elemento.nu_monto%}
+
+			{%if loop.index0 == 0%}
+			<tr>
+				<td > {{fecha}} </td>
+				<td  > {{producto.getD100fkVenEmitirorden.getNuNdeorden}}</td>
+				<td  > {{producto.getNuDpSacos}}</td>
+				{%endif%}
+
+				{%if elemento.d101fk_ven_emitirorden == producto.getD101pkVenEmitirorden %}
+				{%if loop.index0 != 0%}
+				{%if indicador >0%}
+			<tr>
+				<td colspan="3" ></td>
+				{%endif%} 
+				
+				<td width="15%">{{elemento.nu_ndeguia}}</td>
+				<td width="15%">{{elemento.fe_fecha}}</td>
+				<td width="15%">{{producto.getTxDpTipodeproducto}}</td>
+				<td width="15%">{{elemento.nu_monto}}</td>
+				<td width="15%">{{elemento.nu_monto / 25}}</td>
+				<td width="15%">{{saldo}}</td>
+			</tr>
+			{%else%} <td width="15%">{{elemento.nu_ndeguia}}</td>
+			<td width="15%">{{elemento.fe_fecha}}</td>
+			<td width="15%">{{producto.getTxDpTipodeproducto}}</td>
+			<td width="15%">{{elemento.nu_monto}}</td>
+			<td width="15%">{{elemento.nu_monto / 25}}</td>
+			<td width="15%">{{saldo}}</td>
+			</tr>
+			{%set indicador = 1%}
+			
+
+			{%endif%}
+			{%set imprimio = 1%}
+			{%endif%}
+			{%endfor%}
+			{%if imprimio ==0%} <td colspan="6"></td>
+			</tr>
+			{%endif%}
+		</table>
+		{%endfor%}
+	</div>
+	<span class="Separador_Modulo"></span>
+	<div style="position:relative;width: 590px;">
+		<div style="width: 490px;float:left;margin-right: -11px;">
+			<img src="{{ asset('imagenes/imagenes/excel2.png') }}" class="excel2" url="{{ path('ProyectoPrincipalBundle_despacho_visualizar_control_saldo', { 'id': id, 'formato':'excel'}) }}" height="35" style="padding-top: 12px;display: block;margin-left: auto;cursor: pointer;">
+		</div>
+		<div style="width: 50px;float:left;">
+			<img src="{{ asset('imagenes/imagenes/pdf.png') }}" class="pdf" url="{{ path('ProyectoPrincipalBundle_despacho_visualizar_reporte', {'tipo': 3, 'id':orden.getD100pkVenEmitirorden, 'formato':'pdf'}) }}" height="35" style="padding-top: 12px;display: block;margin-left: auto;cursor: pointer;">
+		</div>
+		<div style="width: 50px;float:left;">
+			<img src="{{ asset('imagenes/imagenes/print.png') }}" class="imprimir" contenido="contenidoreporte" height="35" style="padding-top: 12px;display: block;margin-left: auto;margin-right: auto;cursor: pointer;">
+		</div>
+	</div>
+	{%endif%}
+</div>
+{%endblock%}

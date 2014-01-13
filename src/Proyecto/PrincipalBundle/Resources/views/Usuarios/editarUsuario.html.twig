@@ -1,0 +1,48 @@
+{% extends "ProyectoPrincipalBundle:Principal:base.html.twig" %}
+{%block contenido%} <span class="Titulo-Aplicacion">Editar Usuario</span>
+<span class="Separador_Modulo"> </span>
+<span class="Sub-Titulo-Aplicacion">Datos B&aacute;sicos:</span>
+
+<span class="Sub-Titulo-Texto" id="mensajeError"></span>
+							
+							
+<div class="Contenedor-Formulario">
+	<form action="{{ path('ProyectoPrincipalBundle_editarcuenta') }}" method="post">
+		<input type="hidden" id="idusuario" name="idusuario" value="{{usuario.i100pkUsuario}}"/>
+		<div class="Contenedor-Elemneto-Formulario">
+			<span class="Sub-Titulo-Formulario">Nombre de Usuario: </span>
+			<input type="text" id="nombredeusuario" name="nombredeusuario" value="{{usuario.username}}"/>
+		</div>
+		<div class="Contenedor-Elemneto-Formulario">
+			
+			<span class="Sub-Titulo-Formulario">Nombre: </span>
+			<input type="text" id="nombre" name="nombre" value="{{usuario.nombre|title}}"/>
+		</div>
+		<div class="Contenedor-Elemneto-Formulario">
+			<span class="Sub-Titulo-Formulario">Apellido: </span>
+			<input type="text" id="apellido" name="apellido" value="{{usuario.apellido|title}}"/>
+		</div>
+		<div class="Contenedor-Elemneto-Formulario">
+			<span class="Sub-Titulo-Formulario">Cedula: </span>
+			<input type="text" id="cedula" name="cedula" value="{{usuario.cedula}}"/>
+		</div>
+		<span class="Separador_Modulo"> </span>
+		<span class="Sub-Titulo-Aplicacion">Si desea modificar la contraseña rellene los siguientes campos:</span>
+		</br></br>
+		<div class="Contenedor-Elemneto-Formulario">
+			<span class="Sub-Titulo-Formulario">Nueva Contrase&ntilde;a: </span>
+			<input type="password" id="nuevacontrasenia" name="nuevacontrasenia" value=""/>
+		</div>
+		<div class="Contenedor-Elemneto-Formulario">
+			<span class="Sub-Titulo-Formulario">Repetir Contrase&ntilde;a: </span>
+			<input type="password" id="nuevacontrasenia2" name="nuevacontrasenia2" value=""/>
+		</div>
+
+		<div class="Contenedor-Elemneto-Formulario" id="Contenedor-Elemneto-Formulario-aux">
+			<div class="Principio-Boton"></div>
+			<input name="Acceder" class="Boton" type="submit"  value="Guardar cambios" />
+			<div class="Final-Boton"></div>
+		</div>
+	</form>
+</div>
+{%endblock%} 

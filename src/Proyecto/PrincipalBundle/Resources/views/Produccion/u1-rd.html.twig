@@ -1,0 +1,226 @@
+{% extends "ProyectoPrincipalBundle:Principal:baseproduccion.html.twig" %}
+
+{%block contenido%} <span class="Titulo-Aplicacion" > Unidad I: Sistema Natural </span>
+<span class="Titulo-Aplicacion" > Reporte Diario </span>
+<span class="Separador_Modulo"></span>
+<div class="formulario">
+		<div class="unacolumna">
+		<div class="nombreinput">
+			Fecha :
+		</div>
+		<div class="cuadroinput">
+			<input type="text" name="textfield14" value="{{fecha}}" class="inputgrande fecha" id="fe_fecha" disabled="disabled">
+		</div>
+	</div>
+	<div class="unacolumna">
+		<div class="nombreinput">
+			Existencia Inicial Lavada :
+		</div>
+		<div class="cuadroinput">
+			<input type="text" name="textfield14" value="{%if arreglo.nu_existenciainiciallavada is defined%}{{arreglo.nu_existenciainiciallavada}}{%endif%}" class="inputgrande numero" id="nu_existenciainiciallavada">
+		</div>
+	</div>
+	<div class="unacolumna">
+		<div class="nombreinput">
+			Existencia Inicial no Lavada :
+		</div>
+		<div class="cuadroinput">
+			<input type="text" name="textfield14" class="inputgrande numero" value="{%if arreglo.nu_existenciainicialnolavada is defined%}{{arreglo.nu_existenciainicialnolavada}}{%endif%}" id="nu_existenciainicialnolavada">
+		</div>
+	</div>
+	<div class="unacolumna">
+		<div class="nombreinput">
+			Existencia Inicial Apilada en Laguna :
+		</div>
+		<div class="cuadroinput">
+			<input type="text" name="textfield14" class="inputgrande numero" value="{%if arreglo.nu_existenciainicialapiladaenlaguna is defined%}{{arreglo.nu_existenciainicialapiladaenlaguna}}{%endif%}" id="nu_existenciainicialapiladaenlaguna">
+		</div>
+	</div>
+	<div class="unacolumna">
+		<div class="nombreinput">
+			Turnos :
+		</div>
+		<div class="cuadroinput">
+			<select name="select2" id="tx_turnos" class="selectgrande selector texto">
+				<option value="0">-Seleccione-</option>
+				{%for turno in turnos%}
+					{%if arreglo.pkturno is defined and turno.pk > arreglo.pkturno%}
+					<option value="{{turno.pk}}">{{turno.turno}}</option>
+					{%elseif arreglo.pkturno is not defined%}
+					<option value="{{turno.pk}}">{{turno.turno}}</option>
+					{%endif%}
+				{%endfor%}
+			</select>
+		</div>
+	</div>
+	<div class="unacolumna">
+		<div class="nombreinput">
+			Sal Apilada en Laguna :
+		</div>
+		<div class="cuadroinput">
+			<input type="text" name="textfield14" class="inputgrande numero" id="nu_salapiladaenlaguna">
+		</div>
+	</div>
+	<div class="unacolumna">
+		<div class="nombreinput">
+			Sal Bajada al Lavadero :
+		</div>
+		<div class="cuadroinput">
+			<input type="text" name="textfield14" class="inputgrande numero" id="nu_salbajadaallavadero">
+		</div>
+	</div>
+	<div class="unacolumna">
+		<div class="nombreinput">
+			Sal Lavada :
+		</div>
+		<div class="cuadroinput">
+			<input type="text" name="textfield14" class="inputgrande numero" id="nu_sallavada">
+		</div>
+	</div>
+	<div class="unacolumna">
+		<div class="nombreinput">
+			Sal Depositada en Patio (Lavadero) :
+		</div>
+		<div class="cuadroinput">
+			<input type="text" name="textfield14" class="inputgrande numero" id="nu_saldepositadaenpatiolavadero">
+		</div>
+	</div>
+	<div class="unacolumna">
+		<div class="nombreinput">
+			Sal Lavada del Patio :
+		</div>
+		<div class="cuadroinput">
+			<input type="text" name="textfield14" class="inputgrande numero" id="nu_sallavadadelpatio">
+		</div>
+	</div>
+	<div class="unacolumna">
+		<div class="nombreinput">
+			Sal neta Lavada :
+		</div>
+		<div class="cuadroinput">
+			<input type="text" name="textfield14" class="inputgrande numero" id="nu_salnetalavada">
+		</div>
+	</div>
+	<div class="unacolumna">
+		<div class="nombreinput">
+			Acumulada en Patio Lavada :
+		</div>
+		<div class="cuadroinput">
+			<input type="text" name="textfield14" class="inputgrande numero" id="nu_acumuladaenpatiolavada">
+		</div>
+	</div>
+	<div class="unacolumna">
+		<div class="nombreinput">
+			Acumulada en Patio no Lavada :
+		</div>
+		<div class="cuadroinput">
+			<input type="text" name="textfield14" class="inputgrande numero" id="nu_acumuladaenpationolavada">
+		</div>
+	</div>
+	<div class="unacolumna">
+		<div class="nombreinput">
+			Salidas
+		</div>
+		<div class="cuadroinput"></div>
+	</div>
+	<div class="unacolumna">
+		<div class="nombreinput">
+			Unidades :
+		</div>
+		<div class="cuadroinput">
+			<input type="text" name="textfield14" class="inputgrande texto" id="tx_unidades">
+		</div>
+	</div>
+	<div class="unacolumna">
+		<div class="nombreinput">
+			Clientes :
+		</div>
+		<div class="cuadroinput">
+			<input type="text" name="textfield14" class="inputgrande texto" id="tx_clientes">
+		</div>
+	</div>
+	<span class="Subtitulo-Normal">Actividades del Lavadero</span>
+	<div class="unacolumna">
+		<div class="nombreinput">
+			Turnos :
+		</div>
+		<div class="cuadroinput">
+			<select name="select2" id="tx_adl_turnos" class="selectgrande selector texto" prenombre="adl" disabled>
+				<option value="0">-Seleccione-</option>
+				{%for turno in turnos%}
+				<option value="{{turno.pk}}">{{turno.turno}}</option>
+				{%endfor%}
+			</select>
+		</div>
+	</div>
+	<div class="doscolumnas">
+		<div class="columna1">
+			<div class="nombreinput2">
+				Hora Inicio de Trabajo :
+			</div>
+			<div class="cuadroinput2">
+				<input type="text" name="textfield14" class="texto opcional" id="tx_adl_horainiciodetrabajo" prenombre="adl">
+			</div>
+			<div class="nombreinput2">
+				Hora Final de la Parada :
+			</div>
+			<div class="cuadroinput2">
+				<input type="text" name="textfield14" class="texto opcional" id="tx_adl_horafinaldelaparada" prenombre="adl">
+			</div>
+			<div class="nombreinput2">
+				Total Horas Parada :
+			</div>
+			<div class="cuadroinput2">
+				<input type="text" name="textfield14" class="texto opcional" id="tx_adl_totalhorasparada" prenombre="adl">
+			</div>
+		</div>
+		<div class="columna2">
+			<div class="nombreinput2">
+				Hora Inicial de la Parada :
+			</div>
+			<div class="cuadroinput2">
+				<input type="text" name="textfield14" class="texto opcional" id="tx_adl_horainicialdelaparada" prenombre="adl">
+			</div>
+			<div class="nombreinput2">
+				Arranc&oacute; :
+			</div>
+			<div class="cuadroinput2">
+				<input type="text" name="textfield14" class="texto opcional" id="tx_adl_arranco" prenombre="adl">
+			</div>
+			<div class="nombreinput2">
+				Horas Efectivas :
+			</div>
+			<div class="cuadroinput2">
+				<input type="text" name="textfield14" class="texto opcional" id="tx_adl_horasefectivas" prenombre="adl">
+			</div>
+		</div>
+	</div>
+	<div class="unacolumna">
+		<div class="nombreinput">
+			Causas de la Parada :
+		</div>
+		<div class="cuadroinput">
+			<textarea name="textarea" id="tx_adl_causasdelaparada" class="textareagrande texto opcional" prenombre="adl"></textarea>
+		</div>
+	</div>
+	<div class="unacolumna" >
+		<div class="nombreinput">
+			Observaci&oacute;n:
+		</div>
+		<div class="cuadroinput">
+			<textarea name="textarea" id="tx_observacion" class="textareagrande texto opcional">{%if arreglo.tx_observacion is defined%}{{arreglo.tx_observacion}}{%else%}nada{%endif%}</textarea>
+		</div>
+	</div>
+	<input type="hidden" name="tipoReporte" value="u1-rd">
+	<input type="hidden" name="pkReporte" value="{%if arreglo.pk is defined%}{{arreglo.pk}}{%else%}0{%endif%}">
+	<span class="Separador_Modulo"></span>
+	<div class="botonizquierdo" style="margin-left: 457px;clear:both">
+		<div class="Principio-Boton"></div>
+		<input type="button" class="Boton" value="Guardar" id="guardarreporte" onclick="return false;">
+		<div class="Final-Boton"></div>
+	</div>
+</div>
+<div class="loader" style="display: none">
+	<img id="loader" src="{{ asset('imagenes/loader.gif') }}" align="center" style="padding-top: 50px;padding-bottom: 50px;display: block;margin-left: auto;margin-right: auto;">
+</div>
+{%endblock%} 

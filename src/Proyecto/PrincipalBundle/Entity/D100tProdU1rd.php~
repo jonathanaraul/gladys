@@ -1,0 +1,70 @@
+<?php
+
+namespace Proyecto\PrincipalBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Proyecto\PrincipalBundle\Entity\D100tProdU1rd
+ *
+ * @ORM\Table(name="d100t_prod_u1rd")
+ * @ORM\Entity
+ */
+class D100tProdU1rd
+{
+    /**
+     * @var integer $d100pkProdU1rd
+     *
+     * @ORM\Column(name="d100pk_prod_u1rd", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $d100pkProdU1rd;
+
+    /**
+     * @var datetime $feFecha
+     *
+     * @ORM\Column(name="fe_fecha", type="datetime", nullable=false)
+     */
+    private $feFecha;
+
+    /**
+     * @var float $nuExistenciainiciallavada
+     *
+     * @ORM\Column(name="nu_existenciainiciallavada", type="float", nullable=false)
+     */
+    private $nuExistenciainiciallavada;
+
+    /**
+     * @var float $nuExistenciainicialnolavada
+     *
+     * @ORM\Column(name="nu_existenciainicialnolavada", type="float", nullable=false)
+     */
+    private $nuExistenciainicialnolavada;
+
+    /**
+     * @var float $nuExistenciainicialapiladaenlaguna
+     *
+     * @ORM\Column(name="nu_existenciainicialapiladaenlaguna", type="float", nullable=false)
+     */
+    private $nuExistenciainicialapiladaenlaguna;
+
+    /**
+     * @var text $txObservacion
+     *
+     * @ORM\Column(name="tx_observacion", type="text", nullable=true)
+     */
+    private $txObservacion;
+
+    /**
+     * @var I100tUsuario
+     *
+     * @ORM\ManyToOne(targetEntity="I100tUsuario")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="i100fk_usuario", referencedColumnName="i100pk_usuario")
+     * })
+     */
+    private $i100fkUsuario;
+
+
+}

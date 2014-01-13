@@ -1,0 +1,87 @@
+{% extends "ProyectoPrincipalBundle:Principal:basedespacho.html.twig" %}
+{%block contenido%} 
+<span class="Titulo-Aplicacion"> DESPACHO TERRESTRE</span>
+<span class="Titulo-Aplicacion" id="subtituloguia" > Agregar Gu&iacute;as</span>
+<span class="Separador_Modulo"></span>
+<div class="cuadroformulario">
+	<div class="unacolumna">
+		<div class="nombreinput">
+			Fecha del Reporte :
+		</div>
+		<div class="cuadroinput">
+			<input type="text" name="textfield14" value="{{fecha}}" class="inputgrande fecha" id="fechaguia" disabled="disabled">
+		</div>
+	</div>
+	<div class="unacolumna">
+		<div class="nombreinput">
+			Numero de la guia:
+		</div>
+		<div class="cuadroinput">
+			<input type="text" name="textfield14"  class="inputgrande numero" id="nu_ndeguia"  nombre="Numero de la guia" >
+		</div>
+	</div>
+	<div class="unacolumna" >
+		<div class="nombreinput">
+			Cliente :
+		</div>
+		<div class="cuadroinput">
+			<select name="select2" id="clienteguia" class="selectgrande">
+				<option value="0">-Seleccione-</option>
+				{%for elemento in clientes%} 
+				<option value="{{elemento.id}}">{{elemento.rif}}</option>
+				{%endfor%}
+			</select>
+		</div>
+	</div>
+	<div class="unacolumna" >
+		<div class="nombreinput">
+			Orden :
+		</div>
+		<div class="cuadroinput">
+			<select name="select2" id="ordendespachoguia" class="selectgrande">
+				<option value="0">-Seleccione-</option>
+			</select>
+		</div>
+	</div>
+	<div class="unacolumna" >
+		<div class="nombreinput">
+			Producto :
+		</div>
+		<div class="cuadroinput">
+			<select name="select2" id="productosorden" class="selectgrande">
+				<option value="0">-Seleccione-</option>
+			</select>
+		</div>
+	</div>
+	<div class="unacolumna">
+		<div class="nombreinput">
+			Monto (SACOS):
+		</div>
+		<div class="cuadroinput">
+			<input type="text" name="textfield14"  class="inputgrande numero" id="nu_montoguia"  validacion="false" nombre="Monto (SACOS)" style="width: 220px;">
+			<img class="loaderoden" src="{{ asset('imagenes/loader.gif') }}" align="right" width="15px" style="display:none;margin-right: -21px;">
+			<img class="activarorden" src="{{ asset('imagenes/imagenes/acciones/activar.png') }}" align="right" width="15px" style="display:none;margin-right: -21px;">
+			<img class="desactivarorden" src="{{ asset('imagenes/imagenes/acciones/eliminar.png') }}" align="right" width="15px" style="display:none;margin-right: -21px;">
+		</div>
+	</div>
+	<div class="unacolumna" >
+		<div class="nombreinput">
+			Observaci&oacute;n:
+		</div>
+		<div class="cuadroinput">
+			<textarea name="textarea" id="observacionguia" class="textareagrande texto opcional"></textarea>
+		</div>
+	</div>
+</div>
+	<span class="Separador_Modulo" id="separador2" style="display: block"></span>
+	<div class="botonizquierdo" id="botonfinal" style="margin-left: 430px;clear:both;display: block">
+		<div class="Principio-Boton"></div>
+		<input type="button" class="Boton" value="Agregar Gu&iacute;a" id="crearguia" onclick="return false;">
+		<div class="Final-Boton"></div>
+	</div>
+	
+<div class="loader" style="display: none;">
+	<img id="loader" src="/gladys/imagenes/loader.gif" align="center" style="padding-top: 80px;display: block;margin-left: auto;margin-right: auto;">
+</div>
+
+{%endblock%}

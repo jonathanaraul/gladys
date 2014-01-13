@@ -1,0 +1,20 @@
+<pdf Author="OptiGestion" Title="Recibos de Sueldo">
+	<dynamic-page>
+
+		<placeholders>
+			<footer>
+				<div height="20px">
+					<page-info offset="0" format="Página 1 de 3" />
+				</div>
+			</footer>
+		</placeholders>
+
+
+		<div width="100%" padding-top ="5px"  padding-bottom="5px">
+			
+			{%for i in range(0, 100)%}
+			<p>Hola a todos</p>
+			{%endfor%}
+		</div>
+	</dynamic-page>
+</pdf>

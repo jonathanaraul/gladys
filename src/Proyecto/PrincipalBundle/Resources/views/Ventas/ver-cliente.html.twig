@@ -1,0 +1,74 @@
+{% extends "ProyectoPrincipalBundle:Principal:baseventas.html.twig" %}
+{%block contenido%} <span class="Titulo-Aplicacion">{{nombre}}</span>
+<span class="Separador_Modulo"></span>
+<div class="cuadroformulario">
+	{%if estado == false %} <span class="Titulo-Aplicacion">ERROR: CLIENTE NO ENCONTRADO</span>
+	{%else%}
+	<div id="contenidoreporte">
+		<div class="cabecera" style="text-align: center">
+			
+		
+		<span class="Sub-Titulo-Aplicacion" style="font-size: 14px;padding-top: 10px;text-align: center;">REPUBLICA BOLIVARIANA DE VENEZUELA</span>
+		<span class="Sub-Titulo-Aplicacion" style="padding-top: 10px;text-align: center;font-size: 12px;">EMPRESA NACIONAL SALINERA</span>
+		<div style="position:relative;width: 570px;">
+			<img src="{{ asset('imagenes/logo.jpg') }}" height="100" style="padding-top: 12px;display: block;margin-left: auto;margin-right: auto;">
+		</div>
+		
+		</div>
+		
+		<table style="font-size: 9pt;font-family: Arial, sans-serif;color: #666;text-align: center;margin-bottom: 20px" border="1" width="96%">
+		<tbody>
+			<tr>
+				<td bgcolor="red" width="50%"><font color="white">ID</font></td>
+				<td>{{cliente.getD100pkVenInfocliente}}</td>
+
+			</tr>
+			<tr>
+				<td bgcolor="red"><font color="white">Nombre</font></td>
+				<td>{{cliente.getTxNombre}}</td>
+
+			</tr>
+			
+			<tr>
+				<td bgcolor="red"><font color="white">RIF</font></td>
+				<td>{{cliente.getTxRif}}</td>
+
+			</tr>
+			<tr>
+				<td bgcolor="red"><font color="white">Telefono</font></td>
+				<td>{{cliente.getTxTelefono}}</td>
+
+			</tr>		
+			<tr>
+				<td bgcolor="red"><font color="white">Direccion fiscal</font></td>
+				<td>{{cliente.getTxDireccionfiscal}}</td>
+
+			</tr>	
+			<tr>
+				<td bgcolor="red"><font color="white">Codigo sada</font></td>
+				<td>{{cliente.getTxCodigosada}}</td>
+
+			</tr>	
+			<tr>
+				<td bgcolor="red"><font color="white">Representante legal de la empresa</font></td>
+				<td>{{cliente.getTxRepresentantelegaldelaempresa}}</td>
+
+			</tr>
+	</tbody>
+	
+	</table>
+
+
+	</div>
+	<span class="Separador_Modulo"></span>
+	<div style="position:relative;width: 590px;">
+		<div style="width: 540px;float:left;">
+			<img src="{{ asset('imagenes/imagenes/pdf.png') }}" class="pdf" url="{{ path('ProyectoPrincipalBundle_despacho_visualizar_reporte', {'tipo': 1, 'id':0, 'formato':'pdf'}) }}" height="35" style="padding-top: 12px;display: block;margin-left: auto;cursor: pointer;">
+		</div>
+		<div style="width: 50px;float:left;">
+			<img src="{{ asset('imagenes/imagenes/print.png') }}" class="imprimir" contenido="contenidoreporte" height="35" style="padding-top: 12px;display: block;margin-left: auto;margin-right: auto;cursor: pointer;">
+		</div>
+	</div>
+	{%endif%}
+</div>
+{%endblock%}

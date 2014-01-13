@@ -1,0 +1,159 @@
+{% extends "ProyectoPrincipalBundle:Principal:baseproduccion.html.twig" %}
+
+{%block contenido%} <span class="Separador_Modulo"></span>
+<div class="formulario" id="formulario">
+
+<table style="font-size: 9pt;font-family: Arial, sans-serif;color: #666;text-align: center;margin-bottom: 20px" border="0" width="96%">
+	<tr>
+		<td align="left">
+			<img src="{{ asset('imagenes/pdvsaindustrial.png') }}" width="140">
+		</td>
+
+		<td align="right" style="font-size: 12px;color: #C00;font-weight: bold;font-family: Arial, sans-serif;">
+			<img src="{{ asset('imagenes/logo.jpg') }}" width="140">
+			
+		</td>
+	</tr>
+	<tr>
+		<td align="center" colspan="2" style="font-size: 12px;color: #C00;font-weight: bold;font-family: Arial, sans-serif;">
+			REPORTE DIARIO UNIDAD I
+		</td>
+	</tr>
+		
+	</table>
+	<table style="font-size: 9pt;font-family: Arial, sans-serif;color: #666;text-align: center;margin-bottom: 20px" border="1" width="96%">
+		<tr>
+			<td>EXISTENCIA INICIAL LAVADA (Ton)</td>
+			<td> {{arreglo.0.nu_existenciainiciallavada}} TM</td>
+		</tr>
+		<tr>
+			<td>EXISTENCIA INICIAL NO LAVADA (Ton)</td>
+			<td> {{arreglo.0.nu_existenciainicialnolavada}} TM</td>
+		</tr>
+		<tr>
+			<td>EXISTENCIA INICIAL APILADA EN LAGUNA (APROXIMADO)</td>
+			<td> {{arreglo.0.nu_existenciainicialapiladaenlaguna}} TM</td>
+		</tr>
+	</table>
+
+
+	<table width="96%" style="font-size: 9pt;font-family: Arial, sans-serif;color: #666;text-align: center" border="1">
+		<tr>
+			<td>Turnos</td>
+			<td>6am a 12m</td>
+			<td>12m a 6pm</td>
+			<td>6pm a 12pm</td>
+		</tr>
+		<tr>
+			<td>Sal apilada en la laguna</td>
+			<td> {%if arreglo[1][0]['nu_salapiladaenlaguna'] is defined%}{{arreglo[1][0]['nu_salapiladaenlaguna']}}{%else%}00{%endif%} TM</td>
+			<td> {%if arreglo[1][1]['nu_salapiladaenlaguna'] is defined%}{{arreglo[1][1]['nu_salapiladaenlaguna']}}{%else%}00{%endif%} TM</td>
+			<td> {%if arreglo[1][2]['nu_salapiladaenlaguna'] is defined%}{{arreglo[1][2]['nu_salapiladaenlaguna']}}{%else%}00{%endif%} TM</td>
+		</tr>
+		<tr>
+			<td>Sal bajada al lavadero</td>
+			<td> {%if arreglo[1][0]['nu_salbajadaallavadero'] is defined%}{{arreglo[1][0]['nu_salbajadaallavadero']}}{%else%}00{%endif%} TM</td>
+			<td> {%if arreglo[1][1]['nu_salbajadaallavadero'] is defined%}{{arreglo[1][1]['nu_salbajadaallavadero']}}{%else%}00{%endif%} TM</td>
+			<td> {%if arreglo[1][2]['nu_salbajadaallavadero'] is defined%}{{arreglo[1][2]['nu_salbajadaallavadero']}}{%else%}00{%endif%} TM</td>
+		</tr>
+		<tr>
+			<td>Sal depositada en patio (lavadero)</td>
+			<td> {%if arreglo[1][0]['nu_saldepositadaenpatiolavadero'] is defined%}{{arreglo[1][0]['nu_saldepositadaenpatiolavadero']}}{%else%}00{%endif%} TM</td>
+			<td> {%if arreglo[1][1]['nu_saldepositadaenpatiolavadero'] is defined%}{{arreglo[1][1]['nu_saldepositadaenpatiolavadero']}}{%else%}00{%endif%} TM</td>
+			<td> {%if arreglo[1][2]['nu_saldepositadaenpatiolavadero'] is defined%}{{arreglo[1][2]['nu_saldepositadaenpatiolavadero']}}{%else%}00{%endif%} TM</td>
+		</tr>
+		<tr>
+			<td>Sal lavada del patio</td>
+			<td> {%if arreglo[1][0]['nu_sallavadadelpatio'] is defined%}{{arreglo[1][0]['nu_sallavadadelpatio']}}{%else%}00{%endif%} TM</td>
+			<td> {%if arreglo[1][1]['nu_sallavadadelpatio'] is defined%}{{arreglo[1][1]['nu_sallavadadelpatio']}}{%else%}00{%endif%} TM</td>
+			<td> {%if arreglo[1][2]['nu_sallavadadelpatio'] is defined%}{{arreglo[1][2]['nu_sallavadadelpatio']}}{%else%}00{%endif%} TM</td>
+		</tr>
+		<tr>
+			<td>Sal neta lavada</td>
+			<td> {%if arreglo[1][0]['nu_salnetalavada'] is defined%}{{arreglo[1][0]['nu_salnetalavada']}}{%else%}00{%endif%} TM</td>
+			<td> {%if arreglo[1][1]['nu_salnetalavada'] is defined%}{{arreglo[1][1]['nu_salnetalavada']}}{%else%}00{%endif%} TM</td>
+			<td> {%if arreglo[1][2]['nu_salnetalavada'] is defined%}{{arreglo[1][2]['nu_salnetalavada']}}{%else%}00{%endif%} TM</td>
+		</tr>
+		<tr>
+			<td colspan="4" align="center">Salidas</td>
+		</tr>
+		<tr>
+			<td>Unidades</td>
+			<td> {%if arreglo[1][0]['tx_unidades'] is defined%}{{arreglo[1][0]['tx_unidades']}}{%else%}{%endif%} </td>
+			<td> {%if arreglo[1][1]['tx_unidades'] is defined%}{{arreglo[1][1]['tx_unidades']}}{%else%}{%endif%} </td>
+			<td> {%if arreglo[1][2]['tx_unidades'] is defined%}{{arreglo[1][2]['tx_unidades']}}{%else%}{%endif%} </td>
+		</tr>
+		<tr>
+			<td>Clientes</td>
+			<td> {%if arreglo[1][0]['tx_clientes'] is defined%}{{arreglo[1][0]['tx_clientes']}}{%else%}{%endif%} </td>
+			<td> {%if arreglo[1][1]['tx_clientes'] is defined%}{{arreglo[1][1]['tx_clientes']}}{%else%}{%endif%} </td>
+			<td> {%if arreglo[1][2]['tx_clientes'] is defined%}{{arreglo[1][2]['tx_clientes']}}{%else%}{%endif%} </td>
+		</tr>
+		<tr>
+			<td>Acumulada en patio lavada</td>
+			<td> {%if arreglo[1][0]['nu_acumuladaenpatiolavada'] is defined%}{{arreglo[1][0]['nu_acumuladaenpatiolavada']}}{%else%}00{%endif%} TM</td>
+			<td> {%if arreglo[1][1]['nu_acumuladaenpatiolavada'] is defined%}{{arreglo[1][1]['nu_acumuladaenpatiolavada']}}{%else%}00{%endif%} TM</td>
+			<td> {%if arreglo[1][2]['nu_acumuladaenpatiolavada'] is defined%}{{arreglo[1][2]['nu_acumuladaenpatiolavada']}}{%else%}00{%endif%} TM</td>
+		</tr>
+		<tr>
+			<td>Acumulada en patio no lavada</td>
+			<td> {%if arreglo[1][0]['nu_acumuladaenpationolavada'] is defined%}{{arreglo[1][0]['nu_acumuladaenpationolavada']}}{%else%}00{%endif%} TM</td>
+			<td> {%if arreglo[1][1]['nu_acumuladaenpationolavada'] is defined%}{{arreglo[1][1]['nu_acumuladaenpationolavada']}}{%else%}00{%endif%} TM</td>
+			<td> {%if arreglo[1][2]['nu_acumuladaenpationolavada'] is defined%}{{arreglo[1][2]['nu_acumuladaenpationolavada']}}{%else%}00{%endif%} TM</td>
+		</tr>
+	</table>
+	</br>
+	<table width="95%" style="font-size: 9pt;font-family: Arial, sans-serif;color: #666;text-align: center" border="1" width="96%">
+		<caption>
+			Actividades del Lavadero
+		</caption>
+		<tr>
+			<td>Turnos</td>
+			<td>Hora Inicio de Trabajo</td>
+			<td>Hora Inicial de la parada</td>
+			<td>Causas de las paradas</td>
+			<td>Hora final de la parada</td>
+			<td>Arranc&oacute;</td>
+			<td>Total horas parada</td>
+			<td>Horas efectivas</td>
+		</tr>
+		{% set totalHorasParada = 0 %}
+		{% set totalHorasEfectiva = 0 %}
+		{%for elemento in arreglo[2]%}
+		<tr>
+		
+			<td>{{turnos[elemento['e100fk_turno']]}}</td>
+			<td>{{elemento.tx_adl_horainiciodetrabajo}}</td>
+			<td>{{elemento.tx_adl_horafinaldelaparada}}</td>
+			<td>{{elemento.tx_adl_causasdelaparada}}</td>
+			<td>{{elemento.tx_adl_horafinaldelaparada}}</td>
+			<td>{{elemento.tx_adl_arranco}}</td>
+			<td>{{elemento.tx_adl_totalhorasparada}}</td>
+			<td>{{elemento.tx_adl_horasefectivas}}</td>
+		</tr>
+		
+		{% set totalHorasParada = totalHorasParada + elemento.tx_adl_totalhorasparada %}
+		{% set totalHorasEfectiva = totalHorasEfectiva + elemento.tx_adl_horasefectivas %}
+		{%endfor%}
+
+		<tr>
+			<td colspan="6">Total horas</td>
+			<td>{{totalHorasParada}}h</td>
+			<td>{{totalHorasEfectiva}}h</td>
+		</tr>
+	</table>
+	<div class="Subtitulo-Normal">OBSERVACIÓN: {{arreglo.0.tx_observacion}} </div>
+		<div class="Subtitulo-Normal" style="text-align: left;width: 560px;">
+		</br></br>
+			<p style="text-align: right;">
+				<span style="text-decoration: underline;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></br>FIRMA DEL COORDINADOR:
+			</p>
+		</div>
+	<p align="left" style="font-weight: bold;color: #666;font-size: 8pt;font-family: Arial, sans-serif;">FECHA: {{fecha}}</p>	
+</div>
+<div id="contenedorimagenes1" class="contenedorimagenes" style="margin-right: 28px;">
+	<img src="{{ asset('imagenes/imagenes/print.png') }}" id="imprimir" class="mouse imprimir" contenido="formulario" width="60" align="right" style="margin-left: 20px;cursor: pointer;">
+    <img src="{{ asset('imagenes/imagenes/excel2.png') }}" id="excel" tipo="{{base}}" pk="{{pk}}" class="mouse excel" width="60" align="right" style="cursor: pointer;">
+	<!--<img src="/optigestion/imagenes/copy.png" id="copiar1" class="mouse" width="60" align="right" >!-->
+</div>
+{%endblock%} 

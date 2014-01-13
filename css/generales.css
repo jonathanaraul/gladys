@@ -1,0 +1,73 @@
+.nombreinput {
+	font-size: 8pt;
+	font-family: Arial, sans-serif;
+	color: #666;
+	margin-left: 21px;
+	padding-top: 12px;
+	float: left;
+	width: 213px;
+}
+.inputgrande {
+	width: 245px;
+	margin-left: 42px;
+}
+.selectgrande {
+	width: 245px;
+	margin-left: 42px;
+	margin-top: 0px;
+}
+.textareagrande {
+	width: 245px;
+	margin-left: 42px;
+	margin-top: 0px;
+}
+.cuadroinput {
+	padding-top: 12px;
+	float: left;
+	width: 266px;
+}
+.nombreinput2 {
+	font-size: 8pt;
+	font-family: Arial, sans-serif;
+	color: #666;
+	margin-left: 22px;
+	padding-top: 22px;
+	float: left;
+	width: 106px;
+	clear: both;
+}
+.cuadroinput2 {
+	padding-top: 12px;
+	padding-top: 22px;
+	float: left;
+	width: 133px;
+}
+.unacolumna {
+	width: 542px;
+	display: inline-block;
+}
+.doscolumnas {
+	width: 542px;
+	padding-top: 12px;
+	display: inline-block;
+}
+.columna1 {
+	width: 271px;
+	display: inline-block;
+}
+.columna2 {
+	width: 267px;
+	float: left;
+	display: inline-block;
+}
+
+.cuadrobordes{
+	
+    border-color: red;
+    border-style: solid;  
+    border-width: 1px;
+    margin-top: 37px;
+    width: 545px;
+    padding-left: 15px;
+    padding-bottom: 19px;
+}

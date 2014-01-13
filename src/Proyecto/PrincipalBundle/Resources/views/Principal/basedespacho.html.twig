@@ -1,0 +1,20 @@
+{% extends "ProyectoPrincipalBundle:Principal:base.html.twig" %}
+{%block scripts%}
+<script type="text/javascript">
+
+	var direccionCrearReporte = '{{path('ProyectoPrincipalBundle_despacho_crearreporte')}}';
+	var direccionVisualizarReporte = '{{path('ProyectoPrincipalBundle_despacho_visualizar_reporte')}}';	
+	var direccionDeterminarProducto = '{{path('ProyectoPrincipalBundle_despacho_determinarproducto')}}';	
+	var direccionDeterminarOrden = '{{path('ProyectoPrincipalBundle_despacho_determinarordenes')}}';	
+	var direccionDeterminaProductoOrden = '{{path('ProyectoPrincipalBundle_despacho_determinarproductoorden')}}';	
+	var direccionVisualizarControlSaldo = '{{path('ProyectoPrincipalBundle_despacho_visualizar_control_saldo')}}';		
+	var direccionValidacionMontoDespacho = '{{path('ProyectoPrincipalBundle_ventas_validacionmontodespacho')}}';
+	var direccionCrearGuiaDespacho = '{{path('ProyectoPrincipalBundle_despacho_crearguias')}}';	
+	var direccionBuscarReporte = '{{path('ProyectoPrincipalBundle_despacho_buscarreporte')}}';	
+	var direccionVisualizarInforme = '{{path('ProyectoPrincipalBundle_despacho_visualizar_informe')}}';
+	var direccionRecargarBandejaOrdenes = '{{path('ProyectoPrincipalBundle_despacho_recargarbandejaordenes')}}';	
+	var direccionOrdenDespacho = '{{path('ProyectoPrincipalBundle_despacho_visualizar_orden')}}';
+	
+</script>
+<script src="{{ asset('js/despacho.js') }}" type="text/javascript"></script>
+{%endblock%}

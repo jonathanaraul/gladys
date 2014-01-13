@@ -1,0 +1,39 @@
+
+<div class="Tabla-Aplicacion" id="Tabla-Aplicacion">
+		<div class="Tabla-Fondo">
+			<div class="Tabla-Elemento-Encabezado" style="">
+				Id
+			</div>
+			<div class="Tabla-Elemento-Encabezado" style="width: 140px;">
+				Nombre
+			</div>
+			<div class="Tabla-Elemento-Encabezado" style="width: 140px;">
+				Fecha
+			</div>
+			<div class="Tabla-Elemento-Encabezado" style="">
+				Ver
+			</div>
+			<div class="Tabla-Elemento-Encabezado" style="">
+				Eliminar
+			</div>
+		</div>
+		{%for elemento in arreglo%}
+		<div class="Tabla-Fondo">
+			<div class="Tabla-Elemento" style="text-align: center">{{elemento.pk}}</div>
+			<div class="Tabla-Elemento" style="text-align: center;width: 130px;">{{elemento.nombre}}</div>
+			<div class="Tabla-Elemento" style="text-align: center;width: 130px;">{{elemento.fecha}}</div>
+			<div class="Tabla-Elemento" style="text-align: center;">
+				<img src="{{ asset('imagenes/imagenes/acciones/look2.png') }}" class="visualizarinventario" id="{{elemento.pk}}" tipo="html"  align="center" height="15" style="cursor: pointer;margin: auto;">
+			</div>
+			<div class="Tabla-Elemento" style="text-align: center;">
+				<img src="{{ asset('imagenes/imagenes/acciones/eliminar.png') }}" class="eliminarinventario" id="{{elemento.pk}}" align="center" height="15" style="cursor: pointer;margin: auto;">
+				<img src="{{ asset('imagenes/imagenes/acciones/loader.gif') }}" align="center" height="15" style="display: none;margin: auto;">
+			</div>
+	    </div>
+		{%endfor%}
+		
+	<span class="Separador_Modulo"></span>
+
+</div>
+
+

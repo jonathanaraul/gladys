@@ -1,0 +1,252 @@
+ProyectoPrincipalBundle_homepage:
+    pattern:  /
+    defaults: { _controller: ProyectoPrincipalBundle:Principal:index }
+ProyectoPrincipalBundle_objetivos:
+    pattern:  /objetivos
+    defaults: { _controller: ProyectoPrincipalBundle:Principal:objetivos }
+ProyectoPrincipalBundle_acceso:
+    pattern:  /acceso
+    defaults: { _controller: ProyectoPrincipalBundle:Principal:acceso}
+ProyectoPrincipalBundle_validacion:
+    pattern:  /validacion
+ProyectoPrincipalBundle_cerrarsesion:
+    pattern:  /logout
+ProyectoPrincipalBundle_usuarionuevo:
+    pattern:  /usuarionuevo
+    defaults: { _controller: ProyectoPrincipalBundle:Usuarios:usuarioNuevo}
+ProyectoPrincipalBundle_guardarusuario:
+    pattern:  /guardarusuario
+    defaults: { _controller: ProyectoPrincipalBundle:Usuarios:guardarUsuario}
+    requirements:
+      _method: POST
+ProyectoPrincipalBundle_gestionarusuarios:
+    pattern:  /gestionarusuarios
+    defaults: { _controller: ProyectoPrincipalBundle:Usuarios:gestionarUsuarios}
+ProyectoPrincipalBundle_deshabilitarusuario:
+    pattern:  /deshabilitarusuario
+    defaults: { _controller: ProyectoPrincipalBundle:Usuarios:deshabilitarUsuario}
+    requirements:
+      _method: POST
+ProyectoPrincipalBundle_editarusuario:
+    pattern:  /editarusuario
+    defaults: { _controller: ProyectoPrincipalBundle:Usuarios:editarUsuario}
+ProyectoPrincipalBundle_editarcuenta:
+    pattern:  /editarcuenta
+    defaults: { _controller: ProyectoPrincipalBundle:Usuarios:editarCuenta}
+    requirements:
+      _method: POST
+ProyectoPrincipalBundle_eliminarusuario:
+    pattern:  /eliminarusuario
+    defaults: { _controller: ProyectoPrincipalBundle:Usuarios:eliminarUsuario}
+    requirements:
+      _method: POST
+ProyectoPrincipalBundle_modificarestadousuario:
+    pattern:  /modificarestadousuario
+    defaults: { _controller: ProyectoPrincipalBundle:Usuarios:modificarEstadoUsuario}
+    requirements:
+      _method: POST
+
+
+ProyectoPrincipalBundle_produccion_nuevoreporte:
+    pattern:  /produccion/nuevoreporte
+    defaults: { _controller: ProyectoPrincipalBundle:Produccion:nuevoReporte}
+ProyectoPrincipalBundle_produccion_consultarreporte:
+    pattern:  /produccion/consultarreporte
+    defaults: { _controller: ProyectoPrincipalBundle:Produccion:consultarReporte}
+ProyectoPrincipalBundle_produccion_resumenproduccion:
+    pattern:  /produccion/resumenproduccion/{anio}/{mes}
+    defaults: { _controller: ProyectoPrincipalBundle:Produccion:resumenProduccion,anio: '2013',mes: '1'}
+ProyectoPrincipalBundle_produccion_guardarreporte:
+    pattern:  /produccion/guardarreporte
+    defaults: { _controller: ProyectoPrincipalBundle:Produccion:guardarReporte}
+    requirements:
+      _method: POST
+ProyectoPrincipalBundle_produccion_guardarresumen:
+    pattern:  /produccion/guardarresumen
+    defaults: { _controller: ProyectoPrincipalBundle:Produccion:guardarResumen}
+    requirements:
+      _method: POST
+ProyectoPrincipalBundle_produccion_buscarreporte:
+    pattern:  /produccion/buscarreporte
+    defaults: { _controller: ProyectoPrincipalBundle:Produccion:buscarReporte}
+    requirements:
+      _method: POST
+ProyectoPrincipalBundle_produccion_eliminarreporte:
+    pattern:  /produccion/eliminarreporte
+    defaults: { _controller: ProyectoPrincipalBundle:Produccion:eliminarReporte}
+    requirements:
+      _method: POST
+ProyectoPrincipalBundle_produccion_reporte:
+    pattern:  /produccion/reporte/{unidad}/{tipo}
+    defaults: { _controller: ProyectoPrincipalBundle:Produccion:reporte,unidad: '',tipo: ''}
+ProyectoPrincipalBundle_produccion_visualizar_reporte:
+    pattern:  /produccion/visualizar/{base}/{id}
+    defaults: { _controller: ProyectoPrincipalBundle:Produccion:visualizarReporte,base: '',id: ''}
+ProyectoPrincipalBundle_produccion_visualizarxls_reporte:
+    pattern:  /produccion/visualizarxls/{base}/{id}
+    defaults: { _controller: ProyectoPrincipalBundle:Produccion:visualizarReporteXls, base: '', id: ''}
+
+
+ProyectoPrincipalBundle_almacenamiento_nuevoinventario:
+    pattern:  /almacenamiento/nuevoinventario
+    defaults: { _controller: ProyectoPrincipalBundle:Inventario:nuevoInventario}
+ProyectoPrincipalBundle_almacenamiento_consultarinventario:
+    pattern:  /almacenamiento/consultarinventario
+    defaults: { _controller: ProyectoPrincipalBundle:Inventario:consultarInventario}
+ProyectoPrincipalBundle_almacenamiento_buscarinventario:
+    pattern:  /almacenamiento/buscarinventario
+    defaults: { _controller: ProyectoPrincipalBundle:Inventario:buscarInventario}
+    requirements:
+      _method: POST
+ProyectoPrincipalBundle_almacenamiento_guardarinventario:
+    pattern:  /almacenamiento/guardarinventario
+    defaults: { _controller: ProyectoPrincipalBundle:Inventario:guardarInventario}
+    requirements:
+      _method: POST
+ProyectoPrincipalBundle_almacenamiento_eliminarinventario:
+    pattern:  /almacenamiento/eliminarinventario
+    defaults: { _controller: ProyectoPrincipalBundle:Inventario:eliminarInventario}
+    requirements:
+      _method: POST
+ProyectoPrincipalBundle_almacenamiento_visualizar_inventario:
+    pattern:  /almacenamiento/visualizar/{id}/{formato}
+    defaults: { _controller: ProyectoPrincipalBundle:Inventario:visualizarInventario, id: '',formato: 'html',_format: html }
+    requirements:
+      _format: html|pdf
+
+ProyectoPrincipalBundle_ventas_informacioncliente:
+    pattern:  /ventas/informacioncliente
+    defaults: { _controller: ProyectoPrincipalBundle:Ventas:informacionCliente}
+ProyectoPrincipalBundle_ventas_consultarcliente:
+    pattern:  /ventas/consultarcliente
+    defaults: { _controller: ProyectoPrincipalBundle:Ventas:consultarCliente}
+ProyectoPrincipalBundle_ventas_buscarcliente:
+    pattern:  /ventas/buscarcliente
+    defaults: { _controller: ProyectoPrincipalBundle:Ventas:buscarCliente}
+    requirements:
+      _method: POST
+ProyectoPrincipalBundle_ventas_eliminarcliente:
+    pattern:  /ventas/eliminarcliente
+    defaults: { _controller: ProyectoPrincipalBundle:Ventas:eliminarCliente}
+    requirements:
+      _method: POST
+ProyectoPrincipalBundle_ventas_editarcliente:
+    pattern:  /ventas/editarcliente/{id}
+    defaults: { _controller: ProyectoPrincipalBundle:Ventas:editarCliente,id: ''}
+ProyectoPrincipalBundle_ventas_agregarproducto:
+    pattern:  /ventas/agregarproducto/{id}/{producto}
+    defaults: { _controller: ProyectoPrincipalBundle:Ventas:agregarProducto,id: '',producto: ''}
+ProyectoPrincipalBundle_ventas_guardarproducto:
+    pattern:  /ventas/guardarproducto
+    defaults: { _controller: ProyectoPrincipalBundle:Ventas:guardarProducto}
+    requirements:
+      _method: POST
+ProyectoPrincipalBundle_ventas_emitirorden:
+    pattern:  /ventas/emitirorden/{id}
+    defaults: { _controller: ProyectoPrincipalBundle:Ventas:emitirOrden,id: '0'}
+ProyectoPrincipalBundle_ventas_consultarorden:
+    pattern:  /ventas/consultarorden
+    defaults: { _controller: ProyectoPrincipalBundle:Ventas:consultarOrden}
+ProyectoPrincipalBundle_ventas_buscarorden:
+    pattern:  /produccion/buscarorden
+    defaults: { _controller: ProyectoPrincipalBundle:Ventas:buscarOrden}
+    requirements:
+      _method: POST
+ProyectoPrincipalBundle_ventas_guardarventa:
+    pattern:  /produccion/guardarventa
+    defaults: { _controller: ProyectoPrincipalBundle:Ventas:guardarVenta}
+    requirements:
+      _method: POST
+ProyectoPrincipalBundle_ventas_validacionordendespacho:
+    pattern:  /ventas/validacionordendespacho
+    defaults: { _controller: ProyectoPrincipalBundle:Ventas:validacionOrdenDespacho}
+    requirements:
+      _method: POST
+ProyectoPrincipalBundle_ventas_visualizar_cliente:
+    pattern:  /ventas/vercliente/{id}/{formato}
+    defaults: { _controller: ProyectoPrincipalBundle:Ventas:visualizarCliente,  id: '',formato: 'html',_format: html }
+    requirements:
+      _format: html|pdf
+ProyectoPrincipalBundle_despacho_buscarreporte:
+    pattern:  /despacho/buscarreporte
+    defaults: { _controller: ProyectoPrincipalBundle:Despacho:buscarReporte}
+    requirements:
+      _method: POST     
+ProyectoPrincipalBundle_ventas_validacionmontodespacho:
+    pattern:  /despacho/validacionmontodespacho
+    defaults: { _controller: ProyectoPrincipalBundle:Despacho:validacionMontoDespacho}
+    requirements:
+      _method: POST
+ProyectoPrincipalBundle_ventas_eliminarordendespacho:
+    pattern:  /ventas/eliminarordendespacho
+    defaults: { _controller: ProyectoPrincipalBundle:Ventas:eliminarOrdenDespacho}
+    requirements:
+      _method: POST
+ProyectoPrincipalBundle_despacho_crearguias:
+    pattern:  /despacho/crearguias
+    defaults: { _controller: ProyectoPrincipalBundle:Despacho:crearGuias}
+    requirements:
+      _method: POST
+ProyectoPrincipalBundle_despacho_agregarguias:
+    pattern:  /despacho/agregarguias
+    defaults: { _controller: ProyectoPrincipalBundle:Despacho:agregarGuias}
+ProyectoPrincipalBundle_despacho_determinarordenes:
+    pattern:  /despacho/determinarordenes
+    defaults: { _controller: ProyectoPrincipalBundle:Despacho:determinarOrden}
+    requirements:
+      _method: POST
+ProyectoPrincipalBundle_despacho_determinarproductoorden:
+    pattern:  /despacho/determinarproductoorden
+    defaults: { _controller: ProyectoPrincipalBundle:Despacho:determinarProductoOrden}
+    requirements:
+      _method: POST
+ProyectoPrincipalBundle_despacho_determinarproducto:
+    pattern:  /despacho/determinarproducto
+    defaults: { _controller: ProyectoPrincipalBundle:Despacho:determinarProducto}
+    requirements:
+      _method: POST
+ProyectoPrincipalBundle_despacho_controlsaldo:
+    pattern:  /despacho/controlsaldo
+    defaults: { _controller: ProyectoPrincipalBundle:Despacho:controlSaldo}
+ProyectoPrincipalBundle_despacho_recargarbandejaordenes:
+    pattern:  /despacho/recargarbandejaordenes
+    defaults: { _controller: ProyectoPrincipalBundle:Despacho:recargarBandejaOrdenes}
+    requirements:
+      _method: POST
+ProyectoPrincipalBundle_despacho_bandejaordenes:
+    pattern:  /despacho/bandejaordenes
+    defaults: { _controller: ProyectoPrincipalBundle:Despacho:bandejaOrdenes}
+ProyectoPrincipalBundle_despacho_nuevoreporte:
+    pattern:  /despacho/nuevoreporte
+    defaults: { _controller: ProyectoPrincipalBundle:Despacho:nuevoReporte}
+ProyectoPrincipalBundle_despacho_consultarreporte:
+    pattern:  /despacho/consultarreporte
+    defaults: { _controller: ProyectoPrincipalBundle:Despacho:consultarReporte}
+ProyectoPrincipalBundle_despacho_modificarestadoorden:
+    pattern:  /despacho/modificarestadoorden
+    defaults: { _controller: ProyectoPrincipalBundle:Despacho:modificarEstadoOrden}
+ProyectoPrincipalBundle_despacho_crearreporte:
+    pattern:  /despacho/crearreporte
+    defaults: { _controller: ProyectoPrincipalBundle:Despacho:crearReporte}
+    requirements:
+      _method: POST
+ProyectoPrincipalBundle_despacho_visualizar_reporte:
+    pattern:  /despacho/visualizar/{tipo}/{id}/{formato}
+    defaults: { _controller: ProyectoPrincipalBundle:Despacho:visualizarReporte, tipo: '', id: '',formato: 'html',_format: html }
+    requirements:
+      _format: html|pdf
+ProyectoPrincipalBundle_despacho_visualizar_control_saldo:
+    pattern:  /despacho/visualizarcs/{id}/{formato}
+    defaults: { _controller: ProyectoPrincipalBundle:Despacho:visualizarControlSaldo, id: '',formato: 'html',_format: html }
+    requirements:
+      _format: html|pdf
+ProyectoPrincipalBundle_despacho_visualizar_informe:
+    pattern:  /despacho/visualizarinforme/{tipo}/{id}/{formato}
+    defaults: { _controller: ProyectoPrincipalBundle:Despacho:visualizarInforme, tipo: '', id: '',formato: 'html',_format: html }
+    requirements:
+      _format: html|pdf
+ProyectoPrincipalBundle_despacho_visualizar_orden:
+    pattern:  /despacho/verorden/{id}/{formato}
+    defaults: { _controller: ProyectoPrincipalBundle:Despacho:visualizarOrden,  id: '',formato: 'html',_format: html }
+    requirements:
+      _format: html|pdf|excel

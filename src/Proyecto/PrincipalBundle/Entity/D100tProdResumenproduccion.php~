@@ -1,0 +1,273 @@
+<?php
+
+namespace Proyecto\PrincipalBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Proyecto\PrincipalBundle\Entity\D100tProdResumenproduccion
+ *
+ * @ORM\Table(name="d100t_prod_resumenproduccion")
+ * @ORM\Entity
+ */
+class D100tProdResumenproduccion
+{
+    /**
+     * @var integer $d100pkProdResumenproduccion
+     *
+     * @ORM\Column(name="d100pk_prod_resumenproduccion", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $d100pkProdResumenproduccion;
+
+    /**
+     * @var datetime $feU1Mesyanio
+     *
+     * @ORM\Column(name="fe_u1_mesyanio", type="datetime", nullable=false)
+     */
+    private $feU1Mesyanio;
+
+    /**
+     * @var float $nuU1Cantsalbajadapuntilla
+     *
+     * @ORM\Column(name="nu_u1_cantsalbajadapuntilla", type="float", nullable=false)
+     */
+    private $nuU1Cantsalbajadapuntilla;
+
+    /**
+     * @var float $nuU1Cantsallavada
+     *
+     * @ORM\Column(name="nu_u1_cantsallavada", type="float", nullable=false)
+     */
+    private $nuU1Cantsallavada;
+
+    /**
+     * @var float $nuU1Cantsalnetalavada
+     *
+     * @ORM\Column(name="nu_u1_cantsalnetalavada", type="float", nullable=false)
+     */
+    private $nuU1Cantsalnetalavada;
+
+    /**
+     * @var float $nuU1Cantdespachosclientes
+     *
+     * @ORM\Column(name="nu_u1_cantdespachosclientes", type="float", nullable=false)
+     */
+    private $nuU1Cantdespachosclientes;
+
+    /**
+     * @var float $nuU1Canttrasladadosunidades
+     *
+     * @ORM\Column(name="nu_u1_canttrasladadosunidades", type="float", nullable=false)
+     */
+    private $nuU1Canttrasladadosunidades;
+
+    /**
+     * @var datetime $feU2Mesyanio
+     *
+     * @ORM\Column(name="fe_u2_mesyanio", type="datetime", nullable=false)
+     */
+    private $feU2Mesyanio;
+
+    /**
+     * @var float $nuU2Cantsalbajadapuntilla
+     *
+     * @ORM\Column(name="nu_u2_cantsalbajadapuntilla", type="float", nullable=false)
+     */
+    private $nuU2Cantsalbajadapuntilla;
+
+    /**
+     * @var float $nuU2Cantsalnolavadaenpatio
+     *
+     * @ORM\Column(name="nu_u2_cantsalnolavadaenpatio", type="float", nullable=false)
+     */
+    private $nuU2Cantsalnolavadaenpatio;
+
+    /**
+     * @var float $nuU2Totaldesalnolavada
+     *
+     * @ORM\Column(name="nu_u2_totaldesalnolavada", type="float", nullable=false)
+     */
+    private $nuU2Totaldesalnolavada;
+
+    /**
+     * @var datetime $feU3Mesyanio
+     *
+     * @ORM\Column(name="fe_u3_mesyanio", type="datetime", nullable=false)
+     */
+    private $feU3Mesyanio;
+
+    /**
+     * @var float $nuU3srmesaSacos
+     *
+     * @ORM\Column(name="nu_u3srmesa_sacos", type="float", nullable=false)
+     */
+    private $nuU3srmesaSacos;
+
+    /**
+     * @var float $nuU3srmesaToneladas
+     *
+     * @ORM\Column(name="nu_u3srmesa_toneladas", type="float", nullable=false)
+     */
+    private $nuU3srmesaToneladas;
+
+    /**
+     * @var float $nuU3srextrafinaSacos
+     *
+     * @ORM\Column(name="nu_u3srextrafina_sacos", type="float", nullable=false)
+     */
+    private $nuU3srextrafinaSacos;
+
+    /**
+     * @var float $nuU3srextrafinaToneladas
+     *
+     * @ORM\Column(name="nu_u3srextrafina_toneladas", type="float", nullable=false)
+     */
+    private $nuU3srextrafinaToneladas;
+
+    /**
+     * @var float $nuU3srfinaSacos
+     *
+     * @ORM\Column(name="nu_u3srfina_sacos", type="float", nullable=false)
+     */
+    private $nuU3srfinaSacos;
+
+    /**
+     * @var float $nuU3srfinaToneladas
+     *
+     * @ORM\Column(name="nu_u3srfina_toneladas", type="float", nullable=false)
+     */
+    private $nuU3srfinaToneladas;
+
+    /**
+     * @var float $nuU3bbfinaSacos
+     *
+     * @ORM\Column(name="nu_u3bbfina_sacos", type="float", nullable=false)
+     */
+    private $nuU3bbfinaSacos;
+
+    /**
+     * @var float $nuU3bbfinaToneladas
+     *
+     * @ORM\Column(name="nu_u3bbfina_toneladas", type="float", nullable=false)
+     */
+    private $nuU3bbfinaToneladas;
+
+    /**
+     * @var float $nuU3srgruesaSacos
+     *
+     * @ORM\Column(name="nu_u3srgruesa_sacos", type="float", nullable=false)
+     */
+    private $nuU3srgruesaSacos;
+
+    /**
+     * @var float $nuU3srgruesaToneladas
+     *
+     * @ORM\Column(name="nu_u3srgruesa_toneladas", type="float", nullable=false)
+     */
+    private $nuU3srgruesaToneladas;
+
+    /**
+     * @var float $nuU3bbextrafinaSacos
+     *
+     * @ORM\Column(name="nu_u3bbextrafina_sacos", type="float", nullable=false)
+     */
+    private $nuU3bbextrafinaSacos;
+
+    /**
+     * @var float $nuU3bbextrafinaToneladas
+     *
+     * @ORM\Column(name="nu_u3bbextrafina_toneladas", type="float", nullable=false)
+     */
+    private $nuU3bbextrafinaToneladas;
+
+    /**
+     * @var float $nuU3Totalsalesrefinadastm
+     *
+     * @ORM\Column(name="nu_u3_totalsalesrefinadastm", type="float", nullable=false)
+     */
+    private $nuU3Totalsalesrefinadastm;
+
+    /**
+     * @var datetime $feU4Mesyanio
+     *
+     * @ORM\Column(name="fe_u4_mesyanio", type="datetime", nullable=false)
+     */
+    private $feU4Mesyanio;
+
+    /**
+     * @var float $nuU4srSacos
+     *
+     * @ORM\Column(name="nu_u4sr_sacos", type="float", nullable=false)
+     */
+    private $nuU4srSacos;
+
+    /**
+     * @var float $nuU4srToneladas
+     *
+     * @ORM\Column(name="nu_u4sr_toneladas", type="float", nullable=false)
+     */
+    private $nuU4srToneladas;
+
+    /**
+     * @var float $nuU4siggSacos
+     *
+     * @ORM\Column(name="nu_u4sigg_sacos", type="float", nullable=false)
+     */
+    private $nuU4siggSacos;
+
+    /**
+     * @var float $nuU4siggToneladas
+     *
+     * @ORM\Column(name="nu_u4sigg_toneladas", type="float", nullable=false)
+     */
+    private $nuU4siggToneladas;
+
+    /**
+     * @var float $nuU4bbggSacos
+     *
+     * @ORM\Column(name="nu_u4bbgg_sacos", type="float", nullable=false)
+     */
+    private $nuU4bbggSacos;
+
+    /**
+     * @var float $nuU4bbggToneladas
+     *
+     * @ORM\Column(name="nu_u4bbgg_toneladas", type="float", nullable=false)
+     */
+    private $nuU4bbggToneladas;
+
+    /**
+     * @var float $nuU4sicSacos
+     *
+     * @ORM\Column(name="nu_u4sic_sacos", type="float", nullable=false)
+     */
+    private $nuU4sicSacos;
+
+    /**
+     * @var float $nuU4sicToneladas
+     *
+     * @ORM\Column(name="nu_u4sic_toneladas", type="float", nullable=false)
+     */
+    private $nuU4sicToneladas;
+
+    /**
+     * @var float $nuU4Totalsalesindustrialestm
+     *
+     * @ORM\Column(name="nu_u4_totalsalesindustrialestm", type="float", nullable=false)
+     */
+    private $nuU4Totalsalesindustrialestm;
+
+    /**
+     * @var I100tUsuario
+     *
+     * @ORM\ManyToOne(targetEntity="I100tUsuario")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="i100fk_usuario", referencedColumnName="i100pk_usuario")
+     * })
+     */
+    private $i100fkUsuario;
+
+
+}

@@ -1,0 +1,35 @@
+
+<div class="Tabla-Aplicacion">
+		<div class="Tabla-Fondo">
+			<div class="Tabla-Elemento-Encabezado" style="width: 150px;">
+				Fecha
+			</div>
+			<div class="Tabla-Elemento-Encabezado" style="width: 211px;">
+				Nombre
+			</div>
+			<div class="Tabla-Elemento-Encabezado" style="width: {%if tipo==3%}78px{%else%}156px{%endif%};">
+				Ver
+			</div>
+			{%if tipo==3%}
+			<div class="Tabla-Elemento-Encabezado" style="width:78px;">
+				Eliminar
+			</div>
+			{%endif%}
+		</div>
+		{%for elemento in arreglo%}
+		<div class="Tabla-Fondo">
+			<div class="Tabla-Elemento" style="width: 140px;text-align: center">{{elemento.fecha}}</div>
+			<div class="Tabla-Elemento" style="width: 201px;text-align: center">{{elemento.nombre}}</div>
+			<div class="Tabla-Elemento" style="width: {%if tipo==3%}68px{%else%}146px{%endif%};display: block;text-align: center;"><img src="{{ asset('imagenes/imagenes/acciones/look2.png') }}" class="verinformedespacho" id="{{elemento.id}}" tipo="{{tipo}}" align="center" height="15" style="cursor: pointer;margin: auto;"></div>
+			
+			{%if tipo==3%}
+			<div class="Tabla-Elemento" style="width: 68px;display: block;text-align: center;">
+				<img src="{{ asset('imagenes/imagenes/acciones/eliminar.png') }}" class="eliminarreporte" id="{{elemento.id}}" tipo="" align="center" height="15" style="cursor: pointer;margin: auto;">
+				<img src="{{ asset('imagenes/imagenes/acciones/loader.gif') }}" align="center" height="15" style="display: none;margin: auto;">
+			</div>
+			{%endif%}
+	    </div>
+		{%endfor%}
+</div>
+
+

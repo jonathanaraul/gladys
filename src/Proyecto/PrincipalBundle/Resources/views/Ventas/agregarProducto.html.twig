@@ -1,0 +1,57 @@
+{% extends "ProyectoPrincipalBundle:Principal:baseventas.html.twig" %}
+{%block contenido%} <span class="Titulo-Aplicacion"> VENTAS</span>
+<span class="Titulo-Aplicacion"> Emitir Orden de Despacho</span>
+<span class="Separador_Modulo"></span>
+<input type="hidden" id="idorden" value="{{id}}"/>
+<input type="hidden" id="idproducto" value="{{producto}}"/>
+<div class="formulario">
+	<span class="Subtitulo-Normal">{%if objeto ==null%}Agregar{%else%}Editar{%endif%}Producto</span>
+	<div class="unacolumna">
+		<div class="nombreinput">
+			Tipo de Producto :
+		</div>
+		<div class="cuadroinput">
+			<select name="select2" id="tx_dp_tipodeproducto" class="selectgrande texto" prenombre="dp">
+				<option value="0">-Seleccione-</option>
+				{%for elemento in productos%}
+				<option value="{{elemento.getE100pkProducto}}" {%if elemento.getE100pkProducto == idp%}selected=""{%endif%}>{{elemento.getInNombre}}</option>
+				{%endfor%}
+			</select>
+		</div>
+	</div>
+	<div class="unacolumna">
+		<div class="nombreinput">
+			Sacos (25 kg) :
+		</div>
+		<div class="cuadroinput">
+			<input type="text" name="textfield14" class="inputgrande numero sacos" prenombre="dp" id="nu_dp_sacos" value="{%if objeto !=null%}{{objeto.getNuDpSacos}}{%endif%}">
+		</div>
+	</div>
+	<div class="unacolumna">
+		<div class="nombreinput">
+			TM :
+		</div>
+		<div class="cuadroinput">
+			<input type="text" name="textfield14" class="inputgrande numero toneladas" prenombre="dp" id="nu_dp_tm"  value="{%if objeto !=null%}{{objeto.getNuDpTm}}{%endif%}">
+		</div>
+	</div>
+
+		<input type="hidden" name="tipoReporte" value="emitirorden">
+	<span class="Separador_Modulo"></span>
+	
+	<div style="width: 540px">
+	<div class="botonizquierdo" style="width: 449px;margin: auto;float: left;">
+		<div class="Principio-Boton"></div>
+		<input type="button" class="Boton" value="Agregar Otro Producto" id="agregareditarotroproducto" onclick="return false;">
+		<div class="Final-Boton"></div>
+	</div>
+	<div class="botonizquierdo" style="width: 88px;margin: auto;float: left;">
+		<div class="Principio-Boton"></div>
+		<input type="button" class="Boton" value="Ver Orden" id="verordencompleta" onclick="return false;">
+		<div class="Final-Boton"></div>
+	</div>
+	</div>
+</div><div class="loader" style="display: none">
+	<img id="loader" src="{{ asset('imagenes/loader.gif') }}" align="center" style="padding-top: 88px;padding-bottom: 50px;display: block;margin-left: auto;margin-right: auto;">
+</div>
+{%endblock%}

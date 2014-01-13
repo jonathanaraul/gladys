@@ -1,0 +1,60 @@
+
+	<div class="Tabla-Aplicacion">
+		<div class="Tabla-Fondo">
+			<div class="Tabla-Elemento-Encabezado" >
+				N° Orden
+			</div>
+			<div class="Tabla-Elemento-Encabezado">
+				Fecha
+			</div>
+			<div class="Tabla-Elemento-Encabezado">
+				Cliente
+			</div>
+			<div class="Tabla-Elemento-Encabezado" >
+				Producto
+			</div>
+			<div class="Tabla-Elemento-Encabezado">
+				Cantidad
+			</div>
+			<div class="Tabla-Elemento-Encabezado">
+				Aprobado
+			</div>
+			<div class="Tabla-Elemento-Encabezado">
+				Despachado
+			</div>
+		</div>
+		{%for elemento in arreglo%}
+		<div class="Tabla-Fondo" id="contenido" style="height: 46px;">
+			<div class="Tabla-Elemento" style="height: 46px;">
+				<!--<input type="checkbox" name="orden_{{elemento.id}}"  id="orden_{{elemento.id}}" value="{{elemento.id}}">-->{{elemento.numeroorden	}}
+			</div>
+			<div class="Tabla-Elemento" style="height: 46px;">{{elemento.fecha}}</div>
+			<div class="Tabla-Elemento" style="height: 46px;">{{elemento.rif}}</div>
+			<div class="Tabla-Elemento" style="height: 46px;">{{elemento.producto}}</div>
+			<div class="Tabla-Elemento" style="height: 46px;">{{elemento.sacos}}</div>
+			
+			<div class="Tabla-Elemento" id="t-aprobado-{{elemento.id}}" style="height: 46px;">
+			<center>
+			{%if elemento.aprobado%}
+			<img src="{{ asset('imagenes/imagenes/acciones/activar.png') }}" width="15" style="display: block;">
+			<img src="{{ asset('imagenes/imagenes/acciones/desactivar.png') }}" width="15" style="display: none;">
+			{%else%}
+			<img src="{{ asset('imagenes/imagenes/acciones/activar.png') }}" width="15" style="display: none;">
+			<img src="{{ asset('imagenes/imagenes/acciones/desactivar.png') }}" width="15" style="display: block;">
+			{%endif%}
+			</center>
+			</div>
+			<div class="Tabla-Elemento" id="t-despachado-{{elemento.id}}" style="height: 46px;">
+			<center>
+			{%if elemento.despachado%}
+			<img src="{{ asset('imagenes/imagenes/acciones/activar.png') }}" width="15" style="display: block;">
+			<img src="{{ asset('imagenes/imagenes/acciones/desactivar.png') }}" width="15" style="display: none;">
+			{%else%}
+			<img src="{{ asset('imagenes/imagenes/acciones/activar.png') }}" width="15" style="display: none;">
+			<img src="{{ asset('imagenes/imagenes/acciones/desactivar.png') }}" width="15" style="display: block;">
+			{%endif%}
+			</center>
+			</div>
+		</div>
+		{%endfor%}
+	</div>

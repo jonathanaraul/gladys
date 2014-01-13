@@ -1,0 +1,50 @@
+	<span class="Separador_Modulo"></span>
+	<span class="Titulo-Aplicacion" > {{nombre}}</span>
+
+	<div class="Tabla-Aplicacion">
+		<div class="Tabla-Fondo">
+			<div class="Tabla-Elemento-Encabezado" style="width: 36px;">
+				Id
+			</div>
+			<div class="Tabla-Elemento-Encabezado" style="width: 140px;">
+				Fecha
+			</div>
+			<div class="Tabla-Elemento-Encabezado" style="width: 185px;">
+				Usuario
+			</div>
+			<div class="Tabla-Elemento-Encabezado" style="width: 78px;">
+				Ver
+			</div>
+			<div class="Tabla-Elemento-Encabezado" style="width: 78px;">
+				Eliminar
+			</div>
+		</div>
+		{%for elemento in arreglo%}
+		<div class="Tabla-Fondo">
+			<div class="Tabla-Elemento" style="width: 26px;text-align: center" >{{elemento.pk}}</div>
+			<div class="Tabla-Elemento" style="width: 130px;text-align: center">{{elemento.fecha}}</div>
+			<div class="Tabla-Elemento" style="width: 175px;text-align: center">{{elemento.nombre|title}} {{elemento.apellido|title}}</div>
+			<div class="Tabla-Elemento" style="width: 68px;display: block;text-align: center;"><img src="{{ asset('imagenes/imagenes/acciones/look2.png') }}" class="visualizarreporte" id="{{elemento.pk}}" tipo="{{clave}}" align="center" height="15" style="cursor: pointer;margin: auto;"></div>
+			<div class="Tabla-Elemento" style="width: 68px;display: block;text-align: center;">
+				<img src="{{ asset('imagenes/imagenes/acciones/eliminar.png') }}" class="eliminarreporte" id="{{elemento.pk}}" tipo="{{clave}}" align="center" height="15" style="cursor: pointer;margin: auto;">
+				<img src="{{ asset('imagenes/imagenes/acciones/loader.gif') }}" align="center" height="15" style="display: none;margin: auto;">
+				</div>
+			<!--<div class="Tabla-Elemento" style="width: 66px;"><img src="{{ asset('imagenes/imagenes/print2.png') }}" align="center" height="15"></div>-->
+		</div>
+		{%endfor%}
+		
+	</div>
+	<span class="Separador_Modulo"></span>
+	</br></br> <!--
+	<div class="tresbotones" style="width: 595px;display: inline-block;">
+	<div class="botonizquierdo" style="width: 198px;float: left;">
+	<div class="Principio-Boton"></div>
+	<input type="button" class="Boton" value="Aprobar" id="Descargar" onclick="return false;">
+	<div class="Final-Boton"></div>
+	</div>
+	<div class="botonizquierdo" style="margin-left: auto;margin-right: auto;width: 198px;float: center;">
+	<div class="Principio-Boton"></div>
+	<input type="button" class="Boton" value="Despachar" id="Imprimir" onclick="return false;">
+	<div class="Final-Boton"></div>
+	</div>
+	</div>-->
